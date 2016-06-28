@@ -37,6 +37,7 @@
         // NOTE: This number needs to match the offset where we add this class
         // in _scripts/main.js
         transform: translate3d(0,-22px,0);
+        box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1);
     }
 }
 
