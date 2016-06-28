@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    {{> head
+        title="Weston Thayer's Portfolio"
+        description="Interaction designer who codes, living the Pacific Northwest."
+    }}
+    <body>
+        {{> navbar work="true" }}
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="home-title">
+                        <span class="home-title__line">Weston is an</span>
+                        <span class="home-title__line">Interaction Designer</span>
+                        <span class="home-title__line">who codes.</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container container-fullbleed-sm-down">
+            <div class="row row-fullbleed-sm-down">
+                <div class="col-xs-12 col-md-6 col-fullbleed-sm-down">
+                    {{> project-tile line1="Drag and drop" line2="Windows 10" }}
+                </div>
+                <div class="col-xs-12 col-md-6 col-fullbleed-sm-down">
+                    {{> project-tile line1="Framed" line2="Prototyping on Windows" }}
+                </div>
+            </div>
+            <div class="row row-fullbleed-sm-down">
+                <div class="col-xs-12 col-md-6 col-fullbleed-sm-down">
+                    {{> project-tile line1="Welcome experience" line2="Cortana" }}
+                </div>
+                <div class="col-xs-12 col-md-6 col-fullbleed-sm-down">
+                    {{> project-tile line1="Controls" line2="Windows 10" }}
+                </div>
+            </div>
+            <div class="row row-fullbleed-sm-down">
+                <div class="col-xs-12 col-md-6 col-fullbleed-sm-down">
+                    {{> project-tile line1="Augmented reality cereal" line2="Qualcomm" }}
+                </div>
+                <div class="col-xs-12 col-md-6 col-fullbleed-sm-down">
+                    {{> project-tile line1="Word on tablet" line2="Office" }}
+                </div>
+            </div>
+        </div>
+        
+        {{> footer }}
+    </body>
+</html>

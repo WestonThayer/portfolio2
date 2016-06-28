@@ -1,0 +1,96 @@
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@import "mixins/breakpoints";
+@import "mixins/clearfix";
+@import "mixins/grid-framework";
+@import "mixins/tab-focus";
+@import "mixins/screen-reader";
+
+// I like to position fonts by their cap heights or baseline (since that's
+// really what matters in the design). This function calculates a top margin
+// that will precisely position a font by it's metrics. It may require negative
+// margins if you don't pass a big enough $grid-rung-count.
+//
+// Note: for some reason, we have to call ceil(). Browsers always seem to round up...
+//
+// @param {string} $font-family-kind - pass $font-family-sans-serif or $font-family-serif. We need to know because font metrics change per font
+// @param {string} $bounds-kind - 'normal' isn't special, 'capheight' positions to capheight, 'baseline' positions to baseline
+// @param {number} $font-size - only tested in px, but the font-size for the type you're positioning
+// @param {number} $line-height - only tested in px, but the line-height for the type you're positioning
+// @param {number} $grid-rung-count - multiple of $grid-rung-height. The value you wish the top margin to be
+@function calc-margin-top($font-family-kind, $bounds-kind, $font-size, $line-height, $grid-rung-count) {
+    // Caclulation takes the font metrics data (from _typography.scss) and combines it with the
+    // CSS line-height behavior, which adds the line-height above and below the 'center' of a line.
+    // The 'center' of a line is defined by the font's natural line-height / 2.
+    $_rung-height: $grid-rung-count * $grid-rung-height;
+    
+    $_capheight: $font-family-sans-serif-metric-capheight;
+    $_baseline: $font-family-sans-serif-metric-baseline;
+    $_natural-line-height: $font-family-sans-serif-metric-natural-line-height;
+    
+    @if $font-family-kind == $font-family-serif {
+        $_capheight: $font-family-serif-metric-capheight;
+        $_baseline: $font-family-serif-metric-baseline;
+        $_natural-line-height: $font-family-serif-metric-natural-line-height;
+    } @else if $font-family-kind == $font-family-sans-serif {
+        // We already set the values
+    } @else {
+        @warn "Unknown $font-family-kind value. Pass Bootstrap's $font-family-serif or $font-family-sans-serif var";
+    }
+    
+    @if $bounds-kind == "normal" {
+        @return $_rung-height;
+    } @else if $bounds-kind == "capheight" {
+        @return $_rung-height - ceil(($_capheight * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2)));
+    } @else if $bounds-kind == "baseline" {
+        @return $_rung-height - ceil(($_baseline * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2)));
+    } @else {
+        @warn "Unknown $bounds-kind value. We support 'normal', 'capheight', and 'baseline': #{$bounds-kind}";
+    }
+}
+
+@function calc-margin-bottom($font-family-kind, $bounds-kind, $font-size, $line-height, $grid-rung-count) {
+    $_rung-height: $grid-rung-count * $grid-rung-height;
+    
+    $_descent: $font-family-sans-serif-metric-descent;
+    $_natural-line-height: $font-family-sans-serif-metric-natural-line-height;
+    
+    @if $font-family-kind == $font-family-serif {
+        $_descent: $font-family-serif-metric-descent;
+        $_natural-line-height: $font-family-serif-metric-natural-line-height;
+    } @else if $font-family-kind == $font-family-sans-serif {
+        // We already set the values
+    } @else {
+        @warn "Unknown $font-family-kind value. Pass Bootstrap's $font-family-serif or $font-family-sans-serif var";
+    }
+    
+    @if $bounds-kind == "normal" {
+        @return $_rung-height;
+    } @else if $bounds-kind == "baseline" {
+        @return $_rung-height - floor(($_descent * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2)));
+    } @else {
+        @warn "Unknown $bounds-kind value. We support 'normal' and 'baseline': #{$bounds-kind}";
+    }
+}
+
+@mixin type-sans-1 {
+    font-family: $font-family-sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 36px;
+    color: black;
+}
+
+@mixin type-sans-2 {
+    font-family: $font-family-sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+@mixin type-sans-3 {
+    font-family: $font-family-sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}

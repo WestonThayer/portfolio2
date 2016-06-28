@@ -1,0 +1,13 @@
+@import "normalize.css/normalize";
+
+@import "variables";
+@import "mixins";
+@import "reboot";
+@import "typography";
+@import "grid";
+@import "utilities";
+
+@import "partials/navbar";
+@import "partials/project-tile";
+
+@import "pages/home";

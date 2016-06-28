@@ -1,0 +1,8 @@
+// Copied from Bootstrap v4's mixins/_clearfix.scss
+@mixin clearfix() {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

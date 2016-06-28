@@ -1,0 +1,101 @@
+// Based (very) loosely on Bootstrap v4's _nav.scss and _navbar.scss
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-link {
+    display: inline-block;
+}
+
+.navbar {
+    right: 0;
+    left: 0;
+    z-index: $zindex-navbar-fixed;
+    
+    @include media-breakpoint-between(xs, sm) {
+        position: fixed;
+        bottom: 0;
+        background-color: rgba(255,255,255,0.9);
+        text-align: center; // Center children
+    }
+    
+    @include media-breakpoint-up(md) {
+        position: absolute;
+        top: 0;
+        background-color: #FFF;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .navbar--compact {
+        position: fixed;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        
+        // We use tranform3d for the best performance.
+        // NOTE: This number needs to match the offset where we add this class
+        // in _scripts/main.js
+        transform: translate3d(0,-22px,0);
+    }
+}
+
+// Navigation
+//
+// Custom navbar navigation built on the base `.nav` styles.
+
+.navbar-nav {
+    @include media-breakpoint-between(xs, sm) {
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    @include media-breakpoint-up(md) {
+        // Right-align
+        float: right;
+        margin-right: strip-unit($grid-page-gutter-width-md) * 1%;
+        margin-right: $grid-page-gutter-width-md;
+    }
+    
+    .nav-item {
+        float: left;
+    }
+
+    .nav-link {
+        display: block;
+        text-decoration: none;
+        font-family: $font-family-sans-serif;
+        font-variant: small-caps;
+        font-size: 18px;
+        color: $text-muted;
+        line-height: 22px;
+        letter-spacing: 0.1em;
+        
+        @include media-breakpoint-up(xs) {
+            // Space so the hit targets are 48px tall, optimal for touch users
+            padding: 11px 0 15px;
+        }
+        
+        @include media-breakpoint-up(md) {
+            // Give enough top spacing in padding so that the hit target is at least
+            // 44px tall for the link (minimum usable)
+            $_top-spacing: calc-margin-top($font-family-sans-serif, "baseline", 18px, 22px, 3);
+            margin: ($_top-spacing / 2) 0 0 0;
+            padding: ($_top-spacing / 2) 0 14px;
+        }
+        
+        &:hover {
+            text-decoration: $link-hover-decoration;
+        }
+    }
+    
+    .nav-item.active > .nav-link {
+        color: $link-color;
+        font-weight: 900;
+    }
+
+    .nav-item + .nav-item {
+        margin-left: 36px;
+    }
+}

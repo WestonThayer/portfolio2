@@ -1,0 +1,46 @@
+.container {
+    @include media-breakpoint-up(xs) {
+        padding-left: strip-unit($grid-page-gutter-width-xs) * 1%;
+        padding-left: $grid-page-gutter-width-xs;
+        padding-right: strip-unit($grid-page-gutter-width-xs) * 1%;
+        padding-right: $grid-page-gutter-width-xs;
+    }
+    
+    @include media-breakpoint-up(md) {
+        padding-left: strip-unit($grid-page-gutter-width-md) * 1%;
+        padding-left: $grid-page-gutter-width-md;
+        padding-right: strip-unit($grid-page-gutter-width-md) * 1%;
+        padding-right: $grid-page-gutter-width-md;
+    }
+}
+
+.row {
+    @include clearfix();
+    
+    @include media-breakpoint-up(xs) {
+        margin-left: strip-unit($grid-column-gutter-width / 2) * -1%;
+        margin-left: ($grid-column-gutter-width / 2) * -1;
+        margin-right: strip-unit($grid-column-gutter-width / 2) * -1%;
+        margin-right: ($grid-column-gutter-width / 2) * -1;
+    }
+}
+
+@include make-grid-columns(12, $grid-column-gutter-width);
+
+
+@include media-breakpoint-down(sm) {
+    .container-fullbleed-sm-down {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .row-fullbleed-sm-down {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .col-fullbleed-sm-down {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

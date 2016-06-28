@@ -1,0 +1,34 @@
+.project-tile {
+    position: relative;
+    width: 100%;
+    padding-bottom: 60%;
+    background-color: #ccc;
+    margin-bottom: 20px;
+}
+
+.project-tile__img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.project-tile__label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include type-sans-2();
+    color: white;
+    padding: 0 0 0 $grid-page-gutter-width-xs;
+}
+
+.project-tile__label1 {
+    display: block;
+}
+
+.project-tile__label2 {
+    display: block;
+    opacity: 0.6;
+}
