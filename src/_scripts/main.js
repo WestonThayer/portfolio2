@@ -1,5 +1,6 @@
 (function() {
     document.addEventListener("DOMContentLoaded", function() {
+        // Handle making the navbar sticky on desktop
         var globalNavbar = document.getElementById("global-navbar");
         
         window.addEventListener("scroll", function(e) {
