@@ -25,19 +25,44 @@
     @include media-breakpoint-up(md) {
         top: 0;
         background-color: #FFF;
-        transition: transform 0.2s ease-out;
     }
 }
 
 @include media-breakpoint-up(md) {
-    .navbar--compact {
-        position: fixed;
+    // NOTE: This number needs to match the offset where we add this class
+    // in _scripts/main.js
+    $_vertDist: -22px;
+    $_shadow: 0px 1px 3px 0px rgba(0,0,0,0.1);
+    
+    .navbar--expanded-animation {
+        animation: navbar--expanded-keyframes 0.2s ease-out;
+        @keyframes navbar--expanded-keyframes {
+            from {
+                transform: translate3d(0,$_vertDist,0);
+            }
+            to {
+                transform: translate3d(0,0,0);
+            }
+        }
+    }
+    
+    .navbar--compact-animation {
+        box-shadow: $_shadow;
         
-        // We use tranform3d for the best performance.
-        // NOTE: This number needs to match the offset where we add this class
-        // in _scripts/main.js
-        transform: translate3d(0,-22px,0);
-        box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1);
+        animation: navbar--compact-keyframes 0.2s ease-out;
+        @keyframes navbar--compact-keyframes {
+            from {
+                transform: translate3d(0,0,0);
+            }
+            to {
+                transform: translate3d(0,$_vertDist,0);
+            }
+        }
+    }
+    
+    .navbar--compact {
+        box-shadow: $_shadow;
+        top: $_vertDist;
     }
 }
 
