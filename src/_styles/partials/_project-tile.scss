@@ -16,20 +16,33 @@
     
     &:hover {
         box-shadow: $_shadow2;
+        
+        .project-tile__img {
+            transform: scale3d(1.012,1.012,1);
+        }
     }
     
     &:active {
-        box-shadow: $_shadow0;
+        box-shadow: 0 0 0 white;
+        
+        .project-tile__img {
+            transform: scale3d(1,1,1);
+        }
     }
 }
 
-.project-tile__img {
+.project-tile__picture {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: #FFF;
+}
+
+.project-tile__img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .project-tile__label {
@@ -37,7 +50,6 @@
     bottom: 0;
     left: 0;
     @include type-sans-2();
-    color: #000;
     
     @include media-breakpoint-up(xs) {
         padding: 0 0 0 $grid-page-gutter-width-xs;

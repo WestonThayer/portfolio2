@@ -45,8 +45,13 @@ gulp.task("build-scripts", function() {
         .pipe(connect.reload());
 });
 
+gulp.task("copy-assets", function() {
+    return gulp.src("src/assets/**/*.{jpg,png}")
+        .pipe(gulp.dest("dist/assets/"));
+});
+
 // Build, then start a server
-gulp.task("serve", ["build-html", "build-sass", "build-scripts"], function() {
+gulp.task("serve", ["build-html", "build-sass", "build-scripts", "copy-assets"], function() {
     connect.server({
         root: "dist",
         livereload: true
