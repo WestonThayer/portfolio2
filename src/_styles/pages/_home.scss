@@ -3,13 +3,15 @@
     font-weight: 900;
     color: black;
     
+    // Left margins are to align the "I" in "Interaction Designer" to the grid
+    
     @include media-breakpoint-up(xs) {
         $_font-size: 30px;
         $_line-height: 34px;
         
         font-size: $_font-size;
         line-height: $_line-height;
-        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, 5) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, 8) 0;
+        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, 2) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, 4) -2px;
     }
     
     @include media-breakpoint-up(sm) {
@@ -18,7 +20,7 @@
         
         font-size: $_font-size;
         line-height: $_line-height;
-        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, 5) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, 6) 0;
+        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, 2) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, 4) -3px;
     }
     
     @include media-breakpoint-up(md) {
@@ -28,7 +30,6 @@
         font-size: $_font-size;
         line-height: $_line-height;
         margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, 10) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, 12) -4px;
-        // Left margins are to align the "I" in "Interaction Designer" to the grid
     }
     
     > .home-title__line {
