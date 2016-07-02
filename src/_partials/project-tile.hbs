@@ -1,10 +1,8 @@
 <a class="project-tile" href="{{href}}">
     {{#if imgBaseCrop}}
     <picture class="project-tile__picture" style="background-color: {{placeholderBackgroundColor}};">
-        <source media="(min-width: 992px)" sizes="39.38vw" srcset="{{imageStack imgBaseFull imgExt}}">
-        <source media="(min-width: 768px)" sizes="39.38vw" srcset="{{imageStack imgBaseCrop imgExt}}">
-        <source media="(min-width: 544px)" sizes="100vw" srcset="{{imageStack imgBaseFull imgExt}}">
-        <img class="project-tile__img" sizes="100vw" srcset="{{imageStack imgBaseCrop imgExt}}" src="{{imgSrcBackup}}">
+        <source media="(min-width: 768px)" sizes="39.38vw" srcset="{{imageStack imgBaseFull imgExt}}">
+        <img class="project-tile__img" sizes="92vw" srcset="{{imageStack imgBaseCrop imgExt}}" src="{{imgSrcBackup}}">
     </picture>
     {{else}}
         <div class="project-tile__picture" style="background-color: {{placeholderBackgroundColor}};">
