@@ -1,0 +1,23 @@
+.footer {
+    @include media-breakpoint-up(xs) {
+        margin: calc-margin-top($font-family-sans-serif, "baseline", 16px, 20px, 7) 0 calc-margin-bottom($font-family-sans-serif, "baseline", 16px, 20px, 6) 0;
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin: calc-margin-top($font-family-sans-serif, "baseline", 16px, 20px, 15) 0 calc-margin-bottom($font-family-sans-serif, "baseline", 16px, 20px, 6) 0;
+    }
+}
+
+.footer__line {
+    display: inline-block;
+}
+
+.footer__line-label,
+.footer__line-content {
+    @include type-sans-3();
+    display: block;
+}
+
+.footer__line-label {
+    color: $text-muted;
+}
