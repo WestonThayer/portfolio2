@@ -41,26 +41,12 @@
     right: 0;
     top: 0;
     bottom: 0;
-    
-    @include media-breakpoint-between(xs, md) {
-        background-position: center center;
-        background-repeat:  no-repeat;
-        background-size:  cover;
-    }
 }
 
 .project-tile__img {
     transition: transform $motion-snappy;
     width: 100%;
     height: auto;
-    
-    @include media-breakpoint-up(xs) {
-        visibility: hidden;
-    }
-    
-    @include media-breakpoint-up(md) {
-        visibility: visible;
-    }
 }
 
 .project-tile__label {
