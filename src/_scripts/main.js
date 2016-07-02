@@ -68,7 +68,6 @@
                 });
                 
                 projectTile.addEventListener("touchend", function(e) {
-                    e.preventDefault();
                     this.classList.remove("project-tile--active");
                 });
                 
@@ -86,6 +85,12 @@
                 
                 projectTile.addEventListener("mouseup", function() {
                     this.classList.remove("project-tile--active");
+                    this.classList.remove("project-tile--hover");
+                });
+                
+                projectTile.addEventListener("mouseout", function() {
+                    this.classList.remove("project-tile--active");
+                    this.classList.remove("project-tile--hover");
                 });
             }
         })();
