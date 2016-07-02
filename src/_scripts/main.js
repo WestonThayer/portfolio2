@@ -54,5 +54,73 @@
                 }
             });
         })();
+        
+        // Handle making <img> behave like CSS background-image for the home
+        // page so they can go full bleed
+        (function() {
+            var imgs = document.getElementsByClassName("project-tile__img");
+            
+            function handleResize() {
+                for (var i = 0; i < imgs.length; i++) {
+                    var img = imgs[i];
+                    var picture = img.parentElement;
+                    
+                    // Only for xs to sm breakpoints
+                    if (window.innerWidth < 768) {
+                        if (picture.style.backgroundImage === "none" || picture.style.backgroundImage === "") {
+                            // currentSrc is supplied when <picture> is supported in
+                            // the browser. If it doesn't exist, the <img> is using
+                            // it's real src value because that browser doesn't
+                            // support <picture>
+                            var src = img.currentSrc ? img.currentSrc : img.attributes["src"].nodeValue;
+                            
+                            picture.style.backgroundImage = "url(" + src + ")";
+                        }
+                    }
+                    else {
+                        picture.style.backgroundImage = "none";
+                    }
+                }
+            }
+            
+            window.addEventListener("resize", handleResize);
+            
+            handleResize();
+        })();
+        
+        // Hook up interactions to the project tiles so that we get nice states
+        // across mouse and touch
+        (function() {
+            var projectTiles = document.getElementsByClassName("project-tile");
+            
+            for (var i = 0; i < projectTiles.length; i++) {
+                var projectTile = projectTiles[i];
+                
+                projectTile.addEventListener("touchstart", function(e) {
+                    this.classList.add("project-tile--active");
+                });
+                
+                projectTile.addEventListener("touchend", function(e) {
+                    e.preventDefault();
+                    this.classList.remove("project-tile--active");
+                });
+                
+                projectTile.addEventListener("mouseover", function() {
+                    this.classList.add("project-tile--hover");
+                });
+                
+                projectTile.addEventListener("mouseleave", function() {
+                    this.classList.remove("project-tile--hover");
+                });
+                
+                projectTile.addEventListener("mousedown", function() {
+                    this.classList.add("project-tile--active");
+                });
+                
+                projectTile.addEventListener("mouseup", function() {
+                    this.classList.remove("project-tile--active");
+                });
+            }
+        })();
     });
 })()

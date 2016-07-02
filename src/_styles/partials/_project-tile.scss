@@ -2,32 +2,36 @@
     display: block;
     position: relative;
     width: 100%;
-    padding-bottom: 60%;
+    transition: transform $motion-snappy, box-shadow $motion-snappy;
+    background-color: rgba(0,0,0,0.24); // helps hide any animation flickers
+    box-shadow: $drop-shadow-1;
     
-    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
-    background-color: rgba(0,0,0,0.24);
-    
-    $_shadow0: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    $_shadow1: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    $_shadow2: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    $_shadow4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    
-    box-shadow: $_shadow0;
-    
-    &:hover {
-        box-shadow: $_shadow2;
-        
-        .project-tile__img {
-            transform: scale3d(1.012,1.012,1);
-        }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 110%;
     }
     
-    &:active {
-        box-shadow: 0 0 0 white;
-        
-        .project-tile__img {
-            transform: scale3d(1,1,1);
-        }
+    @include media-breakpoint-up(md) {
+        padding-bottom: 60%;
+    }
+}
+
+// We don't use the :hover and :active selectors because it has nasty touch
+// behavior. Instead, we apply these classes via JS
+
+.project-tile--hover {
+    box-shadow: $drop-shadow-3;
+    
+    .project-tile__img {
+        transform: scale3d(1.012,1.012,1);
+    }
+}
+
+.project-tile--active {
+    box-shadow: 0 0 0 white;
+    transform: scale3d(0.98, 0.98, 1);
+    
+    .project-tile__img {
+        transform: scale3d(1,1,1);
     }
 }
 
@@ -37,12 +41,26 @@
     right: 0;
     top: 0;
     bottom: 0;
+    
+    @include media-breakpoint-between(xs, md) {
+        background-position: center center;
+        background-repeat:  no-repeat;
+        background-size:  cover;
+    }
 }
 
 .project-tile__img {
+    transition: transform $motion-snappy;
     width: 100%;
     height: auto;
-    transition: transform 0.3s cubic-bezier(.25,.8,.25,1);
+    
+    @include media-breakpoint-up(xs) {
+        visibility: hidden;
+    }
+    
+    @include media-breakpoint-up(md) {
+        visibility: visible;
+    }
 }
 
 .project-tile__label {

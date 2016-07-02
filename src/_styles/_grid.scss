@@ -29,22 +29,11 @@
 
 
 @include media-breakpoint-down(sm) {
-    .container-fullbleed-sm-down {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    
-    .row-fullbleed-sm-down {
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    .col-fullbleed-sm-down {
-        padding-left: 0;
-        padding-right: 0;
+    .col-equalspace-sm-down {
+        margin-bottom: strip-unit($grid-column-gutter-width) * 1%;
+        margin-bottom: $grid-column-gutter-width;
     }
 }
-
 
 @include media-breakpoint-up(md) {
     .col-equalspace-md-up {
