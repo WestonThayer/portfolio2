@@ -13,7 +13,11 @@
 // that will precisely position a font by it's metrics. It may require negative
 // margins if you don't pass a big enough $grid-rung-count.
 //
-// Note: for some reason, we have to call ceil(). Browsers always seem to round up...
+// Note: this is usually 1px off on Chrome due to how Chrome refuses to round correctly for type values
+// http://stackoverflow.com/questions/17281017/round-up-line-height
+// For example if you calculate the normal line height in Chrome and compare it to "normal" line-height, they don't
+// usually match, where as in other browsers they do. This throws off our $_natural-line-height * $font-size calculation
+// because Chrome always floor()s the answer, while other browsers do not. No big deal, it's just 1px.
 //
 // @param {string} $font-family-kind - pass $font-family-sans-serif or $font-family-serif. We need to know because font metrics change per font
 // @param {string} $bounds-kind - 'normal' isn't special, 'capheight' positions to capheight, 'baseline' positions to baseline
@@ -43,9 +47,9 @@
     @if $bounds-kind == "normal" {
         @return $_rung-height;
     } @else if $bounds-kind == "capheight" {
-        @return $_rung-height - ceil(($_capheight * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2)));
+        @return $_rung-height - ($_capheight * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2));
     } @else if $bounds-kind == "baseline" {
-        @return $_rung-height - ceil(($_baseline * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2)));
+        @return $_rung-height - ($_baseline * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2));
     } @else {
         @warn "Unknown $bounds-kind value. We support 'normal', 'capheight', and 'baseline': #{$bounds-kind}";
     }
@@ -69,7 +73,7 @@
     @if $bounds-kind == "normal" {
         @return $_rung-height;
     } @else if $bounds-kind == "baseline" {
-        @return $_rung-height - floor(($_descent * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2)));
+        @return $_rung-height - ($_descent * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2));
     } @else {
         @warn "Unknown $bounds-kind value. We support 'normal' and 'baseline': #{$bounds-kind}";
     }
@@ -83,14 +87,52 @@
     color: black;
 }
 
+@function calc-margin-top--type-sans-1($bounds-kind, $grid-rung-count) {
+    @return calc-margin-top($font-family-sans-serif, $bounds-kind, 32px, 36px, $grid-rung-count);
+}
+
+@function calc-margin-bottom--type-sans-1($bounds-kind, $grid-rung-count) {
+    @return calc-margin-bottom($font-family-sans-serif, $bounds-kind, 32px, 36px, $grid-rung-count);
+}
+
 @mixin type-sans-2 {
     font-family: $font-family-sans-serif;
     font-size: 20px;
     line-height: 24px;
 }
 
+@function calc-margin-top--type-sans-2($bounds-kind, $grid-rung-count) {
+    @return calc-margin-top($font-family-sans-serif, $bounds-kind, 20px, 24px, $grid-rung-count);
+}
+
+@function calc-margin-bottom--type-sans-2($bounds-kind, $grid-rung-count) {
+    @return calc-margin-bottom($font-family-sans-serif, $bounds-kind, 20px, 24px, $grid-rung-count);
+}
+
 @mixin type-sans-3 {
     font-family: $font-family-sans-serif;
     font-size: 16px;
     line-height: 20px;
+}
+
+@function calc-margin-top--type-sans-3($bounds-kind, $grid-rung-count) {
+    @return calc-margin-top($font-family-sans-serif, $bounds-kind, 16px, 20px, $grid-rung-count);
+}
+
+@function calc-margin-bottom--type-sans-3($bounds-kind, $grid-rung-count) {
+    @return calc-margin-bottom($font-family-sans-serif, $bounds-kind, 16px, 20px, $grid-rung-count);
+}
+
+@mixin type-serif-2 {
+    font-family: $font-family-serif;
+    font-size: 22px;
+    line-height: 28px;
+}
+
+@function calc-margin-top--type-serif-2($bounds-kind, $grid-rung-count) {
+    @return calc-margin-top($font-family-serif, $bounds-kind, 22px, 28px, $grid-rung-count);
+}
+
+@function calc-margin-bottom--type-serif-2($bounds-kind, $grid-rung-count) {
+    @return calc-margin-bottom($font-family-serif, $bounds-kind, 22px, 28px, $grid-rung-count);
 }
