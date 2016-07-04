@@ -28,6 +28,9 @@
 @include make-grid-columns(12, $grid-column-gutter-width);
 
 
+@include make-fullbleeds();
+
+
 @include media-breakpoint-down(sm) {
     .col-equalspace-sm-down {
         margin-bottom: strip-unit($grid-column-gutter-width) * 1%;
