@@ -47,9 +47,9 @@
     @if $bounds-kind == "normal" {
         @return $_rung-height;
     } @else if $bounds-kind == "capheight" {
-        @return $_rung-height - ($_capheight * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2));
+        @return $_rung-height - (($_capheight * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2)));
     } @else if $bounds-kind == "baseline" {
-        @return $_rung-height - ($_baseline * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2));
+        @return $_rung-height - (($_baseline * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2)));
     } @else {
         @warn "Unknown $bounds-kind value. We support 'normal', 'capheight', and 'baseline': #{$bounds-kind}";
     }
@@ -73,7 +73,7 @@
     @if $bounds-kind == "normal" {
         @return $_rung-height;
     } @else if $bounds-kind == "baseline" {
-        @return $_rung-height - ($_descent * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2));
+        @return $_rung-height - (($_descent * $font-size) - ((($_natural-line-height * $font-size) / 2) - ($line-height / 2)));
     } @else {
         @warn "Unknown $bounds-kind value. We support 'normal' and 'baseline': #{$bounds-kind}";
     }
@@ -84,7 +84,7 @@
     font-weight: 900;
     font-size: 32px;
     line-height: 36px;
-    color: black;
+    color: #000;
 }
 
 @function calc-margin-top--type-sans-1($bounds-kind, $grid-rung-count) {
