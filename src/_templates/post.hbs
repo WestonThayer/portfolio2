@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    {{> head
+        title=title
+        description=description
+    }}
+    <body>
+        {{> navbar work="true" }}
+        
+        <article>
+            <div class="container container--fullbleed post__img-container">
+                <div class="row row--fullbleed">
+                    <div class="col-xs-12 col--fullbleed">
+                        <img class="post__img" src="/assets/test-assets/test.1920w.jpg" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <h1 class="post__title">{{title}}</h1>
+                        
+                        <aside class="post__aside">
+                            <span class="post__aside-label">{{asideLabel1}}</span>
+                            <ul class="post__aside-ul">
+                                {{#each asideList1}}
+                                    <li class="post__aside-ul-li">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                            
+                            <span class="post__aside-label">{{asideLabel2}}</span>
+                            <ul class="post__aside-ul">
+                                {{#each asideList2}}
+                                    <li class="post__aside-ul-li">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-xs-12 col-md-7 post__body">
+                        {{{body}}}
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        {{> footer }}
+    </body>
+</html>

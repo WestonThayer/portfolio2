@@ -1,0 +1,12 @@
+.post-figure-img__caption {
+    @include type-serif-2();
+    color: $text-muted;
+    text-align: center;
+    font-style: italic;
+    margin: calc-margin-top--type-serif-2("baseline", 2) 0 0 0;
+}
+
+.post-figure-img__img {
+    max-width: 100%;
+    height: auto;
+}
