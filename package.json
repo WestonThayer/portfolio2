@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "front-matter": "^2.1.0",
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.0",
     "gulp-connect": "^4.1.0",
@@ -17,6 +18,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-util": "^3.0.7",
     "handlebars": "^4.0.5",
+    "marked": "^0.3.5",
     "normalize.css": "^4.1.1",
     "through2": "^2.0.1"
   }
