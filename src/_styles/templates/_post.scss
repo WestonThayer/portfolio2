@@ -1,7 +1,10 @@
 .post__img-container {
-    margin-top: $grid-rung-height * 5;
-    height: $grid-rung-height * 32;
     overflow: hidden;
+    
+    @include media-breakpoint-up(md) {
+        margin-top: $grid-rung-height-md * 5;
+        height: $grid-rung-height-md * 32;
+    }
 }
 
 .post__img {
@@ -11,13 +14,43 @@
 
 .post__title {
     @include type-sans-1();
-    margin: calc-margin-top--type-sans-1("capheight", 4) 0 0 0;
+    
+    @include media-breakpoint-up(xs) {
+        margin: calc-margin-top--type-sans-1("capheight", ($grid-rung-height-xs * 2)) 0 0 0;
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin: calc-margin-top--type-sans-1("capheight", ($grid-rung-height-md * 4)) 0 0 0;
+    }
+}
+
+.post__aside {
+    display: flex;
+    flex-direction: row;
+    
+    @include media-breakpoint-up(xs) {
+        margin: 12px 0 0 0;
+    }
+    
+    @include media-breakpoint-up(md) {
+        flex-direction: column;
+        margin: 34px 0 0 0;
+    }
+}
+
+.post__aside-wrapper ~ .post__aside-wrapper {
+    @include media-breakpoint-up(xs) {
+        margin: 0 0 0 46px;
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin: 32px 0 0 0;
+    }
 }
 
 .post__aside-label {
     display: block;
     @include type-sans-3();
-    margin: calc-margin-top--type-sans-3("baseline", 3) 0 0 0;
     color: $text-muted;
 }
 
@@ -31,27 +64,50 @@
 }
 
 .post__body {
-    margin: calc-margin-top--type-serif-2("capheight", 4) 0 0 0;
+    @include media-breakpoint-up(xs) {
+        margin: 43px 0 0 0;
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin: calc-margin-top--type-serif-2-md("capheight", ($grid-rung-height-md * 4)) 0 0 0;
+    }
     
     > p {
         @include type-serif-2();
     }
     
     > p + p {
-        margin: (calc-margin-bottom--type-serif-2("baseline", 1) + calc-margin-top--type-serif-2("baseline", 2)) 0 0 0;
+        @include media-breakpoint-up(xs) {
+            margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2))) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: (calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 2))) 0 0 0;
+        }
     }
     
     > img {
         max-width: 100%;
         height: auto;
-        margin: calc-margin-bottom--type-serif-2("baseline", 4) 0 0 0;
     }
     
     > p + .post-figure-img {
-        margin: calc-margin-bottom--type-serif-2("baseline", 4) 0 0 0;
+        @include media-breakpoint-up(xs) {
+            margin: calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 2)) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 4)) 0 0 0;
+        }
     }
     
     > .post-figure-img + p {
-        margin: (calc-margin-bottom--type-serif-2("baseline", 2) + calc-margin-top--type-serif-2("baseline", 2)) 0 0 0;
+        @include media-breakpoint-up(xs) {
+            margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2))) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: (calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 2)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 3))) 0 0 0;
+        }
     }
 }

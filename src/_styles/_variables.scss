@@ -46,8 +46,9 @@ $grid-breakpoints: (
     xl: 1200px
 );
 
-// Our horizontal grid (ladder rungs) has a gridline every 16px
-$grid-rung-height: 16px;
+// Our horizontal grid (ladder rungs) has a gridline every 14px on small screens, 16px on big screens
+$grid-rung-height-xs: 14px;
+$grid-rung-height-md: 16px;
 $grid-column-gutter-width: 4vw;
 $grid-page-gutter-width-xs: 4vw;
 $grid-page-gutter-width-md: 8vw;

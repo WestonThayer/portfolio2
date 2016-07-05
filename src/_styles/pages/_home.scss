@@ -6,30 +6,30 @@
     // Left margins are to align the "I" in "Interaction Designer" to the grid
     
     @include media-breakpoint-up(xs) {
-        $_font-size: 30px;
-        $_line-height: 34px;
+        $_font-size: 32px;
+        $_line-height: 37px;
         
         font-size: $_font-size;
         line-height: $_line-height;
-        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, 2) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, 4) -2px;
+        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-xs * 2)) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, ($grid-rung-height-xs * 4)) -2px;
     }
     
     @include media-breakpoint-up(sm) {
-        $_font-size: 52px;
-        $_line-height: 56px;
+        $_font-size: 48px;
+        $_line-height: 52px;
         
         font-size: $_font-size;
         line-height: $_line-height;
-        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, 2) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, 4) -3px;
+        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-xs * 2)) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, ($grid-rung-height-xs * 4)) -3px;
     }
     
     @include media-breakpoint-up(md) {
-        $_font-size: 60px;
+        $_font-size: 64px;
         $_line-height: 64px;
         
         font-size: $_font-size;
         line-height: $_line-height;
-        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, 10) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, 12) -4px;
+        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-md * 10)) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, ($grid-rung-height-md * 12)) -4px;
     }
     
     > .home-title__line {

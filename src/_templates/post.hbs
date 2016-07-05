@@ -22,22 +22,26 @@
                         <h1 class="post__title">{{title}}</h1>
                         
                         <aside class="post__aside">
-                            <span class="post__aside-label">{{asideLabel1}}</span>
-                            <ul class="post__aside-ul">
-                                {{#each asideList1}}
-                                    <li class="post__aside-ul-li">{{this}}</li>
-                                {{/each}}
-                            </ul>
+                            <div class="post__aside-wrapper">
+                                <span class="post__aside-label">{{asideLabel1}}</span>
+                                <ul class="post__aside-ul">
+                                    {{#each asideList1}}
+                                        <li class="post__aside-ul-li">{{this}}</li>
+                                    {{/each}}
+                                </ul>
+                            </div>
                             
-                            <span class="post__aside-label">{{asideLabel2}}</span>
-                            <ul class="post__aside-ul">
-                                {{#each asideList2}}
-                                    <li class="post__aside-ul-li">{{this}}</li>
-                                {{/each}}
-                            </ul>
+                            <div class="post__aside-wrapper">
+                                <span class="post__aside-label">{{asideLabel2}}</span>
+                                <ul class="post__aside-ul">
+                                    {{#each asideList2}}
+                                        <li class="post__aside-ul-li">{{this}}</li>
+                                    {{/each}}
+                                </ul>
+                            </div>
                         </aside>
                     </div>
-                    <div class="col-xs-12 col-md-7 post__body">
+                    <div class="col-xs-12 col-md-9 col-xl-7 post__body">
                         {{{body}}}
                     </div>
                 </div>

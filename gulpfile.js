@@ -32,7 +32,7 @@ gulp.task("build-html", ["register-partials", "register-helpers"], function() {
 });
 
 gulp.task("build-md-normal", ["register-partials", "register-helpers"], function() {
-    return gulp.src(["src/**/*.md", "!src/writing/"])
+    return gulp.src("src/**/index.md")
         .pipe(cached("build-md-normal"))
         .pipe(handlebarsCompile())
         .pipe(templatize())
@@ -79,7 +79,7 @@ gulp.task("watch", ["serve"], function(cb) {
     gulp.watch("src/**/*.html", ["build-html"]);
     gulp.watch(["src/_styles/**/*.scss"], ["build-sass"]);
     gulp.watch("src/_scripts/*.js", ["build-scripts"]);
-    gulp.watch(["src/**/*.md", "!src/writing/"], ["build-md-normal"]);
+    gulp.watch("src/**/index.md", ["build-md-normal"]);
     
     gulp.watch(["src/_templates/*.hbs", "src/_partials/*.hbs"], ["build-html", "build-md-normal"])
         .on("change", function(event) {

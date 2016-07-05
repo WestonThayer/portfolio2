@@ -105,7 +105,7 @@
         @include media-breakpoint-up(md) {
             // Give enough top spacing in padding so that the hit target is at least
             // 44px tall for the link (minimum usable)
-            $_top-spacing: calc-margin-top($font-family-sans-serif, "baseline", 18px, 22px, 3);
+            $_top-spacing: calc-margin-top($font-family-sans-serif, "baseline", 18px, 22px, ($grid-rung-height-md * 3));
             margin: ($_top-spacing / 2) 0 0 0;
             padding: ($_top-spacing / 2) 0 14px;
         }
