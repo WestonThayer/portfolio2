@@ -1,15 +1,14 @@
 .post-figure-img__caption {
-    @include type-serif-2();
+    @include type-sans-3();
     color: $text-muted;
     text-align: center;
-    font-style: italic;
     
     @include media-breakpoint-up(xs) {
-        margin: calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2)) 0 0 0;
+        margin: calc-margin-top--type-sans-3("baseline", ($grid-rung-height-xs * 2)) 0 0 0;
     }
     
     @include media-breakpoint-up(md) {
-        margin: calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 2)) 0 0 0;
+        margin: calc-margin-top--type-sans-3("baseline", ($grid-rung-height-md * 2)) 0 0 0;
     }
 }
 
