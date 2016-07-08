@@ -56,11 +56,11 @@
     @include type-sans-2();
     
     @include media-breakpoint-up(xs) {
-        padding: 0 0 0 $grid-page-gutter-width-xs;
+        padding: 0 0 $grid-page-gutter-width-xs $grid-page-gutter-width-xs;
     }
     
     @include media-breakpoint-up(md) {
-        padding: 0 0 0 16px;
+        padding: 0 0 16px 16px;
     }
 }
 
