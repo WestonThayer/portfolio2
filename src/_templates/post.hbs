@@ -8,13 +8,15 @@
         {{> navbar work="true" }}
         
         <article>
-            <div class="container container--fullbleed post__img-container">
-                <div class="row row--fullbleed">
-                    <div class="col-xs-12 col--fullbleed">
-                        <img class="post__img" src="/assets/test-assets/test.1920w.jpg" />
+            {{#if imgBase}}
+                <div class="container container--fullbleed">
+                    <div class="row row--fullbleed">
+                        <div class="col-xs-12 col--fullbleed post__img-container">
+                            <img class="post__img" sizes="100vw" srcset="{{imageStack imgBase imgExt}}" src="{{imgSrcBackup}}">
+                        </div>
                     </div>
                 </div>
-            </div>
+            {{/if}}
             
             <div class="container">
                 <div class="row">

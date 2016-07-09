@@ -3,7 +3,11 @@
     
     @include media-breakpoint-up(md) {
         margin-top: $grid-rung-height-md * 5;
-        height: $grid-rung-height-md * 32;
+        height: $grid-rung-height-md * 24;
+        
+        background-position: center bottom;
+        background-attachment: fixed;
+        background-size: cover;
     }
 }
 
@@ -91,7 +95,7 @@
         height: auto;
     }
     
-    > p + .post-figure-img,
+    > p + .post-figure,
     > p + .post-side-by-side-img {
         @include media-breakpoint-up(xs) {
             margin-top: calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 2));
@@ -102,7 +106,7 @@
         }
     }
     
-    > .post-figure-img + p,
+    > .post-figure + p,
     > .post-side-by-side-img + p {
         @include media-breakpoint-up(xs) {
             margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2))) 0 0 0;
@@ -113,7 +117,7 @@
         }
     }
     
-    > .post-figure-img + .post-figure-img {
+    > .post-figure + .post-figure {
         @include media-breakpoint-up(xs) {
             margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 2));
         }

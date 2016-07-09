@@ -1,4 +1,5 @@
-.post-figure-img__caption {
+// Shared between post-figure--*
+.post-figure__caption {
     @include type-sans-3();
     color: $text-muted;
     text-align: center;
@@ -10,9 +11,4 @@
     @include media-breakpoint-up(md) {
         margin: calc-margin-top--type-sans-3("baseline", ($grid-rung-height-md * 2)) 0 0 0;
     }
-}
-
-.post-figure-img__img {
-    max-width: 100%;
-    height: auto;
 }

@@ -7,10 +7,12 @@
 @import "grid";
 @import "utilities";
 
+@import "partials/common";
 @import "partials/navbar";
 @import "partials/project-tile";
 @import "partials/footer";
-@import "partials/post-figure-img";
+@import "partials/post-figure--img";
+@import "partials/post-figure--video";
 @import "partials/post-side-by-side-img";
 
 @import "templates/post";

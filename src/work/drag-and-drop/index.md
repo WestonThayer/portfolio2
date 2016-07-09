@@ -3,6 +3,9 @@ template: post.hbs
 
 title: Drag and drop
 description: A redesign of drag and drop for Windows 10.
+imgBase: "/assets/test-assets/test"
+imgExt: ".jpg"
+imgSrcBackup: "/assets/test-assets/test.750w.jpg"
 asideLabel1: role
 asideList1:
     - Interaction design
@@ -15,8 +18,9 @@ asideList2:
 
 A redesign of drag and drop for Windows 10 to bring the magic back to one of Window's original features.
 
-{{> post-figure-img
-    src="/assets/test-assets/test.750w.jpg"
+{{> post-figure--video
+    src="/assets/work/drag-and-drop/lift.mp4"
+    loop="true"
     caption="Press and hold with your finger to drag an item, release to drop it."
 }}
 
@@ -26,12 +30,16 @@ Rapidly iterating on high-fidelity prototypes was essential to discovering the b
 
 [Try it in Framer](http://e/)
 
-{{> post-figure-img
-    src="/assets/test-assets/test.750w.jpg"
-    caption="Press and hold is commonly used to show a context menu. The new design allows both to coexist."
+{{> post-figure--video
+    src="/assets/work/drag-and-drop/ctx.mp4"
+    loop="true"
+    caption="Press and hold is still used to show a context menu after a slightly longer hold. Moving the item hides the menu to let you continue the drag."
 }}
 
-{{> post-figure-img
-    src="/assets/test-assets/test.750w.jpg"
+{{> post-figure--video
+    src="/assets/work/drag-and-drop/multiple.mp4"
+    loop="true"
     caption="Multiple items can be dragged, even reordered"
 }}
+
+While drag and drop is most frequently used in lists, the design also works well in grids of items.
