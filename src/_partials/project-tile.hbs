@@ -1,4 +1,4 @@
-<a class="project-tile" href="{{href}}">
+<a class="project-tile" href="{{href}}" {{#if isLinkExternal}}target="_blank"{{/if}}>
     {{#if imgBaseCrop}}
     <picture class="project-tile__picture" style="background-color: {{placeholderBackgroundColor}};">
         <source media="(min-width: 768px)" sizes="39.38vw" srcset="{{imageStack imgBaseFull imgExt}}">
@@ -9,8 +9,25 @@
             <img class="project-tile__img" sizes="100vw" srcset="{{imageStack imgBaseFull imgExt}}" src="{{imgSrcBackup}}">
         </div>
     {{/if}}
-    <p class="project-tile__label" style="color: {{color}};">
-        <span class="project-tile__label1">{{line1}}</span>
-        <span class="project-tile__label2">{{line2}}</span>
-    </p>
+    <div class="project-tile__label" style="color: {{color}};">
+        {{#if isLinkExternal}}
+            <svg class="project-tile__label-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: #fff;
+                        }
+                    </style>
+                </defs>
+                <g>
+                    <path class="cls-1" d="M17.36,12a.47.47,0,0,0-.43.43v6.73H.87V3.4H7.7A.47.47,0,0,0,8.14,3a.47.47,0,0,0-.43-.43H.43A.47.47,0,0,0,0,3v16.6A.47.47,0,0,0,.43,20H17.36a.47.47,0,0,0,.43-.43V12.41A.4.4,0,0,0,17.36,12Z"/>
+                    <path class="cls-1" d="M19.52.15H12.26a.47.47,0,0,0-.43.43.47.47,0,0,0,.43.43h6.18L6,13.49a.41.41,0,0,0,0,.65.4.4,0,0,0,.33.11.4.4,0,0,0,.33-.11L19.09,1.78V8A.43.43,0,1,0,20,8V.69A.5.5,0,0,0,19.52.15Z"/>
+                </g>
+            </svg>
+        {{/if}}
+        <div class="project-tile__label-wrapper">
+            <span class="project-tile__label1">{{line1}}</span>
+            <span class="project-tile__label2">{{line2}}</span>
+        </div>
+    </div>
 </a>
