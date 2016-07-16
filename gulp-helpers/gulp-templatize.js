@@ -39,25 +39,7 @@ function gulpTemplatize() {
                 return;
             }
             
-            var markedRenderer = new marked.Renderer();
-            markedRenderer.paragraph = function(text) {
-                var imgOnlyRegex = /^<img.+?>$/;
-                var result = "<p";
-                
-                if (imgOnlyRegex.test(text)) {
-                    // An image on its own line needs to be treated differently
-                    // than an image mixed with other inline elements. Our CSS
-                    // strategy relies on sibling selectors, so we need a way
-                    // to select a <p> that only contains an <img>
-                    result += ' class="post__img-only-p"'
-                }
-                
-                result += ">" + text + "</p>";
-                
-                return result;
-            };
-            
-            context.body = marked(parsed.body, { smartypants: true, renderer: markedRenderer });
+            context.body = marked(parsed.body, { smartypants: true });
             
             if (!context.template) {
                 this.emit("error", new gulpUtil.PluginError(PLUGIN_NAME, "No template specified for " + file.path));
