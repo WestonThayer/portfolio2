@@ -3,8 +3,13 @@
     position: relative;
     text-decoration: none;
     
+    @include media-breakpoint-up(xs) {
+        margin-top: $grid-rung-height-xs * 2;
+        height: $grid-rung-height-xs * 20;
+    }
+    
     @include media-breakpoint-up(md) {
-        margin-top: $grid-rung-height-md * 8;
+        margin-top: $grid-rung-height-md * 4;
         height: $grid-rung-height-md * 20;
     }
     
@@ -35,6 +40,10 @@
     left: 0;
     overflow: hidden;
     
+    @include media-breakpoint-up(xs) {
+        padding: 0 14px;
+    }
+    
     @include media-breakpoint-up(md) {
         padding: 0 16px;
     }
@@ -42,6 +51,10 @@
 
 .writing-tile__title {
     @include type-sans-1();
+    
+    @include media-breakpoint-up(xs) {
+        margin-top: calc-margin-top--type-sans-1("baseline", ($grid-rung-height-xs * 3));
+    }
     
     @include media-breakpoint-up(md) {
         margin-top: calc-margin-top--type-sans-1("baseline", ($grid-rung-height-md * 3));
@@ -52,6 +65,10 @@
     @include type-sans-3();
     color: $text-muted;
     
+    @include media-breakpoint-up(xs) {
+        margin-top: calc-margin-bottom--type-sans-1("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-sans-3("baseline", ($grid-rung-height-xs * 1));
+    }
+    
     @include media-breakpoint-up(md) {
         margin-top: calc-margin-bottom--type-sans-1("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-sans-3("baseline", ($grid-rung-height-md * 1));
     }
@@ -59,6 +76,10 @@
 
 .writing-tile__snippet {
     @include type-serif-2();
+    
+    @include media-breakpoint-up(xs) {
+        margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2));
+    }
     
     @include media-breakpoint-up(md) {
         margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 2));

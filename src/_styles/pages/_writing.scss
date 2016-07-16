@@ -1,0 +1,5 @@
+.writing {
+    @include media-breakpoint-up(md) {
+        margin-top: $grid-rung-height-md * 4;
+    }
+}
