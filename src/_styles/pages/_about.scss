@@ -4,6 +4,10 @@
     }
     
     @include media-breakpoint-up(xl) {
+        // For fixed footer reveal
+        position: relative;
+        margin-bottom: 436px;
+        
         background-image: url("/assets/about/selfr.jpg");
         background-position: right top;
         background-size: cover;
@@ -141,5 +145,15 @@
     
     @include media-breakpoint-up(xl) {
         padding-bottom: calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 12));
+    }
+}
+
+.about__feature + .footer {
+    @include media-breakpoint-up(xl) {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
     }
 }
