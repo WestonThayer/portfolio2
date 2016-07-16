@@ -1,10 +1,12 @@
 .footer {
     @include media-breakpoint-up(xs) {
-        margin: calc-margin-top--type-sans-3("baseline", ($grid-rung-height-xs * 7)) 0 calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 6)) 0;
+        margin-top: calc-margin-top--type-sans-3("baseline", ($grid-rung-height-xs * 7));
+        margin-bottom: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 6));
     }
     
     @include media-breakpoint-up(md) {
-        margin: calc-margin-top--type-sans-3("baseline", ($grid-rung-height-md * 15)) 0 calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 6)) 0;
+        margin-top: calc-margin-top--type-sans-3("baseline", ($grid-rung-height-md * 15));
+        margin-bottom: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 6));
     }
 }
 
