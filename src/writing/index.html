@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    {{> head
+        title="Writing"
+        description="Latest thoughts and explorations on design, code, and everything in between."
+    }}
+    <body>
+        {{> navbar writing="true" }}
+        
+        <div class="container">
+            {{> writing-tile
+                href="2014/10/05/a-new-home/"
+                title="A new home"
+                date="October 10, 2014"
+                
+                snippet="
+Before now, I've tended to write in many different locations. From now on, this will be the one-stop-shop for everything. It's new! It's fun! It was created using [Jekyll](http://jekyllrb.com/)! You can find my previous writings here:
+
+* [Cryclops Wordpress](http://cryclops.com/)
+* [Cryclops Quora](http://cryclops.quora.com/)...
+                "
+            }}
+        </div>
+        
+        {{> footer }}
+    </body>
+</html>

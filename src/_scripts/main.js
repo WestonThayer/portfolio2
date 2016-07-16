@@ -55,42 +55,42 @@
             });
         })();
         
-        // Hook up interactions to the project tiles so that we get nice states
-        // across mouse and touch
+        // Hook up interactions to tiles so that we get nice states across mouse
+        // and touch
         (function() {
-            var projectTiles = document.getElementsByClassName("project-tile");
+            var tiles = document.getElementsByClassName("tile");
             
-            for (var i = 0; i < projectTiles.length; i++) {
-                var projectTile = projectTiles[i];
+            for (var i = 0; i < tiles.length; i++) {
+                var tile = tiles[i];
                 
-                projectTile.addEventListener("touchstart", function(e) {
-                    this.classList.add("project-tile--active");
+                tile.addEventListener("touchstart", function(e) {
+                    this.classList.add("tile--active");
                 });
                 
-                projectTile.addEventListener("touchend", function(e) {
-                    this.classList.remove("project-tile--active");
+                tile.addEventListener("touchend", function(e) {
+                    this.classList.remove("tile--active");
                 });
                 
-                projectTile.addEventListener("mouseover", function() {
-                    this.classList.add("project-tile--hover");
+                tile.addEventListener("mouseover", function() {
+                    this.classList.add("tile--hover");
                 });
                 
-                projectTile.addEventListener("mouseleave", function() {
-                    this.classList.remove("project-tile--hover");
+                tile.addEventListener("mouseleave", function() {
+                    this.classList.remove("tile--hover");
                 });
                 
-                projectTile.addEventListener("mousedown", function() {
-                    this.classList.add("project-tile--active");
+                tile.addEventListener("mousedown", function() {
+                    this.classList.add("tile--active");
                 });
                 
-                projectTile.addEventListener("mouseup", function() {
-                    this.classList.remove("project-tile--active");
-                    this.classList.remove("project-tile--hover");
+                tile.addEventListener("mouseup", function() {
+                    this.classList.remove("tile--active");
+                    this.classList.remove("tile--hover");
                 });
                 
-                projectTile.addEventListener("mouseout", function() {
-                    this.classList.remove("project-tile--active");
-                    this.classList.remove("project-tile--hover");
+                tile.addEventListener("mouseout", function() {
+                    this.classList.remove("tile--active");
+                    this.classList.remove("tile--hover");
                 });
             }
         })();

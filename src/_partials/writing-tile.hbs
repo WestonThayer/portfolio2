@@ -1,0 +1,15 @@
+<div class="row">
+    <article class="col-xs-12 col-md-offset-2 col-md-8">
+        <a class="tile writing-tile" href="{{href}}" {{#if isLinkExternal}}target="_blank"{{/if}}>
+            <div class="tile__bg writing-tile__bg"></div>
+            <div class="writing-tile__fg">
+                <h1 class="writing-tile__title">{{title}}</h1>
+                <p class="writing-tile__date">{{date}}</p>
+                
+                <div class="writing-tile__snippet">
+                    {{mdToSnippetHtml snippet}}
+                </div>
+            </div>
+        </a>
+    </article>
+</div>

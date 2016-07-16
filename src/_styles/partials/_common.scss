@@ -12,3 +12,32 @@
         margin: calc-margin-top--type-sans-3("baseline", ($grid-rung-height-md * 2)) 0 0 0;
     }
 }
+
+// Tile
+// We don't use the :hover and :active selectors because it has nasty touch
+// behavior. Instead, we apply these classes via JS
+.tile {
+    transition: transform $motion-snappy, box-shadow $motion-snappy;
+    box-shadow: $drop-shadow-1;
+}
+
+.tile__bg {
+    transition: transform $motion-snappy;
+}
+
+.tile--hover {
+    box-shadow: $drop-shadow-3;
+    
+    .tile__bg {
+        transform: scale3d(1.012,1.012,1);
+    }
+}
+
+.tile--active {
+    box-shadow: 0 0 0 white;
+    transform: scale3d(0.98, 0.98, 1);
+    
+    .tile__bg {
+        transform: scale3d(1,1,1);
+    }
+}

@@ -2,9 +2,8 @@
     display: block;
     position: relative;
     width: 100%;
-    transition: transform $motion-snappy, box-shadow $motion-snappy;
+    
     background-color: rgba(0,0,0,0.24); // helps hide any animation flickers
-    box-shadow: $drop-shadow-1;
     
     @include media-breakpoint-up(xs) {
         padding-bottom: 110%;
@@ -12,26 +11,6 @@
     
     @include media-breakpoint-up(md) {
         padding-bottom: 60%;
-    }
-}
-
-// We don't use the :hover and :active selectors because it has nasty touch
-// behavior. Instead, we apply these classes via JS
-
-.project-tile--hover {
-    box-shadow: $drop-shadow-3;
-    
-    .project-tile__img {
-        transform: scale3d(1.012,1.012,1);
-    }
-}
-
-.project-tile--active {
-    box-shadow: 0 0 0 white;
-    transform: scale3d(0.98, 0.98, 1);
-    
-    .project-tile__img {
-        transform: scale3d(1,1,1);
     }
 }
 
@@ -44,7 +23,6 @@
 }
 
 .project-tile__img {
-    transition: transform $motion-snappy;
     width: 100%;
     height: auto;
 }
