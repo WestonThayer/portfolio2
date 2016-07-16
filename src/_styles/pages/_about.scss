@@ -1,5 +1,10 @@
 .about__feature {
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 160px;
+    }
+    
     @include media-breakpoint-up(md) {
+        padding-bottom: 0;
         margin-top: $grid-rung-height-md * 5;
     }
     
@@ -7,6 +12,7 @@
         // For fixed footer reveal
         position: relative;
         margin-bottom: 436px;
+        box-shadow: $drop-shadow-2;
         
         background-image: url("/assets/about/selfr.jpg");
         background-position: right top;
