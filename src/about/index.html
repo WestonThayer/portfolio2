@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
     {{> head
-        title="About | Weston Thayer's Portfolio"
-        description="Weston is an interaction designer who codes, living the Pacific Northwest. See his resume and skills."
+        title="About"
+        description="Weston is an interaction designer who codes, living the Pacific Northwest."
     }}
     <body>
         {{> navbar about="true" }}
         
-        <div class="about-bg container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h1>I am an Interaction Designer who codes, living in the Pacific Northwest.</h1>
+        <div class="container about__feature">
+            <div class="row about__feature-h1-row">
+                <div class="col-xs-12 about__feature-h1-col">
+                    <h1 class="about__feature-h1">
+                        <span class="about__feature-h1-l1">Design.</span>
+                        <span class="about__feature-h1-l2">Code.</span>
+                        <span class="about__feature-h1-l3">Play in the Pacific Northwest.</span>
+                    </h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12">
-                    <p>I work in the Windows design studio at Microsoft, helping define the next generation of the <strong>Windows 10 design language</strong> through core controls &amp; patterns.</p>
-                    <p>I’ve studied user-centered design at the <em>University of Washington</em> and have a BS in Computer Science from Virginia Tech.</p>
-                    <p>My work draws from minimalism and simplicity. My secret weapon is code.</p>
-                    <p>I’ve been working on digital products for over 6 years.</p>
-                    <p>Back in 2004, when I had just started my career, sIFR was the hottest thing out there. It was developed by Shaun Inman and it embedded custom fonts in a small Flash movie, which could be utilized with a little bit of JavaScript and CSS. At the time, it was basically the only way to use custom fonts in browsers like Firefox or Safari. The fact that this technique relied on Flash soon made it obsolete, with the release of the iPhone (without flash) in 2007.</p>
+                <div class="col-xs-12 col-sm-9 col-md-6 col-xl-4 about__feature-para about__feature-para-first">
+                    <p>I live in Seattle and work in the Windows design studio at Microsoft, helping define the future of the Microsoft Design Language through core controls &amp; patterns.</p>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-6 col-xl-4 about__feature-para about__feature-para-second">
+                    <p>I believe in minimalism, empathy, and attention to detail. My secret weapon is code. I’ve been working on digital products for over 6 years.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-md-6 col-xl-4 about__feature-para about__feature-para-third">
+                    <p>I’ve studied user-centered design at the University of Washington and have a B.S. in Computer Science from Virginia Tech.</p>
                 </div>
             </div>
         </div>

@@ -1,0 +1,145 @@
+.about__feature {
+    @include media-breakpoint-up(md) {
+        margin-top: $grid-rung-height-md * 5;
+    }
+    
+    @include media-breakpoint-up(xl) {
+        background-image: url("/assets/about/selfr.jpg");
+        background-position: right top;
+        background-size: cover;
+    }
+}
+
+.about__feature-h1-row {
+    @include media-breakpoint-up(xs) {
+        margin-left: -4%;
+        margin-left: -4vw;
+        margin-right: -4%;
+        margin-right: -4vw;
+        
+        background-image: url("/assets/about/selfr.jpg");
+        background-position: right top;
+        // background-size is set in _scripts/main.js dynamically
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin-left: -8%;
+        margin-left: -8vw;
+        margin-right: -8%;
+        margin-right: -8vw;
+        
+        background-position: right center;
+        background-size: cover;
+    }
+    
+    @include media-breakpoint-up(xl) {
+        margin-left: -2%;
+        margin-left: -2vw;
+        margin-right: -2%;
+        margin-right: -2vw;
+        
+        background-image: none; // handoff background image to the container
+    }
+}
+
+.about__feature-h1-col {
+    @include media-breakpoint-up(xs) {
+        padding-left: 4%;
+        padding-left: 4vw;
+        padding-right: 4%;
+        padding-right: 4vw;
+    }
+    
+    @include media-breakpoint-up(lg) {
+        padding-left: 8%;
+        padding-left: 8vw;
+        padding-right: 8%;
+        padding-right: 8vw;
+    }
+    
+    @include media-breakpoint-up(xl) {
+        padding-left: 2%;
+        padding-left: 2vw;
+        padding-right: 2%;
+        padding-right: 2vw;
+    }
+}
+
+.about__feature-h1 {
+    @include type-sans-1();
+    
+    @include media-breakpoint-up(xs) {
+        margin: calc-margin-top--type-sans-1("capheight", ($grid-rung-height-xs * 2)) 0 0 0;
+        padding-bottom: calc-margin-bottom--type-sans-1("baseline", ($grid-rung-height-xs * 16));
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin: calc-margin-top--type-sans-1("capheight", ($grid-rung-height-md * 6)) 0 0 0;
+        padding-bottom: calc-margin-bottom--type-sans-1("baseline", ($grid-rung-height-md * 6));
+    }
+    
+    @include media-breakpoint-up(xl) {
+        padding-bottom: 0;
+    }
+    
+    > span {
+        display: block;
+    }
+}
+
+.about__feature-h1-l3 {
+    @include media-breakpoint-up(xs) {
+        margin-top: 30px;
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin-top: 32px;
+    }
+}
+
+.about__feature-para p {
+    @include type-serif-2();
+}
+
+.about__feature-para-first {
+    @include media-breakpoint-up(xs) {
+        margin-top: calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 3));
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin-top: calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 5));
+    }
+    
+    @include media-breakpoint-up(xl) {
+        margin-top: (calc-margin-bottom--type-sans-1("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 8)));
+    }
+}
+
+.about__feature-para-second {
+    @include media-breakpoint-up(xs) {
+        margin-top: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2)));
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin-top: calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 5));
+    }
+    
+    @include media-breakpoint-up(xl) {
+        margin-top: (calc-margin-bottom--type-sans-1("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 8)));
+    }
+}
+
+.about__feature-para-third {
+    @include media-breakpoint-up(xs) {
+        margin-top: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2)));
+        //padding-bottom: calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 8));
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin-top: (calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 2)));
+    }
+    
+    @include media-breakpoint-up(xl) {
+        padding-bottom: calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 12));
+    }
+}

@@ -127,5 +127,26 @@
             window.addEventListener("resize", handleResize);
             handleResize();
         })();
+        
+        // Manage the focal point of the feature image on the /about/ page
+        (function() {
+            var features = document.getElementsByClassName("about__feature-h1-row");
+            
+            function handleResize() {
+                for (var i = 0; i < features.length; i++) {
+                    var feature = features[i];
+                    
+                    // Only for below md
+                    if (window.innerWidth < 768) {
+                        // Linear interpolation to put the focal point in a good spot
+                        // https://en.wikipedia.org/wiki/Linear_interpolation
+                        feature.style.backgroundSize = (330 + ((100 - 330) * ((window.innerWidth - 320) / (768 - 320)))) + "% auto";
+                    }
+                }
+            }
+            
+            window.addEventListener("resize", handleResize);
+            handleResize();
+        })();
     });
 })()
