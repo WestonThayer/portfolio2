@@ -97,7 +97,7 @@
         
         // Workaround for background-image not supporting srcset
         (function() {
-            var postImgs = document.getElementsByClassName("post__img");
+            var postImgs = document.getElementsByClassName("post__feature-img");
             
             function handleResize() {
                 for (var i = 0; i < postImgs.length; i++) {

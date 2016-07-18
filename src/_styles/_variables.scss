@@ -13,7 +13,7 @@ $font-family-serif-metric-baseline: 917 / 1000; // distance in ems from top to b
 $font-family-serif-metric-capheight: (917 - 660) / 1000; // distance in ems from top to cap height (ascender - capheight)
 $font-family-serif-metric-descent: 354 / 1000; // distance in ems from bottom to baseline
 
-//$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
 
 
 $body-color: #000;
@@ -25,7 +25,7 @@ $link-decoration: underline;
 $link-hover-color: gray;
 $link-hover-decoration: underline;
 
-$table-bg: #ccc;
+$table-bg: transparent;
 $table-cell-padding: 4px;
 
 // Grid breakpoints (copied from Bootstrap v4's _variables.scss)

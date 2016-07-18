@@ -8,18 +8,105 @@
         {{> navbar writing="true" }}
         
         <div class="container writing">
+            
+            {{> writing-tile
+                href="2016/02/12/a-response-to-analysis-paralysis/"
+                title="A response to analysis paralysis"
+                date="February 12, 2016"
+                
+                snippet="
+The *[I'm a web developer and I've been stuck with the simplest app for the last 10 days](https://medium.com/@pistacchio/i-m-a-web-developer-and-i-ve-been-stuck-with-the-simplest-app-for-the-last-10-days-fb5c50917df#.embpeepov)* Medium post gained a lot of attention on HN and [/r/programming](https://www.reddit.com/r/programming/comments/458udn/im_a_web_developer_and_ive_been_stuck_with_the/) yesterday. The article is in no way unwarrented or off-base, I can sympathize. However, I want to address the two reoccuring themes from the comments:
+
+* \"Well you should try **X** framework!\" ...
+                "
+            }}
+            
+            {{> writing-tile
+                href="2015/10/23/hosting-framer-on-azure/"
+                title="Hosing Framer prototypes on Azure"
+                date="October 23, 2015"
+                
+                snippet="
+While Framer Studio makes it [extremely easy](http://framerjs.tumblr.com/post/108550864712/sharing-projects) to get a sharable link to your prototype, your company might not be too happy to find their work on a public (although obscure) URL. Here's how you can use Azure to lock things down.
+
+1. Create an Azure [Web App](https://azure.microsoft.com/en-us/services/app-service/web/). It's free, but you have to hand over your credit card number...
+                "
+            }}
+            
+            {{> writing-tile
+                href="2015/10/09/framer-on-windows-with-framer-cli/"
+                title="Framer on Windows with framer-cli"
+                date="October 9, 2015"
+                
+                snippet="
+[Framer](https://github.com/koenbok/Framer), the fantastically fast JavaScript prototyping library, is primarily used through [Framer Studio](http://framerjs.com/), a paid (but well worth it) IDE for OSX. While it's been possible to use Framer on Windows for quite a while (it is just JavaScript...
+                "
+                
+                previewImgSrc="2015/10/09/framer-on-windows-with-framer-cli/workspace.png"
+            }}
+            
+            {{> writing-tile
+                href="2015/04/20/my-performance-pitfall/"
+                title="My performance pitfall"
+                date="April 20, 2015"
+                
+                snippet="
+The landscape of software performance, especially for UI, is complex, mysterious, and poorly understood by many. This is the story of a dark hole that I found myself in.
+
+> Today, the developer created a list UI component...
+                "
+            }}
+            
+            {{> writing-tile
+                href="2014/11/27/bootstrap-theme-for-doxygen/"
+                title="A Bootstrap theme for Doxygen"
+                date="November 27, 2014"
+                
+                snippet="
+At work, I started a C++/Cx repository in [Visual Studio Online](http://www.visualstudio.com/en-us/products/what-is-visual-studio-online-vs.aspx). I needed an easy way for consumers to read about the public APIs.
+
+[Doxygen](http://www.stack.nl/~dimitri/doxygen/) turns out to be the de facto solution for this. It was super easy to...
+                "
+                
+                previewImgSrc="2014/11/27/bootstrap-theme-for-doxygen/after.png"
+            }}
+            
+            {{> writing-tile
+                href="2014/11/21/high-contrast-in-xaml/"
+                title="High Contrast in XAML"
+                date="November 21, 2014"
+                
+                snippet="
+*Update: I contributed to the [official MSDN documentation](https://msdn.microsoft.com/windows/uwp/accessibility/high-contrast-themes). It contains everything in this post and more, so go there instead.*
+
+High contrast is a source of confusion for many. This is a practical guide that extends the [MSDN guidance](http://msdn.microsoft.com/en-us/library/windows/apps/hh868165.aspx) and [sample](https://code.msdn.microsoft.com/windowsapps/XAML-high-contrast-style-c0ce936f/sourcecode?fileId=63896&pathId=354124371) for developers who would rather not think about it...
+                "
+            }}
+            
+            {{> writing-tile
+                href="2014/10/08/introducing-textline/"
+                title="Introducing the TextLine"
+                date="October 8, 2014"
+                
+                snippet="
+*tldr: UI frameworks should stop putting type in a box because it's counter to the design intent and doesn't withstand localization. I've created a prototype implementation of the TextLine paradigm in XAML.*
+
+I've been thinking a lot about the elements of good typography lately. Specifically, I've thought about aligning type to a [grid](http://en.wikipedia.org/wiki/Grid_%28graphic_design%29) and how to technically achieve...
+                "
+            }}
+            
             {{> writing-tile
                 href="2014/10/05/a-new-home/"
                 title="A new home"
-                date="October 10, 2014"
+                date="October 5, 2014"
                 
                 snippet="
-Before now, I've tended to write in many different locations. From now on, this will be the one-stop-shop for everything. It's new! It's fun! It was created using [Jekyll](http://jekyllrb.com/)! You can find my previous writings here:
+*Update: Jekyll is out, hand-rolled is in! Jekyll is hard enough to install on Windows that I wrote a quick blogging engine with node.js and gulp.*
 
-* [Cryclops Wordpress](http://cryclops.com/)
-* [Cryclops Quora](http://cryclops.quora.com/)...
+Before now, I've tended to write in many different locations. From now on, this will be the one-stop-shop for everything. It's new! It's fun! It was created using [Jekyll](http://jekyllrb.com/)! You can find my previous writings here: ...
                 "
             }}
+            
         </div>
         
         {{> footer }}

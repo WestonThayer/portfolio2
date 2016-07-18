@@ -42,12 +42,10 @@
     
     @include media-breakpoint-up(xs) {
         padding: 0 14px;
-        max-height: ($grid-rung-height-xs * 18) + 6px; // Add a few px to avoid clipping descenders
     }
     
     @include media-breakpoint-up(md) {
         padding: 0 16px;
-        max-height: ($grid-rung-height-md * 18) + 6px;
     }
 }
 
@@ -77,13 +75,36 @@
 }
 
 .writing-tile__snippet {
-    @include type-serif-2();
-    
     @include media-breakpoint-up(xs) {
         margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2));
     }
     
     @include media-breakpoint-up(md) {
         margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 2));
+    }
+}
+
+.writing-tile__snippet--condensed {
+    overflow: hidden;
+    
+    @include media-breakpoint-up(xs) {
+        max-height: ($grid-rung-height-xs * 8) - 9px;
+    }
+    
+    @include media-breakpoint-up(md) {
+        max-height: ($grid-rung-height-md * 8) - 11px;
+    }
+}
+
+.writing-tile__preview-img {
+    width: 100%;
+    height: auto;
+    
+    @include media-breakpoint-up(xs) {
+        margin-top: $grid-rung-height-xs * 1;
+    }
+    
+    @include media-breakpoint-up(md) {
+        margin-top: $grid-rung-height-md * 1;
     }
 }

@@ -6,9 +6,13 @@
                 <h1 class="writing-tile__title">{{title}}</h1>
                 <p class="writing-tile__date">{{date}}</p>
                 
-                <div class="writing-tile__snippet">
+                <div class="writing-tile__snippet post__markdown-section{{#if previewImgSrc}} writing-tile__snippet--condensed{{/if}}">
                     {{mdToSnippetHtml snippet}}
                 </div>
+                
+                {{#if previewImgSrc}}
+                    <img class="writing-tile__preview-img" src="{{previewImgSrc}}">
+                {{/if}}
             </div>
         </a>
     </article>

@@ -4,6 +4,7 @@ var handlebars = require("handlebars");
 var frontmatter = require("front-matter");
 var marked = require("marked");
 var fs = require("fs");
+var highlightJs = require("highlight.js");
 
 const PLUGIN_NAME = 'gulp-templatize';
 
@@ -39,7 +40,40 @@ function gulpTemplatize() {
                 return;
             }
             
-            context.body = marked(parsed.body, { smartypants: true });
+            var markedRenderer = new marked.Renderer();
+            markedRenderer.code = function(code, lang) {
+                var validLang = highlightJs.getLanguage(lang);
+                var highlightedCode;
+                
+                if (!validLang || !lang) {
+                    if (!validLang && lang) {
+                        // Only warn if the supplied language is incorrect. Silent if no language
+                        // was given
+                        //gulpUtil.log("WARN: unrecognized language: " + lang + ", in " + file.path);
+                    }
+                    
+                    // Syntax highlight command prompt snippets ourselves
+                    if (lang === "cmdprompt") {
+                        var cmdRegex = /(^C:\\.+\&gt;)(.+)$/gm;
+                        code = escapeHtml(code);
+                        
+                        highlightedCode = code.replace(cmdRegex, '<span class="hljs-doctag">$1</span><span class="hljs-keyword">$2</span>');
+                        
+                        lang = "csharp";
+                    }
+                    else {
+                        highlightedCode = escapeHtml(code);
+                        lang = "nohighlight";
+                    }
+                }
+                else {
+                    highlightedCode = highlightJs.highlight(lang, code).value;
+                }
+                
+                return '<pre><code class="lang-' + lang + '">' + highlightedCode + '</code></pre>';
+            };
+            
+            context.body = marked(parsed.body, { smartypants: true, renderer: markedRenderer });
             
             if (!context.template) {
                 this.emit("error", new gulpUtil.PluginError(PLUGIN_NAME, "No template specified for " + file.path));

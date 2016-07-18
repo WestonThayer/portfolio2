@@ -1,9 +1,14 @@
-.post__img-container {
+.post {
+    @include media-breakpoint-up(md) {
+        margin-top: $grid-rung-height-md * 5;
+    }
+}
+
+.post__feature-img-container {
     overflow: hidden;
     
     @include media-breakpoint-up(md) {
-        margin-top: $grid-rung-height-md * 5;
-        height: $grid-rung-height-md * 24;
+        height: $grid-rung-height-md * 28;
         
         background-position: center bottom;
         background-attachment: fixed;
@@ -11,7 +16,7 @@
     }
 }
 
-.post__img {
+.post__feature-img {
     width: 100%;
     height: auto;
 }
@@ -70,60 +75,11 @@
 .post__body {
     @include media-breakpoint-up(xs) {
         margin: 43px 0 0 0;
+        padding-bottom: 160px;
     }
     
     @include media-breakpoint-up(md) {
         margin: calc-margin-top--type-serif-2-md("capheight", ($grid-rung-height-md * 4)) 0 0 0;
-    }
-    
-    > p {
-        @include type-serif-2();
-    }
-    
-    > p + p {
-        @include media-breakpoint-up(xs) {
-            margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2))) 0 0 0;
-        }
-        
-        @include media-breakpoint-up(md) {
-            margin: (calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 2))) 0 0 0;
-        }
-    }
-    
-    > img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    > p + .post-figure,
-    > p + .post-side-by-side-img {
-        @include media-breakpoint-up(xs) {
-            margin-top: calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 2));
-        }
-        
-        @include media-breakpoint-up(md) {
-            margin-top: calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 4));
-        }
-    }
-    
-    > .post-figure + p,
-    > .post-side-by-side-img + p {
-        @include media-breakpoint-up(xs) {
-            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2))) 0 0 0;
-        }
-        
-        @include media-breakpoint-up(md) {
-            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 2)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 3))) 0 0 0;
-        }
-    }
-    
-    > .post-figure + .post-figure {
-        @include media-breakpoint-up(xs) {
-            margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 2));
-        }
-        
-        @include media-breakpoint-up(md) {
-            margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 4));
-        }
+        padding-bottom: 0;
     }
 }

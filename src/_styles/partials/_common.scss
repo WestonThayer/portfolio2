@@ -41,3 +41,245 @@
         transform: scale3d(1,1,1);
     }
 }
+
+// Styles for a Markdown section, shared between the post template and writing-tile
+.post__markdown-section {
+    //
+    // Default styles for HTML tags, no spacing
+    //
+    
+    > p {
+        @include type-serif-2();
+    }
+    
+    > ul,
+    > ol {
+        @include type-serif-2();
+        padding: 0 0 0 48px;
+    }
+    
+    > h2 {
+        @include type-sans-2();
+        font-weight: 900;
+    }
+    
+    > blockquote {
+        @include type-serif-2();
+        text-align: center;
+        font-style: italic;
+        color: $text-muted;
+    }
+    
+    > pre {
+        background-color: #333;
+        padding: 8px 16px 12px 16px;
+        overflow-x: auto;
+    }
+    
+    > p code,
+    > ol code,
+    > ul code,
+    > table code {
+        font-family: $font-family-monospace;
+        background-color: rgba(0,0,0,0.05);
+        padding: 0 4px;
+        
+        @include media-breakpoint-up(xs) {
+            font-size: 16px;
+        }
+        
+        @include media-breakpoint-up(md) {
+            font-size: 18px;
+        }
+    }
+    
+    > table {
+        @include type-sans-3();
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: collapse;
+        
+        td, th {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            line-height: 32px;
+        }
+        
+        thead th {
+            font-weight: normal;
+            color: $text-muted;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+        }
+    }
+    
+    
+    //
+    // Spacing from text to text elements. Not all possible permutations are
+    // included, as some are uncommon
+    //
+    
+    // type-serif-2 to type-serif-2, 1 rung
+    > p + p,
+    > p + ol,
+    > p + ul,
+    > ol + p,
+    > ul + p {
+        @include media-breakpoint-up(xs) {
+            margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2))) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: (calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 2))) 0 0 0;
+        }
+    }
+    
+    // type-serif-2 to type-sans-2, 8 rungs
+    > p + h2,
+    > ul + h2,
+    > ol + h2 {
+        @include media-breakpoint-up(xs) {
+            margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 8))) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: (calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-md * 8))) 0 0 0;
+        }
+    }
+    
+    // type-sans-3 to type-sans-2, 8 rungs
+    > .post-figure + h2 {
+        @include media-breakpoint-up(xs) {
+            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 8))) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-md * 8))) 0 0 0;
+        }
+    }
+    
+    // type-serif-2 to type-serif-2, 4 rungs
+    > p + blockquote,
+    > blockquote + p {
+        @include media-breakpoint-up(xs) {
+            margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 4))) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: (calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 4))) 0 0 0;
+        }
+    }
+    
+    // type-sans-2 to type-serif-2, 2 rungs
+    > h2 + p {
+        @include media-breakpoint-up(xs) {
+            margin: (calc-margin-bottom--type-sans-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2))) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: (calc-margin-bottom--type-sans-2("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 2))) 0 0 0;
+        }
+    }
+    
+    // type-sans-3 to type-serif-2, 4 rungs
+    > .post-figure + p,
+    > .post-side-by-side-img + p {
+        @include media-breakpoint-up(xs) {
+            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 2)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 3))) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 2)) + calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 3))) 0 0 0;
+        }
+    }
+    
+    
+    //
+    // Spacing from text to elements with a sharp top. Not all possible permutations
+    // are included, as some are uncommon
+    //
+    
+    // type-serif-2 to sharp, 4 rungs
+    > p + .post-figure,
+    > ol + .post-figure,
+    > ul + .post-figure,
+    > p + .post-side-by-side-img,
+    > ol + .post-side-by-side-img,
+    > ul + .post-side-by-side-img,
+    > p + pre,
+    > ol + pre,
+    > ul + pre,
+    > p + table,
+    > ol + table,
+    > ul + table {
+        @include media-breakpoint-up(xs) {
+            margin-top: calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 4));
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin-top: calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 4));
+        }
+    }
+    
+    // type-sans-3 to sharp, 4 rungs
+    > .post-figure + .post-figure {
+        @include media-breakpoint-up(xs) {
+            margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 4));
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 4));
+        }
+    }
+    
+    
+    //
+    // Spacing from elements with a sharp bottom to text
+    //
+    
+    // sharp to type-serif-2, 4 rungs
+    > .post-figure.post-figure--nocaption + p,
+    > .post-figure.post-figure--nocaption + ol,
+    > .post-figure.post-figure--nocaption + ul,
+    > pre + p,
+    > table + p {
+        @include media-breakpoint-up(xs) {
+            margin: calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 5)) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: calc-margin-top--type-serif-2-md("baseline", ($grid-rung-height-md * 5)) 0 0 0;
+        }
+    }
+    
+    // sharp to type-sans-2, 8 rungs
+    > .post-figure.post-figure--nocaption + h2,
+    > table + h2,
+    > pre + h2 {
+        @include media-breakpoint-up(xs) {
+            margin: calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 9)) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: calc-margin-top--type-sans-2("baseline", ($grid-rung-height-md * 9)) 0 0 0;
+        }
+    }
+    
+    
+    //
+    // Spacing from elements with a sharp bottom to elements with a sharp top
+    //
+    
+    // sharp to sharp, 4 rungs
+    > .post-figure.post-figure--nocaption + .post-figure,
+    > pre + pre,
+    > pre + .post-figure,
+    > table + table {
+        @include media-breakpoint-up(xs) {
+            margin-top: ($grid-rung-height-xs * 4);
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin-top: ($grid-rung-height-md * 4);
+        }
+    }
+}

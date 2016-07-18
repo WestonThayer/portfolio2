@@ -56,8 +56,8 @@ gulp.task("build-scripts", function() {
 });
 
 gulp.task("copy-assets", function() {
-    return gulp.src("src/assets/**/*.{jpg,png,mp4}")
-        .pipe(gulp.dest("dist/assets/"));
+    return gulp.src("src/**/*.{jpg,png,mp4}")
+        .pipe(gulp.dest("dist/"));
 });
 
 // Build, then start a server

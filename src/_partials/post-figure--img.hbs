@@ -1,4 +1,6 @@
-<figure class="post-figure post-figure--img" {{#if id}}id="{{id}}"{{/if}}>
+<figure class="post-figure post-figure--img{{#unless caption}} post-figure--nocaption{{/unless}}" {{#if id}}id="{{id}}"{{/if}}>
     <img class="post-figure--img__img" src="{{src}}" alt="{{alt}}" {{#if title}}title="{{title}}"{{/if}} />
-    <figcaption class="post-figure__caption">{{caption}}</figcaption>
+    {{#if caption}}
+        <figcaption class="post-figure__caption">{{caption}}</figcaption>
+    {{/if}}
 </figure>

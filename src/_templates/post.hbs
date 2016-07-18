@@ -5,14 +5,14 @@
         description=description
     }}
     <body>
-        {{> navbar work="true" }}
+        {{> navbar section }}
         
-        <article>
-            {{#if imgBase}}
+        <article class="post">
+            {{#if featureImgSrc}}
                 <div class="container container--fullbleed">
                     <div class="row row--fullbleed">
-                        <div class="col-xs-12 col--fullbleed post__img-container">
-                            <img class="post__img" sizes="100vw" srcset="{{imageStack imgBase imgExt}}" src="{{imgSrcBackup}}">
+                        <div class="col-xs-12 col--fullbleed post__feature-img-container">
+                            <img class="post__feature-img" {{#if featureImgBase}}sizes="100vw" srcset="{{imageStack featureImgBase featureImgExt}}"{{/if}} src="{{featureImgSrc}}">
                         </div>
                     </div>
                 </div>
@@ -24,28 +24,48 @@
                         <h1 class="post__title">{{title}}</h1>
                         
                         <aside class="post__aside">
-                            <div class="post__aside-wrapper">
-                                <span class="post__aside-label">{{asideLabel1}}</span>
-                                <ul class="post__aside-ul">
-                                    {{#each asideList1}}
-                                        <li class="post__aside-ul-li">{{this}}</li>
-                                    {{/each}}
-                                </ul>
-                            </div>
+                            {{#if asideLabel1}}
+                                <div class="post__aside-wrapper">
+                                    <span class="post__aside-label">{{asideLabel1}}</span>
+                                    <ul class="post__aside-ul">
+                                        {{#each asideList1}}
+                                            <li class="post__aside-ul-li">{{this}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                            {{/if}}
                             
-                            <div class="post__aside-wrapper">
-                                <span class="post__aside-label">{{asideLabel2}}</span>
-                                <ul class="post__aside-ul">
-                                    {{#each asideList2}}
-                                        <li class="post__aside-ul-li">{{this}}</li>
-                                    {{/each}}
-                                </ul>
-                            </div>
+                            {{#if asideLabel2}}
+                                <div class="post__aside-wrapper">
+                                    <span class="post__aside-label">{{asideLabel2}}</span>
+                                    <ul class="post__aside-ul">
+                                        {{#each asideList2}}
+                                            <li class="post__aside-ul-li">{{this}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                            {{/if}}
                         </aside>
                     </div>
-                    <div class="col-xs-12 col-md-9 col-xl-7 post__body">
+                    <div class="col-xs-12 col-md-9 col-xl-7 post__body post__markdown-section">
                         {{{body}}}
                     </div>
+                    {{#if enableComments}}
+                        <div id="disqus-thread" class="col-xs-12 col-md-9 col-xl-7 post__comments">
+                            <script type="text/javascript">
+                                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                                var disqus_shortname = 'westonthayer'; // required: replace example with your forum shortname
+                                
+                                /* * * DON'T EDIT BELOW THIS LINE * * */
+                                (function() {
+                                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                                })();
+                                </script>
+                                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                        </div>
+                    {{/if}}
                 </div>
             </div>
         </article>
