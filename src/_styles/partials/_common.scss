@@ -44,6 +44,9 @@
 
 // Styles for a Markdown section, shared between the post template and writing-tile
 .post__markdown-section {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    
     //
     // Default styles for HTML tags, no spacing
     //
