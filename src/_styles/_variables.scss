@@ -21,9 +21,9 @@ $text-muted: rgba(0,0,0,0.6);
 $body-bg: #FFF;
 
 $link-color: $body-color;
-$link-decoration: underline;
-$link-hover-color: gray;
-$link-hover-decoration: underline;
+$link-decoration: none;
+$link-hover-color: $text-muted;
+$link-hover-decoration: none;
 
 $table-bg: transparent;
 $table-cell-padding: 4px;

@@ -91,7 +91,6 @@
 
     .nav-link {
         display: block;
-        text-decoration: none;
         font-family: $font-family-sans-serif;
         font-variant: small-caps;
         font-size: 18px;
@@ -113,7 +112,7 @@
         }
         
         &:hover {
-            text-decoration: $link-hover-decoration;
+            text-decoration: underline;
         }
     }
     
