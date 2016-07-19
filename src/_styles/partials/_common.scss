@@ -225,7 +225,10 @@
     > ul + pre,
     > p + table,
     > ol + table,
-    > ul + table {
+    > ul + table,
+    > p + .post-framer-btn,
+    > ol + .post-framer-btn,
+    > ul + .post-framer-btn {
         @include media-breakpoint-up(xs) {
             margin-top: calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 4));
         }
@@ -256,7 +259,8 @@
     > .post-figure.post-figure--nocaption + ol,
     > .post-figure.post-figure--nocaption + ul,
     > pre + p,
-    > table + p {
+    > table + p,
+    > .post-framer-btn + p {
         @include media-breakpoint-up(xs) {
             margin: calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 5)) 0 0 0;
         }
@@ -269,7 +273,8 @@
     // sharp to type-sans-2, 8 rungs
     > .post-figure.post-figure--nocaption + h2,
     > table + h2,
-    > pre + h2 {
+    > pre + h2,
+    > .post-framer-btn + h2 {
         @include media-breakpoint-up(xs) {
             margin: calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 9)) 0 0 0;
         }
@@ -288,7 +293,8 @@
     > .post-figure.post-figure--nocaption + .post-figure,
     > pre + pre,
     > pre + .post-figure,
-    > table + table {
+    > table + table,
+    > .post-framer-btn + .post-figure {
         @include media-breakpoint-up(xs) {
             margin-top: ($grid-rung-height-xs * 4);
         }

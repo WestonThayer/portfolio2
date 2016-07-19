@@ -1,11 +1,15 @@
 ---
 template: post.hbs
 
+section:
+    work: true
 title: Drag and drop
 description: A redesign of drag and drop for Windows 10.
-imgBase: "/assets/test-assets/test"
-imgExt: ".jpg"
-imgSrcBackup: "/assets/test-assets/test.750w.jpg"
+
+featureImgBase: "/assets/test-assets/test"
+featureImgExt: ".jpg"
+featureImgSrc: "/assets/test-assets/test.750w.jpg"
+
 asideLabel1: role
 asideList1:
     - Interaction design
@@ -21,19 +25,19 @@ A redesign of drag and drop for Windows 10 to bring the magic back to one of Win
 {{> post-figure--video
     src="/assets/work/drag-and-drop/lift.mp4"
     loop="true"
-    caption="Press and hold with your finger to drag an item, release to drop it."
+    caption="Press and hold with your finger to lift an item, release to drop it."
 }}
 
 Elegant transitions give touch users clear indication of when they can drag. Responsive reorder animations provide clarity and a degree of delight to the interaction.
 
-Rapidly iterating on high-fidelity prototypes was essential to discovering the best solution.
+Rapidly iterating on high-fidelity prototypes was essential to discovering the best solution. Framer was my tool of choice.
 
-[Try it in Framer](http://e/)
+{{> post-framer-btn href="http://reddit.com" }}
 
 {{> post-figure--video
-    src="/assets/work/drag-and-drop/ctx.mp4"
+    src="/assets/work/drag-and-drop/folders.mp4"
     loop="true"
-    caption="Press and hold is still used to show a context menu after a slightly longer hold. Moving the item hides the menu to let you continue the drag."
+    caption="Bookmarks can be reordered or dropped into a folder."
 }}
 
 {{> post-figure--video
@@ -41,5 +45,3 @@ Rapidly iterating on high-fidelity prototypes was essential to discovering the b
     loop="true"
     caption="Multiple items can be dragged, even reordered"
 }}
-
-While drag and drop is most frequently used in lists, the design also works well in grids of items.
