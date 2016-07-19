@@ -17,7 +17,7 @@ The landscape of software performance, especially for UI, is complex, mysterious
 
 She sought to consolidate and unify lists in her many apps, while removing duplicate code. Her users would rejoice at the level of polish and consistency she'd achieved.
 
-Being a responsible developer, she wants to ensure that lists display just as fast as ever. Unfortunately, she only has high-end devices to test on. Everything *seems* to be fine with her changes. But, she suspects that may not be the case on low-end devices. So she writes some code to measure how long it takes for the list to render and runs some tests, effectively [benchmarking](https://en.wikipedia.org/wiki/Benchmark_(computing)). Here are some of her results:
+Being a responsible developer, she wants to ensure that lists display just as fast as ever. Unfortunately, she only has high-end devices to test on. Everything *seems* to be fine with her changes. But, she suspects that may not be the case on low-end devices. So she writes some code to measure how long it takes for the list to render and runs some tests, effectively [benchmarking](https://en.wikipedia.org/wiki/Benchmark_%28computing%29). Here are some of her results:
 
 | Test Run   | Pre-Change  | Post-Change  |
 | ---------- | ----------- | ------------ |
@@ -43,7 +43,7 @@ You can stay in it. Run more tests. Sometimes the variance will be less and you'
 
 * Test real-world scenarios
 * Test on slow, cheap devices
-* Use a [performance analyzer](https://en.wikipedia.org/wiki/Profiling_(computer_programming))
+* Use a [performance analyzer](https://en.wikipedia.org/wiki/Profiling_%28computer_programming%29)
 
 ## Test real-world scenarios
 
