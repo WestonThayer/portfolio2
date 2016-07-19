@@ -60,7 +60,14 @@
         background-image: linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 50%);
         background-repeat: repeat-x;
         background-size: 2px 2px;
-        background-position: 0 23px;
+        
+        @include media-breakpoint-up(xs) {
+            background-position: 0 21px;
+        }
+        
+        @include media-breakpoint-up(md) {
+            background-position: 0 23px;
+        }
     }
     
     > p {
