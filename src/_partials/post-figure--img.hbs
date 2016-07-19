@@ -1,5 +1,6 @@
 <figure class="post-figure post-figure--img{{#unless caption}} post-figure--nocaption{{/unless}}" {{#if id}}id="{{id}}"{{/if}}>
-    <img class="post-figure--img__img" src="{{src}}" alt="{{alt}}" {{#if title}}title="{{title}}"{{/if}} />
+    {{!-- sizes depends on the col declarations on post.hbs's .post__body --}}
+    <img class="post-figure--img__img" {{#if srcset}}sizes="(min-width: 1200px) 47vw, (min-width: 768px) 57.5vw, 92vw" srcset="{{srcset}}"{{/if}} src="{{src}}" alt="{{alt}}" {{#if title}}title="{{title}}"{{/if}}>
     {{#if caption}}
         <figcaption class="post-figure__caption">{{caption}}</figcaption>
     {{/if}}

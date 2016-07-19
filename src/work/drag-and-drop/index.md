@@ -23,7 +23,8 @@ asideList2:
 A redesign of drag and drop for Windows 10 to bring the magic back to one of Window's original features.
 
 {{> post-figure--video
-    src="/assets/work/drag-and-drop/lift.mp4"
+    src="lift.mp4"
+    poster="lift.png"
     loop="true"
     caption="Press and hold with your finger to lift an item, release to drop it."
 }}
@@ -35,13 +36,15 @@ Rapidly iterating on high-fidelity prototypes was essential to discovering the b
 {{> post-framer-btn href="http://reddit.com" }}
 
 {{> post-figure--video
-    src="/assets/work/drag-and-drop/folders.mp4"
+    src="folders.mp4"
+    poster="folders.png"
     loop="true"
     caption="Bookmarks can be reordered or dropped into a folder."
 }}
 
 {{> post-figure--video
-    src="/assets/work/drag-and-drop/multiple.mp4"
+    src="multiple.mp4"
+    poster="multiple.png"
     loop="true"
     caption="Multiple items can be dragged, even reordered"
 }}
