@@ -6,9 +6,9 @@ section:
 title: Drag and drop
 description: A redesign of drag and drop for Windows 10.
 
-featureImgBase: "/assets/test-assets/test"
+featureImgBase: "/assets/features/drag-and-drop-assets/drag-and-drop"
 featureImgExt: ".jpg"
-featureImgSrc: "/assets/test-assets/test.750w.jpg"
+featureImgSrc: "/assets/features/drag-and-drop-assets/drag-and-drop.750w.jpg"
 
 asideLabel1: role
 asideList1:

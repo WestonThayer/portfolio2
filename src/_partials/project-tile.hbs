@@ -2,7 +2,7 @@
     {{#if imgBaseCrop}}
     <picture class="project-tile__picture" style="background-color: {{placeholderBackgroundColor}};">
         <source media="(min-width: 768px)" sizes="39.38vw" srcset="{{imageStack imgBaseFull imgExt}}">
-        <img class="tile__bg project-tile__img" sizes="92vw" srcset="{{imageStack imgBaseCrop imgExt}}" src="{{imgSrcBackup}}">
+        <img class="tile__bg project-tile__img" sizes="92vw" srcset="{{imgBaseCrop}}.590w{{imgExt}}, {{imgBaseCrop}}.690w{{imgExt}} 690w, {{imgBaseCrop}}.990w{{imgExt}}, {{imgBaseCrop}}.1330w{{imgExt}}" src="{{imgSrcBackup}}">
     </picture>
     {{else}}
         <div class="project-tile__picture" style="background-color: {{placeholderBackgroundColor}};">
