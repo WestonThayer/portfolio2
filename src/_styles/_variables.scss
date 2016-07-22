@@ -1,13 +1,13 @@
 // Font stacks are defined in _custom-bootstrap.scss, here we have our
 // our custom type ramp and some other useful values
 
-$font-family-sans-serif: "lato", "Courier New";//Helvetica, Arial, sans-serif;
+$font-family-sans-serif: "lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Droid Sans", "Helvetica Neue", Arial, sans-serif;
 $font-family-sans-serif-metric-natural-line-height: (2233 + 599) / 2000; // ascender + descender
 $font-family-sans-serif-metric-baseline: 2233 / 2000; // distance in ems from top to baseline
 $font-family-sans-serif-metric-capheight: (2233 - 1457) / 2000; // distance in ems from top to cap height, (ascender - capheight)
 $font-family-sans-serif-metric-descent: 599 / 2000; // distance in ems from bottom to baseline
 
-$font-family-serif: "adobe-garamond-pro", "Comic Sans MS";//Georgia, "Times New Roman", Times, serif;
+$font-family-serif: "adobe-garamond-pro", Garamond, Baskerville, "Times New Roman", Times, serif;
 $font-family-serif-metric-natural-line-height: (917 + 354) / 1000; // ascender + descender
 $font-family-serif-metric-baseline: 917 / 1000; // distance in ems from top to baseline
 $font-family-serif-metric-capheight: (917 - 660) / 1000; // distance in ems from top to cap height (ascender - capheight)
