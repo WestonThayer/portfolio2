@@ -10,6 +10,10 @@
     display: inline-block;
 }
 
+.wf-loading .nav-link {
+    visibility: hidden;
+}
+
 .navbar {
     position: fixed;
     right: 0;

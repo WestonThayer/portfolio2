@@ -97,6 +97,10 @@
     }
 }
 
+.wf-loading .about__feature-h1 {
+    visibility: hidden;
+}
+
 .about__feature-h1-l3 {
     @include media-breakpoint-up(xs) {
         margin-top: 30px;
@@ -109,6 +113,10 @@
 
 .about__feature-para p {
     @include type-serif-2();
+}
+
+.wf-loading .about__feature-para p {
+    visibility: hidden;
 }
 
 .about__feature-para-first {

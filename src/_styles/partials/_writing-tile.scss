@@ -74,6 +74,11 @@
     }
 }
 
+.wf-loading .writing-tile__title,
+.wf-loading .writing-tile__date {
+    visibility: hidden;
+}
+
 .writing-tile__snippet {
     @include media-breakpoint-up(xs) {
         margin-top: calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2));

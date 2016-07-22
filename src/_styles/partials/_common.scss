@@ -13,6 +13,10 @@
     }
 }
 
+.wf-loading .post-figure__caption {
+    visibility: hidden;
+}
+
 // Tile
 // We don't use the :hover and :active selectors because it has nasty touch
 // behavior. Instead, we apply these classes via JS
@@ -309,5 +313,16 @@
         @include media-breakpoint-up(md) {
             margin-top: ($grid-rung-height-md * 4);
         }
+    }
+}
+
+.wf-loading .post__markdown-section {
+    > p,
+    > ol,
+    > ul,
+    > h2,
+    > blockquote,
+    > table {
+        visibility: hidden;
     }
 }

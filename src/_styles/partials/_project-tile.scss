@@ -42,6 +42,10 @@
     }
 }
 
+.wf-loading .project-tile__label {
+    visibility: hidden;
+}
+
 .project-tile__label-icon {
     display: inline-block;
     margin: 9px 8px 9px 0;

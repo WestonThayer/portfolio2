@@ -20,6 +20,11 @@
     display: block;
 }
 
+.wf-loading .footer__line-label,
+.wf-loading .footer__line-content {
+    visibility: hidden;
+}
+
 .footer__line-label {
     color: $text-muted;
 }
