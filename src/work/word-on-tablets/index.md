@@ -6,9 +6,9 @@ section:
 title: Word on tablets
 description: Natural interactions for writing and editing with Microsoft Word on tablets.
 
-featureImgBase: "/assets/feature-word-on-tablet-assets/feature-word-on-tablet"
+featureImgBase: "/assets/features/word-on-tablet-assets/word-on-tablet"
 featureImgExt: ".png"
-featureImgSrc: "/assets/feature-word-on-tablet-assets/feature-word-on-tablet.750w.png"
+featureImgSrc: "/assets/features/word-on-tablet-assets/word-on-tablet.750w.png"
 
 asideLabel1: role
 asideList1:
