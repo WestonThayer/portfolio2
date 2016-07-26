@@ -56,7 +56,7 @@ gulp.task("build-scripts", function() {
 });
 
 gulp.task("copy-assets", function() {
-    return gulp.src("src/**/*.{jpg,png,mp4}")
+    return gulp.src("src/**/*.{jpg,png,mp4,gif}")
         .pipe(gulp.dest("dist/"));
 });
 
