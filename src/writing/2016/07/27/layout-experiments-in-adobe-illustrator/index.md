@@ -80,6 +80,6 @@ Everyone agrees that stacks are *useful*. Making our layout decisions in the sam
 
 ## Conclusion
 
-You can [**try Bloks**](https://github.com/WestonThayer/Bloks) if you have Illustrator. Let me know if you have a problem by creating a new [issue](https://github.com/WestonThayer/Bloks/issues). Share your experience, frustration, or delight with me in the comments or [on Twitter](https://twitter.com/WestonThayer5).
+You can [**try Bloks**](https://github.com/WestonThayer/Bloks#installation) if you have Illustrator. Let me know if you have a problem by creating a new [issue](https://github.com/WestonThayer/Bloks/issues). Share your experience, frustration, or delight with me in the comments or [on Twitter](https://twitter.com/WestonThayer5).
 
 Under the hood, it's all powered by [flexbox](https://github.com/facebook/css-layout) (thanks for the [tip Matej](https://medium.com/facebook-design/exploring-dynamic-layout-in-sketch-fdf0e825d1cf#.2jcauvrh3)), so just about anything is possible.
