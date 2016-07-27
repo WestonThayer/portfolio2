@@ -162,7 +162,8 @@
     // type-serif-2 to type-sans-2, 8 rungs
     > p + h2,
     > ul + h2,
-    > ol + h2 {
+    > ol + h2,
+    > blockquote + h2 {
         @include media-breakpoint-up(xs) {
             margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 8))) 0 0 0;
         }
