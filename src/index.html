@@ -50,7 +50,7 @@
                 </article>
             </div>
             <div class="row">
-                <article class="col-xs-12 col-md-6 col-md-push-6 col-equalspace-sm-down">
+                <article class="col-xs-12 col-md-6 col-md-push-6 col-equalspace-sm-down col-equalspace-md-up">
                     {{> project-tile
                         href="/work/windows-10-controls/"
                         line1="Controls"
@@ -63,11 +63,39 @@
                         color="#000"
                     }}
                 </article>
-                <article class="col-xs-12 col-md-6 col-md-pull-6">
+                <article class="col-xs-12 col-md-6 col-md-pull-6 col-equalspace-sm-down col-equalspace-md-up">
                     {{> project-tile
                         href="/work/word-on-tablets/"
                         line1="Word on tablets"
                         line2="Office"
+                        imgExt=".png"
+                        imgBaseFull="assets/features/word-on-tablet-assets/word-on-tablet"
+                        imgBaseCrop="assets/features/word-on-tablet--crop-assets/word-on-tablet--crop"
+                        imgSrcBackup="assets/features/word-on-tablet-assets/word-on-tablet.750w.png"
+                        placeholderBackgroundColor="#2B579A"
+                        color="#FFF"
+                    }}
+                </article>
+            </div>
+            <div class="row">
+                <article class="col-xs-12 col-md-6 col-equalspace-sm-down">
+                    {{> project-tile
+                        href="/work/augmented-reality-cereal/"
+                        line1="Augmented reality cereal"
+                        line2="Qualcomm"
+                        imgExt=".jpg"
+                        imgBaseFull="assets/features/cereal-assets/cereal"
+                        imgBaseCrop="assets/features/cereal--crop-assets/cereal--crop"
+                        imgSrcBackup="assets/features/cereal-assets/cereal.750w.jpg"
+                        placeholderBackgroundColor="#93ACD4"
+                        color="#FFF"
+                    }}
+                </article>
+                <article class="col-xs-12 col-md-6">
+                    {{> project-tile
+                        href="/work/cortana/"
+                        line1="Welcome experience"
+                        line2="Cortana"
                         imgExt=".png"
                         imgBaseFull="assets/features/word-on-tablet-assets/word-on-tablet"
                         imgBaseCrop="assets/features/word-on-tablet--crop-assets/word-on-tablet--crop"

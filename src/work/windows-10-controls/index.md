@@ -14,7 +14,7 @@ asideLabel1: role
 asideList1:
     - Interaction design
     - Prototyping
-    - Development
+    - Frontend development
 asideLabel2: product
 asideList2:
     - Windows 10
