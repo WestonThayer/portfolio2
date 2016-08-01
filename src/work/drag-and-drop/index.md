@@ -31,9 +31,7 @@ A redesign of drag and drop for Windows 10 to bring the magic back to one of Win
 
 Elegant transitions give touch users clear indication of when they can drag. Responsive reorder animations provide clarity and a degree of delight to the interaction.
 
-Rapidly iterating on high-fidelity prototypes was essential to discovering the best solution. Framer was my tool of choice.
-
-{{> post-framer-btn href="http://reddit.com" }}
+Rapidly iterating on high-fidelity prototypes was essential to discovering the best solution. [Framer](http://framerjs.com/) was my tool of choice.
 
 {{> post-figure--video
     src="folders.mp4"
