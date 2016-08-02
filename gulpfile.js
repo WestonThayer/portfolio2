@@ -126,5 +126,6 @@ gulp.task("deploy", [
     "deploy-build-scripts",
     "deploy-copy-assets"
 ], function() {
-    
+    return gulp.src("src/.htaccess")
+        .pipe(gulp.dest("dist/"));
 });
