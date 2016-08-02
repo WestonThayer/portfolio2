@@ -8,7 +8,7 @@ description: Final touches on Cortana's entrance.
 
 featureImgBase: "/assets/features/cortana-assets/cortana"
 featureImgExt: ".png"
-featureImgSrc: "/assets/features/cortana-assets/cortana.750w.jpg"
+featureImgSrc: "/assets/features/cortana-assets/cortana.750w.png"
 
 asideLabel1: role
 asideList1:
