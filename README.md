@@ -8,6 +8,14 @@ Simple home for http://westonthayer.com.
 2. Install Git and [git-lfs](https://git-lfs.github.com/)
 3. `npm install`
 
+## Running
+
+`npm run watch`. Doesn't watch for changes to assets, so you need to restart the server if you're changing those.
+
+## Deploying
+
+`npm run deploy`. Doesn't actually deploy, just puts files in `dist/` that are minified, autoprefixed, etc. Copy those to the server.
+
 ## Creating image assets
 
 Most photos will probably be responsive images. If that's the case, these are the widths to export.
