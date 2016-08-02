@@ -177,5 +177,19 @@
             window.addEventListener("resize", handleResize);
             handleResize();
         })();
+        
+        // Manage fading in the background image on the /about/ page
+        (function() {
+            var feature = document.getElementById("about__featurebg");
+            
+            if (feature) {
+                var bgImg = new Image();
+                bgImg.onload = function() {
+                    feature.classList.add("about__feature--loaded");
+                };
+                
+                bgImg.src = "/assets/about/selfr.jpg";
+            }
+        })();
     });
 })()

@@ -25,6 +25,11 @@
 .project-tile__img {
     width: 100%;
     height: auto;
+    
+    // For fade in once image finished loading. Have to copy the transition from
+    // .tile__bg
+    opacity: 0;
+    transition: transform $motion-snappy, opacity 1s;
 }
 
 .project-tile__label {

@@ -12,11 +12,28 @@
         // For fixed footer reveal
         position: relative;
         margin-bottom: 436px;
-        box-shadow: $drop-shadow-2;
         
-        background-image: url("/assets/about/selfr.jpg");
-        background-position: right top;
-        background-size: cover;
+        // Hides footer underneath until image loads
+        background-color: #FFF;
+        
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        
+        &.about__feature--loaded::before {
+            background-image: url("/assets/about/selfr.jpg");
+            background-position: right top;
+            background-size: cover;
+            opacity: 1;
+        }
     }
 }
 
