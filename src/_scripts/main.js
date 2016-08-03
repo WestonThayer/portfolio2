@@ -159,7 +159,7 @@
         
         // Manage the focal point of the feature image on the /about/ page
         (function() {
-            var features = document.getElementsByClassName("about__feature-h1-row");
+            var features = document.getElementsByClassName("about__feature-h1-row-bg");
             
             function handleResize() {
                 for (var i = 0; i < features.length; i++) {

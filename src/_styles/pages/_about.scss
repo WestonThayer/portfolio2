@@ -14,7 +14,7 @@
         margin-bottom: 436px;
         
         // Hides footer underneath until image loads
-        background-color: #FFF;
+        background-color: #C9CDBB;
         
         &::before {
             content: "";
@@ -39,14 +39,14 @@
 
 .about__feature-h1-row {
     @include media-breakpoint-up(xs) {
+        position: relative;
+        
         margin-left: -4%;
         margin-left: -4vw;
         margin-right: -4%;
         margin-right: -4vw;
         
-        background-image: url("/assets/about/selfr.jpg");
-        background-position: right top;
-        // background-size is set in _scripts/main.js dynamically
+        background-color: #C9CDBB;
     }
     
     @include media-breakpoint-up(md) {
@@ -54,18 +54,51 @@
         margin-left: -8vw;
         margin-right: -8%;
         margin-right: -8vw;
-        
-        background-position: right center;
-        background-size: cover;
     }
     
     @include media-breakpoint-up(xl) {
+        // Reset to default
         margin-left: -2%;
         margin-left: -2vw;
         margin-right: -2%;
         margin-right: -2vw;
         
-        background-image: none; // handoff background image to the container
+        background-color: transparent;;
+    }
+}
+
+@include media-breakpoint-up(xs) {
+    .about__feature-h1-row-bg {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        
+        opacity: 0;
+        transition: opacity 1s;
+    }
+    
+    .about__feature--loaded .about__feature-h1-row-bg {
+        background-image: url("/assets/about/selfr.jpg");
+        background-position: right top;
+        // background-size is set in _scripts/main.js dynamically
+        opacity: 1;
+    }
+}
+    
+@include media-breakpoint-up(md) {
+    .about__feature-h1-row-bg {
+        background-position: right center;
+        background-size: cover;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    // handoff background image to the container
+    .about__feature--loaded .about__feature-h1-row-bg {
+        background-image: none;
     }
 }
 
