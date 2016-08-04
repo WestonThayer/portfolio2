@@ -9,6 +9,8 @@ description: A design system for Windows phones, tablets, PCs, and Xbox.
 featureImgBase: "/assets/features/controls-assets/controls"
 featureImgExt: ".jpg"
 featureImgSrc: "/assets/features/controls-assets/controls.750w.jpg"
+featureImgPosition: "center bottom"
+featureImgBgColor: "#E8E6E8"
 
 asideLabel1: role
 asideList1:

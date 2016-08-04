@@ -6,11 +6,10 @@
     <title>{{title}}</title>
     <meta name="description" content="{{description}}">
     
-    <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
-    <link rel="icon" href="/assets/favicon-62.png" sizes="62x62" type="image/png">
-    <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
+    <!-- <link rel="stylesheet" href="http://basehold.it/14" media="(max-width: 767px)">
+    <link rel="stylesheet" href="http://basehold.it/16" media="(min-width: 768px)"> -->
+    
+    <link rel="stylesheet" href="/css/main.css">
     
     <!-- Typekit Fonts -->
     <script>
@@ -25,13 +24,32 @@
     </script>
     
     <script>
-        window.fadeIn = function(img) {
-            img.style.opacity = 1;
+        {{!--
+        // JS is here because it MUST be present before the HTML rendered
+        --}}
+        
+        window.zImgLoaded = function(img) {
+            img.classList.add("imgloaded");
         };
+        
+        window.zImgLoadedSwitchToBgImg = function(img) {
+            {{!--
+            // currentSrc is supplied when srcset is supported in
+            // the browser. If it doesn't exist, the <img> is using
+            // it's real src value because that browser doesn't
+            // support srcset
+            --}}
+            var src = img.currentSrc ? img.currentSrc : img.src;
+            
+            var p = img.previousElementSibling;
+            p.style.backgroundImage = 'url("' + src + '")';
+            p.classList.add("imgloaded");
+        }
     </script>
     
-    <!-- <link rel="stylesheet" href="http://basehold.it/14" media="(max-width: 767px)">
-    <link rel="stylesheet" href="http://basehold.it/16" media="(min-width: 768px)"> -->
-    
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="icon" href="/assets/favicon-62.png" sizes="62x62" type="image/png">
+    <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
 </head>

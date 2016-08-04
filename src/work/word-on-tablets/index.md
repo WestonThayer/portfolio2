@@ -9,6 +9,9 @@ description: Natural interactions for writing and editing with Microsoft Word on
 featureImgBase: "/assets/features/word-on-tablet-assets/word-on-tablet"
 featureImgExt: ".png"
 featureImgSrc: "/assets/features/word-on-tablet-assets/word-on-tablet.750w.png"
+featureImgPosition: "center 90px"
+featureImgBgColor: "#2B579A"
+isFeatureImgIconSize: true
 
 asideLabel1: role
 asideList1:

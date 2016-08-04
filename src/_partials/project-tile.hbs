@@ -1,7 +1,7 @@
 <a class="tile project-tile" href="{{href}}" {{#if isLinkExternal}}target="_blank"{{/if}}>
     <picture class="project-tile__picture" style="background-color: {{placeholderBackgroundColor}};">
         <source media="(min-width: 768px)" sizes="39.38vw" srcset="{{imageStack imgBaseFull imgExt}}">
-        <img class="tile__bg project-tile__img" sizes="92vw" srcset="{{imgBaseCrop}}.590w{{imgExt}}, {{imgBaseCrop}}.690w{{imgExt}} 690w, {{imgBaseCrop}}.990w{{imgExt}}, {{imgBaseCrop}}.1330w{{imgExt}}" src="{{imgSrcBackup}}" onload="fadeIn(this)">
+        <img class="tile__bg project-tile__img" sizes="92vw" srcset="{{imgBaseCrop}}.590w{{imgExt}}, {{imgBaseCrop}}.690w{{imgExt}} 690w, {{imgBaseCrop}}.990w{{imgExt}}, {{imgBaseCrop}}.1330w{{imgExt}}" src="{{imgSrcBackup}}" onload="zImgLoaded(this)">
     </picture>
     <div class="project-tile__label" style="color: {{color}};">
         {{#if isLinkExternal}}

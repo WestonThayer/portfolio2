@@ -11,8 +11,9 @@
             {{#if featureImgSrc}}
                 <div class="container container--fullbleed">
                     <div class="row row--fullbleed">
-                        <div class="col-xs-12 col--fullbleed post__feature-img-container">
-                            <img class="post__feature-img" {{#if featureImgBase}}sizes="100vw" srcset="{{imageStack featureImgBase featureImgExt}}"{{/if}} src="{{featureImgSrc}}">
+                        <div class="col-xs-12 col--fullbleed post__feature-img-container" style="{{#if featureImgBgColor}}background-color: {{featureImgBgColor}};{{/if}}">
+                            <div class="post__feature-img-bg" style="{{#if featureImgPosition}}background-position: {{featureImgPosition}};{{/if}}{{#if isFeatureImgIconSize}}background-size: 800px auto;{{/if}}"></div>
+                            <img class="post__feature-img" {{#if featureImgBase}}sizes="{{#if isFeatureImgIconSize}}800px{{else}}100vw{{/if}}" srcset="{{imageStack featureImgBase featureImgExt}}"{{/if}} src="{{featureImgSrc}}" onload="zImgLoadedSwitchToBgImg(this)">
                         </div>
                     </div>
                 </div>

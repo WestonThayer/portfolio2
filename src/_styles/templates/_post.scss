@@ -5,20 +5,44 @@
 }
 
 .post__feature-img-container {
+    position: relative;
     overflow: hidden;
     
     @include media-breakpoint-up(md) {
         height: $grid-rung-height-md * 28;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .post__feature-img-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         
-        background-position: center bottom;
+        background-position: center center;
         background-attachment: fixed;
         background-size: cover;
+        background-repeat: no-repeat;
+        
+        opacity: 0;
+        transition: opacity 1s;
+        
+        &.imgloaded {
+            opacity: 1;
+        }
     }
 }
 
 .post__feature-img {
     width: 100%;
     height: auto;
+    
+    @include media-breakpoint-up(md) {
+        // Hide it, JS will set the background-image on .post__feature-img-container
+        opacity: 0;
+    }
 }
 
 .post__title {

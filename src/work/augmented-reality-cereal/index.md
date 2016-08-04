@@ -9,6 +9,7 @@ description: Concept promoting Qualcomm's Snapdragon processor.
 featureImgBase: "/assets/features/cereal-assets/cereal"
 featureImgExt: ".jpg"
 featureImgSrc: "/assets/features/cereal-assets/cereal.750w.jpg"
+featureImgBgColor: "#5C4A3F"
 
 asideLabel1: role
 asideList1:

@@ -124,39 +124,6 @@
             }
         })();
         
-        // Workaround for background-image not supporting srcset
-        (function() {
-            var postImgs = document.getElementsByClassName("post__feature-img");
-            
-            function handleResize() {
-                for (var i = 0; i < postImgs.length; i++) {
-                    var postImg = postImgs[i];
-                    var container = postImg.parentElement;
-                    
-                    // Only for md and up
-                    if (window.innerWidth >= 768) {
-                        if (container.style.backgroundImage === "none" || container.style.backgroundImage === "") {
-                            // currentSrc is supplied when srcset is supported in
-                            // the browser. If it doesn't exist, the <img> is using
-                            // it's real src value because that browser doesn't
-                            // support srcset
-                            var src = postImg.currentSrc ? postImg.currentSrc : postImg.attributes["src"].nodeValue;
-                            
-                            container.style.backgroundImage = "url(" + src + ")";
-                            postImg.style.opacity = "0";
-                        }
-                    }
-                    else {
-                        container.style.backgroundImage = "none";
-                        postImg.style.opacity = "1";
-                    }
-                }
-            }
-            
-            window.addEventListener("resize", handleResize);
-            handleResize();
-        })();
-        
         // Manage the focal point of the feature image on the /about/ page
         (function() {
             var features = document.getElementsByClassName("about__feature-h1-row-bg");
