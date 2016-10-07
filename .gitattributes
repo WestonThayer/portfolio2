@@ -5,3 +5,4 @@
 /src/assets/features/drag-and-drop--crop.psd filter=lfs diff=lfs merge=lfs -text
 /src/assets/features/cereal.psd filter=lfs diff=lfs merge=lfs -text
 /src/assets/features/cereal--crop.psd filter=lfs diff=lfs merge=lfs -text
+/art.zip filter=lfs diff=lfs merge=lfs -text
