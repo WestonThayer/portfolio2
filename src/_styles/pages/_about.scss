@@ -161,14 +161,6 @@
     }
 }
 
-.about__feature-para p {
-    @include type-serif-2();
-}
-
-.wf-loading .about__feature-para p {
-    visibility: hidden;
-}
-
 .about__feature-para-first {
     @include media-breakpoint-up(xs) {
         margin-top: calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 3));
