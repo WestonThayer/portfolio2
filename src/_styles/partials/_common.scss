@@ -127,7 +127,13 @@
         
         td, th {
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            line-height: 32px;
+            padding: 7px 6px;
+            
+            a {
+              // Give some affordance that a link is there. The normal
+              // background-position is too far, goes underneath the next line
+              background-position: 0 20px;
+            }
         }
         
         thead th {
