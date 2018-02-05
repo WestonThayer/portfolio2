@@ -3,13 +3,169 @@ template: post.hbs
 
 section:
     writing: true
-title: Precision typesetting on the web
+title: Font metrics for designers
 enableComments: true
 
-asideLabel1: published
+asideLabel1: draft
 asideList1:
-    - September 5, 2016
+    - In progress
 ---
+
+*Font metrics for designers*
+
+exp with aligning list items
+thinking through how to build them...
+learning about vertical rhythm
+thinking about how to build that...
+
+remembered about typographic features. what were we *really* aligning?
+  https://www.fontshop.com/glossary
+our tools hide all that richness from us
+but we can bring it back, with font metrics
+
+font metrics unlock the typographic features
+before the only way to know where the baseline is located is to use your eyes
+with font metrics, our tools can see what we see
+opening the door to cool stuff (sketch mock ups, psuedocode, variable sizing fixes, localization)
+
+
+# Unmasking optical tricks    intent driven typography
+
+Visual design is filled with little optical tricks-of-the-trade that can take years to master. Knowing that a circle needs to be bigger than a square to appear the same size. That arrows need to be longer than lines and how to make corners look gently rounded. How to vertically center lowercase and uppercase type.
+
+![Visual tricks, credit, maybe a 2x2 of each trick?](https://medium.muz.li/optical-effects-9fca82b4cd9a)
+
+Often when applying these tricks, we're forced to fidget with values in our design tools, apply a blur, or squint at the screen. But behind the messiness of each trick is often simple mathematics. There's a [formula](https://www.designernews.co/comments/211723) that explains why circles need to be bigger. We know how to find the [perfect border radius](https://en.wikipedia.org/wiki/Superellipse). And we can calculate how to align type.
+
+![formula for optically sizing circles, credit to designernews guy](https://www.designernews.co/comments/211723)
+
+You may say that there's nothing terribly wrong with our current methods, eyeballing and fidgeting things into place. But digital design has changed so much over the years. I don't have to remind you that we're not designing for a fixed screen anymore. Our designs must be flexible, and as a designer you cannot be there to personally nudge and fix every optical detail across every screen size and resolution. Or as the base `font-size` changes.
+
+{{> post-figure--img
+    alt="Not many designs hold up well to font size changes"
+    src=".png"
+}}
+
+It's more important than ever that our tools *know* what trick we're applying so that they can preserve our **design intent** for us.
+
+I'll explore some of these topics in a series of posts, but I'll start with a favorite, optical typography tricks.
+
+
+
+A few years ago, I was working with the talented [Lauren Beckwith](https://twitter.com/laurenbeckwith?lang=en) on the Windows design system. We were thinking through the visual design of list items. Lauren created dozens of variations: single line list items, double line, triple line, with icons, without icons, big icons, small icons. Here are a few of the single line variations:
+
+{{> post-figure--img
+    alt="Six examples of single line list items, with different icon sizes and font sizes"
+    src=".png"
+}}
+
+I asked Lauren what her technique was for getting consistent alignment between the icon and type for all these variations. She explained the best way to get it looking right in Illustrator was to:
+
+1. Select both
+2. Align vertical center
+3. Nudge type up 1px
+
+It was my job to think through how the designs would translate into code, so this set of some alarm bells.
+
+{{> post-figure--img
+    alt="A list item of someone's photo with their name"
+    src=".png"
+    caption="At first glance, this could be done with `display: flex`, `align-items: center`, right?"
+}}
+
+{{> post-figure--img
+    alt="This could be a GIF, alternating between the two options (with labels)"
+    src=".png"
+    caption="Wrong, closer inspection reveals that would put the type too low. Instead, we have to use `align-items: top` and `margin-top: 13px` on the type."
+}}
+
+Even something as simple as profile photo + name left me feeling unsettled. `margin-top: 13px`? That's going to look terrible if the `font-size` [changes](https://support.mozilla.org/en-US/kb/font-size-and-zoom-increase-size-of-web-pages#w_how-to-only-change-the-size-of-the-text). Plus, we'll need to hardcode a unique margin for *every* variation (over 50) 😱
+
+On another occasion, I was reading about [vertical rhythm](#), which besides looking great [helps people read faster](#). Setting up a vertical rhythm in Sketch was wonderfully simple. I added a [layout grid](https://www.sketchapp.com/learn/documentation/canvas/rulers-guides-grids/#layout-grid) to my artboard, adjusted my line heights and Sketch's [smart guides](https://www.sketchapp.com/learn/documentation/canvas/measuring/) took care of the rest.
+
+{{> post-figure--img
+    alt="Design with an 8px grid in Sketch"
+    src="comparison-a.png"
+}}
+
+Things were going great until I started coding. Where did those boxes come from? Why do the margins seem random? 29, 13... The code lost my design intent.
+
+{{> post-figure--img
+    alt="Design with an 8px grid with CSS"
+    src="comparison-b.png"
+}}
+
+All the elegance of an 8px grid evaporated.
+
+## Back to school
+
+These experiences demanded a closer look. Why does nudging up that 1px make it look better? Why does vertical rhythm help you read? To answer these questions, I had to go back to typography.
+
+{{> post-figure--img
+    alt=""
+    src=".png"
+    caption="Anatomy of a typeface. Credit: https://www.fontshop.com/glossary"
+}}
+
+Maybe these terms are familiar, but to be honest I hadn't found myself thinking of baselines and x-heights much in the day to day of design. I realized that when we were aligning those list items, nudging up that mystery 1px, we were actually just trying to center the capital letter.
+
+{{> post-figure--img
+    alt="Redline showing equal distance above and below the M"
+    src=".png"
+}}
+
+And when Sketch was helpfully snapping objects to the 8px grid, it was just using the baseline.
+
+{{> post-figure--img
+    alt="Redline showing the baseline on the 8px grid"
+    src=".png"
+}}
+
+We use these typographic features every day without speaking their names. Our
+
+
+*Typeset by metrics, browser*
+
+prev article was a vision, now let's make part of it real (in the browser)
+show metrics demo
+how did we get there?
+
+first, how is a font rendered?
+you can think of it as artboards, unitless
+different fonts are relatively different
+(show diagram of each dimension that comprises font metrics [artboard to "Font Metrics"])
+
+how do we get font metrics?
+extract them from the font file
+what do they mean? (diagram)
+
+how do we use them?
+given a piece of type set at X size
+plug metrics into formula to get size in px
+
+now what?
+given what we know about line-height, can find distance from box edge to typographic feature
+formula
+show in Sass w/ Space Mono
+use that for baseline, capheight alignments (matching vision)
+
+known issues
+different OS's use different metrics
+typekit fixes that, Google Fonts does not
+Chrome will occasionally have an off-by-1 rounding error
+doesn't work with system fonts
+
+alternative
+extract metrics from <canvas>
+works with system fonts, no off-by-1 errors, works with Typekit and Google Fonts
+
+go forth!
+
+
+
+
+
+
 
 Typography is the bedrock of the web. In my opinion, good typography is one of the easiest ways to set your work apart. Yet I've always been dismayed at the amount of effort required to achieve beautiful typography on the web (and for that matter, many native platforms). The [webfont debate](http://mrmrs.io/writing/2016/03/17/webfonts/) aside, I'm often frustrated while trying to achieve beautiful alignment and vertical rhythm in the browser.
 
