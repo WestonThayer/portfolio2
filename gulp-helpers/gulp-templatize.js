@@ -5,6 +5,7 @@ var frontmatter = require("front-matter");
 var marked = require("marked");
 var fs = require("fs");
 var highlightJs = require("highlight.js");
+var escapeHtml = require('escape-html');
 
 const PLUGIN_NAME = 'gulp-templatize';
 
@@ -70,7 +71,7 @@ function gulpTemplatize() {
                     highlightedCode = highlightJs.highlight(lang, code).value;
                 }
                 
-                return '<pre><code class="lang-' + lang + '">' + highlightedCode + '</code></pre>';
+                return '<pre class="hljs"><code class="lang-' + lang + '">' + highlightedCode + '</code></pre>';
             };
             
             context.body = marked(parsed.body, { smartypants: true, renderer: markedRenderer });
