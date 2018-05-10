@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     writing: true
-title: Layout experiments in Adobe Illustrator
+title: Layout Experiments in Adobe Illustrator
 enableComments: true
 
 featureImgSrc: "feature.png"

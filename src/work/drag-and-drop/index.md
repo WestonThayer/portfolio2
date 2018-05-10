@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     work: true
-title: Drag and drop
+title: Drag and Drop
 description: A redesign of drag and drop for Windows 10.
 
 featureImgBase: "/assets/features/drag-and-drop-assets/drag-and-drop"

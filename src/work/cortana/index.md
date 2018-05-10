@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     work: true
-title: Welcome experience
+title: Welcome Experience
 description: Final touches on Cortana's entrance.
 
 featureImgBase: "/assets/features/cortana-assets/cortana"

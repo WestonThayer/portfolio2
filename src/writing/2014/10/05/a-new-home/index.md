@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     writing: true
-title: A new home
+title: A New Home
 description: Switching blog engines.
 
 asideLabel1: published

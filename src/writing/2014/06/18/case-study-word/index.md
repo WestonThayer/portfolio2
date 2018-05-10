@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     writing: true
-title: "Case study: Word on tablets"
+title: "Case Study: Word on Tablets"
 enableComments: false
 
 asideLabel1: published

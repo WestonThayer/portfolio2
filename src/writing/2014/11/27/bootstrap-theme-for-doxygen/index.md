@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     writing: true
-title: A Bootstrap theme for Doxygen
+title: A Bootstrap Theme for Doxygen
 description: A practical guide to High Contrast mode in Windows.
 enableComments: true
 

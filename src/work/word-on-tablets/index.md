@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     work: true
-title: Word on tablets
+title: Word on Tablets
 description: Natural interactions for writing and editing with Microsoft Word on tablets.
 
 featureImgBase: "/assets/features/word-on-tablet-assets/word-on-tablet"

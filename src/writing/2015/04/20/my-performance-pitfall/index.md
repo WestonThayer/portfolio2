@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     writing: true
-title: My performance pitfall
+title: My Performance Pitfall
 enableComments: true
 
 asideLabel1: published

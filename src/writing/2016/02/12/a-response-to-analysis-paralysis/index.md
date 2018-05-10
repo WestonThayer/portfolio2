@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     writing: true
-title: A response to analysis paralysis
+title: A Response to Analysis Paralysis
 enableComments: true
 
 asideLabel1: published

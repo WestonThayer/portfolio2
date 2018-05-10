@@ -3,7 +3,7 @@ template: post.hbs
 
 section:
     work: true
-title: Augmented reality cereal
+title: Augmented Reality Cereal
 description: Concept promoting Qualcomm's Snapdragon processor.
 
 featureImgBase: "/assets/features/cereal-assets/cereal"
