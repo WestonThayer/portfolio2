@@ -6,13 +6,6 @@ section:
 title: Welcome Experience
 description: Final touches on Cortana's entrance.
 
-featureImgBase: "/assets/features/cortana-assets/cortana"
-featureImgExt: ".png"
-featureImgSrc: "/assets/features/cortana-assets/cortana.750w.png"
-featureImgPosition: "center 85px"
-featureImgBgColor: "#000"
-isFeatureImgIconSize: true
-
 asideLabel1: role
 asideList1:
     - Frontend development
