@@ -70,6 +70,14 @@
         box-shadow: $_shadow;
         top: $_vertDist;
     }
+    
+    .navbar--transparent {
+      background-color: rgba(255, 255, 255, 0);
+      
+      &.navbar--compact, &.navbar--compact-animation {
+        background-color: rgba(255, 255, 255, 1);
+      }
+    }
 }
 
 // Navigation

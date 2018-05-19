@@ -11,7 +11,10 @@
     @include media-breakpoint-up(xl) {
         // For fixed footer reveal
         position: relative;
-        margin-bottom: 436px;
+        margin-top: 0;
+        padding-top: $grid-rung-height-md * 5;
+        margin-bottom: 300px;
+        height: 100vh;
         
         // Hides footer underneath until image loads
         background-color: #C9CDBB;

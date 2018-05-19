@@ -5,14 +5,6 @@
             var globalNavbar = document.getElementById("global-navbar");
             var isPageAlreadyScrolled = true;
             
-            // We also handle smoking the bg of writing here, since it must be in
-            // sync with the navbar
-            var globalWritingSmoke = document.getElementById("global-writing-smoke");
-            
-            // if (globalWritingSmoke) {
-            //     globalWritingSmoke.style.height = document.body.scrollHeight + "px";
-            // }
-            
             function handleChange() {
                 if (window.innerWidth >= 768) {
                     // NOTE: This number must match $_vertDist in _styles/partials/_navbar.scss
@@ -39,10 +31,6 @@
                             else {
                                 globalNavbar.classList.add("navbar--compact-animation");
                             }
-                            
-                            if (globalWritingSmoke) {
-                                globalWritingSmoke.classList.add("writing__smoke--smoked");
-                            }
                         }
                     }
                     else {
@@ -54,17 +42,6 @@
                             globalNavbar.classList.remove("navbar--compact-animation");
                             globalNavbar.classList.add("navbar--expanded-animation");
                         }
-                        
-                        if (globalWritingSmoke) {
-                            globalWritingSmoke.classList.remove("writing__smoke--smoked");
-                        }
-                    }
-                }
-                else {
-                    if (globalWritingSmoke) {
-                        // Have to set it here instead of with media queries because Edge will
-                        // transition on first load for any MQ
-                        globalWritingSmoke.classList.add("writing__smoke--smoked");
                     }
                 }
             }
