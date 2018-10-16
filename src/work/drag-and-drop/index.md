@@ -6,11 +6,6 @@ section:
 title: Drag and Drop
 description: A redesign of drag and drop for Windows 10.
 
-featureImgBase: "/assets/features/drag-and-drop-assets/drag-and-drop"
-featureImgExt: ".jpg"
-featureImgSrc: "/assets/features/drag-and-drop-assets/drag-and-drop.750w.jpg"
-featureImgBgColor: "#363234"
-
 asideLabel1: role
 asideList1:
     - Interaction design
