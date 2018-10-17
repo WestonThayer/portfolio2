@@ -16,7 +16,7 @@ asideList2:
     - Windows 10
 ---
 
-A design system for Windows phones, tablets, PCs, and Xbox. From buttons and checkboxes to app bars and pivots, every control works with touch, mouse, keyboard, pen, and even Xbox controllers.
+A key component of the design system for Windows phones, tablets, PCs, and Xbox. From buttons and checkboxes to app bars and pivots, every control works with touch, mouse, keyboard, pen, and even Xbox controllers.
 
 {{> post-figure--img
     alt="A few controls in different states"
