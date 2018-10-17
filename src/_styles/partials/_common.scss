@@ -1,4 +1,8 @@
 // Shared between post-figure--*
+.post-figure {
+  text-align: center; // if images aren't wide enough, center them
+}
+
 .post-figure__caption {
     @include type-sans-3();
     color: $text-muted;
