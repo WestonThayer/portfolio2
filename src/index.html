@@ -2,7 +2,7 @@
 <html>
     {{> head
         title="Weston Thayer's Portfolio"
-        description="Interaction designer who codes, living the Pacific Northwest."
+        description="Product designer who codes, living the Pacific Northwest."
     }}
     <body>
         {{> navbar work="true" }}
@@ -11,8 +11,8 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h1 class="home-title">
-                        <span class="home-title__line">Weston is an</span>
-                        <span class="home-title__line">Interaction Designer</span>
+                        <span class="home-title__line">Weston is a</span>
+                        <span class="home-title__line">product designer</span>
                         <span class="home-title__line">who codes.</span>
                     </h1>
                 </div>
@@ -22,74 +22,64 @@
         <div class="container">
             <div class="row">
                 <article class="col-xs-12 col-md-6 col-equalspace-sm-down col-equalspace-md-up">
-                    {{> project-tile
-                        href="/work/drag-and-drop/"
-                        line1="Drag and Drop"
-                        line2="Windows 10"
-                        imgExt=".jpg"
-                        imgBaseFull="assets/features/drag-and-drop-assets/drag-and-drop"
-                        imgBaseCrop="assets/features/drag-and-drop--crop-assets/drag-and-drop--crop"
-                        imgSrcBackup="assets/features/drag-and-drop-assets/drag-and-drop.750w.jpg"
-                        placeholderBackgroundColor="#363234"
-                        color="#FFF"
-                    }}
+                  {{> project-tile--zappling }}
                 </article>
                 <article class="col-xs-12 col-md-6 col-equalspace-sm-down col-equalspace-md-up">
-                    {{> project-tile
-                        href="http://westonthayer.github.io/Framed/"
-                        isLinkExternal="true"
-                        line1="Framed"
-                        line2="Prototyping on Windows"
-                        imgExt=".png"
-                        imgBaseFull="assets/features/framed-assets/framed"
-                        imgBaseCrop="assets/features/framed--crop-assets/framed--crop"
-                        imgSrcBackup="assets/features/framed-assets/framed.750w.png"
-                        placeholderBackgroundColor="#003966"
-                        color="#FFF"
-                    }}
+                  {{> project-tile
+                      href="/work/drag-and-drop/"
+                      line1="Drag and Drop"
+                      line2="Windows 10"
+                      imgExt=".jpg"
+                      imgBaseFull="assets/features/drag-and-drop-assets/drag-and-drop"
+                      imgBaseCrop="assets/features/drag-and-drop--crop-assets/drag-and-drop--crop"
+                      imgSrcBackup="assets/features/drag-and-drop-assets/drag-and-drop.750w.jpg"
+                      placeholderBackgroundColor="#363234"
+                      color="#FFF"
+                  }}
                 </article>
             </div>
             <div class="row">
                 <article class="col-xs-12 col-md-6 col-md-push-6 col-equalspace-sm-down col-equalspace-md-up">
-                    {{> project-tile
-                        href="/work/windows-10-controls/"
-                        line1="Controls"
-                        line2="Windows 10"
-                        imgExt=".jpg"
-                        imgBaseFull="assets/features/controls-assets/controls"
-                        imgBaseCrop="assets/features/controls--crop-assets/controls--crop"
-                        imgSrcBackup="assets/features/controls-assets/controls.750w.jpg"
-                        placeholderBackgroundColor="#E8E6E8"
-                        color="#000"
-                    }}
+                  {{> project-tile
+                      href="http://westonthayer.github.io/Framed/"
+                      isLinkExternal="true"
+                      line1="Framed"
+                      line2="Prototyping on Windows"
+                      imgExt=".png"
+                      imgBaseFull="assets/features/framed-assets/framed"
+                      imgBaseCrop="assets/features/framed--crop-assets/framed--crop"
+                      imgSrcBackup="assets/features/framed-assets/framed.750w.png"
+                      placeholderBackgroundColor="#003966"
+                      color="#FFF"
+                  }}
                 </article>
                 <article class="col-xs-12 col-md-6 col-md-pull-6 col-equalspace-sm-down col-equalspace-md-up">
-                    {{> project-tile
-                        href="/work/cortana/"
-                        line1="Welcome Experience"
-                        line2="Cortana"
-                        imgExt=".png"
-                        imgBaseFull="assets/features/cortana-assets/cortana"
-                        imgBaseCrop="assets/features/cortana--crop-assets/cortana--crop"
-                        imgSrcBackup="assets/features/cortana-assets/cortana.750w.png"
-                        placeholderBackgroundColor="#000"
-                        color="#FFF"
-                    }}
+                  {{> project-tile
+                      href="/work/windows-10-controls/"
+                      line1="Controls"
+                      line2="Windows 10"
+                      imgExt=".jpg"
+                      imgBaseFull="assets/features/controls-assets/controls"
+                      imgBaseCrop="assets/features/controls--crop-assets/controls--crop"
+                      imgSrcBackup="assets/features/controls-assets/controls.750w.jpg"
+                      placeholderBackgroundColor="#E8E6E8"
+                      color="#000"
+                  }}
                 </article>
             </div>
             <div class="row">
                 <article class="col-xs-12 col-md-6 col-equalspace-sm-down">
-                    {{> project-tile
-                        href="/work/augmented-reality-cereal/"
-                        line1="Augmented Reality Cereal"
-                        line2="Qualcomm"
-                        imgExt=".jpg"
-                        imgBaseFull="assets/features/cereal-assets/cereal"
-                        imgBaseCrop="assets/features/cereal--crop-assets/cereal--crop"
-                        imgSrcBackup="assets/features/cereal-assets/cereal.750w.jpg"
-                        placeholderBackgroundColor="#5C4A3F"
-                        color="#FFF"
-                    }}
+                  {{> project-tile
+                      href="/work/cortana/"
+                      line1="Welcome Experience"
+                      line2="Cortana"
+                      imgExt=".png"
+                      imgBaseFull="assets/features/cortana-assets/cortana"
+                      imgBaseCrop="assets/features/cortana--crop-assets/cortana--crop"
+                      imgSrcBackup="assets/features/cortana-assets/cortana.750w.png"
+                      placeholderBackgroundColor="#000"
+                      color="#FFF"
+                  }}
                 </article>
                 <article class="col-xs-12 col-md-6">
                     {{> project-tile
