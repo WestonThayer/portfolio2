@@ -135,5 +135,30 @@
                 bgImg.src = "/assets/about/selfr.jpg";
             }
         })();
+        
+        // Manage navbar-brand for mobile (need to re-parent)
+        (function() {
+            var navbarBrand = document.getElementById("navbar-brand");
+            var navbar = navbarBrand.parentElement;
+            
+            function handleResize() {
+                // Only for below md (mobile)
+                if (window.innerWidth < 768) {
+                    if (navbar.children[0] === navbarBrand) {
+                        navbar.removeChild(navbarBrand);
+                        document.body.prepend(navbarBrand);
+                    }
+                }
+                else {
+                    if (document.body.children[0] === navbarBrand) {
+                        document.body.removeChild(navbarBrand);
+                        navbar.prepend(navbarBrand);
+                    }
+                }
+            }
+            
+            window.addEventListener("resize", handleResize);
+            handleResize();
+        })();
     });
 })()
