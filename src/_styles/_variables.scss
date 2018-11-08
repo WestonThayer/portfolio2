@@ -17,13 +17,17 @@ $font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
 
 
 $body-color: #000;
-$text-muted: rgba(0,0,0,0.6);
+$text-muted: rgba(0,0,0,0.54); // minimum for good contrast
+$text-dim: rgba(0,0,0,0.2);
 $body-bg: #FFF;
 
 $link-color: $body-color;
 $link-decoration: none;
 $link-hover-color: $text-muted;
 $link-hover-decoration: none;
+
+$cta-link-color: #0777d8;
+$cta-link-hover-color: #FF4136;
 
 $table-bg: transparent;
 $table-cell-padding: 4px;

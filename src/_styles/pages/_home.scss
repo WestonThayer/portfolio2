@@ -6,37 +6,93 @@
     // Left margins are to align the "I" in "Interaction Designer" to the grid
     
     @include media-breakpoint-up(xs) {
-        $_font-size: 32px;
-        $_line-height: 37px;
+        $_font-size: 24px;
+        $_line-height: 24px;
         
         font-size: $_font-size;
         line-height: $_line-height;
-        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-xs * 2)) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, ($grid-rung-height-xs * 4)) -2px;
-    }
-    
-    @include media-breakpoint-up(sm) {
-        $_font-size: 48px;
-        $_line-height: 52px;
-        
-        font-size: $_font-size;
-        line-height: $_line-height;
-        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-xs * 2)) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, ($grid-rung-height-xs * 4)) -3px;
+        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-md * 4)) 0 6px -3px;
     }
     
     @include media-breakpoint-up(md) {
+        $_font-size: 24px;
+        $_line-height: 24px;
+        
+        font-size: $_font-size;
+        line-height: $_line-height;
+        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-md * 8)) 0 6px -3px;
+    }
+    
+    @include media-breakpoint-up(lg) {
+        $_font-size: 50px;
+        $_line-height: 50px;
+        
+        font-size: $_font-size;
+        line-height: $_line-height;
+        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-md * 10)) 0 16px -3px;
+    }
+    
+    @include media-breakpoint-up(xl) {
         $_font-size: 64px;
         $_line-height: 64px;
         
         font-size: $_font-size;
         line-height: $_line-height;
-        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-md * 10)) 0 calc-margin-bottom($font-family-sans-serif, "baseline", $_font-size, $_line-height, ($grid-rung-height-md * 12)) -4px;
+        margin: calc-margin-top($font-family-sans-serif, "capheight", $_font-size, $_line-height, ($grid-rung-height-md * 10)) 0 16px -3px;
     }
     
-    > .home-title__line {
-        display: block;
+    > .home-title__separator {
+        color: $text-dim;
     }
 }
 
-.wf-loading .home-title {
+.home-desc {
+    font-family: $font-family-sans-serif;
+    color: $text-muted;
+    $line-height: normal;
+    font-size: 24px;
+    line-height: $line-height;
+    margin: 0 0 60px -3px;
+    
+    
+    @include media-breakpoint-up(lg) {
+        font-size: 2.395vw;
+        // use vw for bottom margin to ensure the spacing stays the same as
+        // the text block decreases in height
+        margin: 0 0 8vw -3px;
+    }
+    
+    @media (min-width: $grid-max-width) {
+        font-size: 45.9px;
+    }
+    
+    > .home-desc__line {
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+        
+        > strong {
+            font-weight: normal;
+            color: black;
+        }
+    }
+    
+    > .home-desc__break {
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+    }
+    
+    > .home-desc__cta {
+        display: inline-block;
+        color: $cta-link-color;
+        
+        &:hover {
+            color: $cta-link-hover-color;
+        }
+    }
+}
+
+.wf-loading .home-title, .wf-loading .home-desc {
     visibility: hidden;
 }
