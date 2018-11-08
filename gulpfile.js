@@ -77,7 +77,7 @@ gulp.task("deploy-build-scripts", function() {
         .pipe(gulp.dest("dist/js/"));
 });
 
-var copyAssetSrc = "src/**/*.{jpg,png,mp4,gif,pdf}";
+var copyAssetSrc = "src/**/*.{jpg,png,mp4,gif,pdf,css}";
 
 gulp.task("copy-assets", function() {
     return gulp.src(copyAssetSrc)

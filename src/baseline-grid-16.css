@@ -1,0 +1,28 @@
+/**
+* A quick baseline grid overlay using css+svg.
+* Inspired by [Basehold.it](https://basehold.it/).
+* @author leshido
+*/
+
+body {
+    position: relative;
+}
+
+body::after {
+    /* Change the `height` parameter here to match your base line-height. */
+    background: url('data:image/svg+xml;utf8,<svg height="16" width="1" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="0.5" style="fill:rgba(0, 255, 255, 0.8)" /></svg>') repeat top left;
+    
+    content: "";
+    display: block;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    position: absolute;
+}
+
+body:active::after {
+    display: none;
+}
