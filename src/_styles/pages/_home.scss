@@ -1,6 +1,6 @@
 .home-fluid-hero {
     font-family: $font-family-sans-serif;
-    color: $body-color;
+    color: $text-muted;
     line-height: normal;
     
     @include media-breakpoint-up(xs) {
@@ -18,18 +18,19 @@
     }
     
     @include media-breakpoint-up(lg) {
-        font-size: 2.395vw;
+        font-size: 2.9vw;
         // use vw for top/bottom margin to ensure the spacing stays the same as
         // the text block decreases in height
-        margin: 12vw 0 8vw -3px;
+        margin: 12vw 0 9vw -3px;
     }
     
     @media (min-width: $grid-max-width) {
-        font-size: 45.9px;
+        font-size: 55.651px;
     }
 }
 
 .home-title {
+    color: $body-color;
     font-size: inherit;
     font-weight: 900;
     
@@ -39,21 +40,9 @@
 }
 
 .home-desc {
-    > .home-desc__line {
-        @include media-breakpoint-up(lg) {
-            display: block;
-        }
-        
-        > strong {
-            font-weight: normal;
-            color: $text-muted;
-        }
-    }
-    
-    > .home-desc__break {
-        @include media-breakpoint-up(lg) {
-            display: none;
-        }
+    > strong {
+        font-weight: normal;
+        color: $body-color;
     }
     
     > .home-desc__cta {
