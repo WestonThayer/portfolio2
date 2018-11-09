@@ -5,7 +5,7 @@
     
     @include media-breakpoint-up(xs) {
         font-size: 18px;
-        margin: 40px 0 40px -2px;
+        margin: 15px 0 40px -2px;
     }
     
     @include media-breakpoint-up(sm) {
@@ -26,6 +26,7 @@
     
     @media (min-width: $grid-max-width) {
         font-size: 55.651px;
+        margin: 230.4px 0 172.8px -3px;
     }
 }
 
@@ -47,7 +48,25 @@
     
     > .home-desc__cta {
         display: inline-block;
-        color: $cta-link-color;
+        background-image: linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 50%);
+        background-repeat: repeat-x;
+        background-size: 2px 2px;
+        
+        @include media-breakpoint-up(xs) {
+            background-position: 0 22px;
+        }
+        
+        @include media-breakpoint-up(sm) {
+            background-position: 0 30px;
+        }
+        
+        @include media-breakpoint-up(lg) {
+            background-position: 0 3.5vw;
+        }
+        
+        @media (min-width: $grid-max-width) {
+            background-position: 0 67.2px;
+        }
         
         &:hover {
             color: $cta-link-hover-color;
