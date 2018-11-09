@@ -115,6 +115,9 @@
                         // https://en.wikipedia.org/wiki/Linear_interpolation
                         feature.style.backgroundSize = (330 + ((100 - 330) * ((window.innerWidth - 320) / (768 - 320)))) + "% auto";
                     }
+                    else {
+                        feature.style.backgroundSize = null;
+                    }
                 }
             }
             

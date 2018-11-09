@@ -81,19 +81,20 @@
         
         opacity: 0;
         transition: opacity 1s;
+        
+        background-position: right top;
+        // background-size is set in _scripts/main.js dynamically
     }
     
     .about__feature--loaded .about__feature-h1-row-bg {
         background-image: url("/assets/about/selfr.jpg");
-        background-position: right top;
-        // background-size is set in _scripts/main.js dynamically
         opacity: 1;
     }
 }
     
 @include media-breakpoint-up(md) {
     .about__feature-h1-row-bg {
-        background-position: right center;
+        background-position: right 27%;
         background-size: cover;
     }
 }
