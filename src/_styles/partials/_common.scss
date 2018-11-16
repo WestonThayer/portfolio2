@@ -158,7 +158,7 @@
     > p + ol,
     > p + ul,
     > ol + p,
-    > ul + p {
+    > ul + p, {
         @include media-breakpoint-up(xs) {
             margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 2))) 0 0 0;
         }
@@ -195,7 +195,9 @@
     
     // type-serif-2 to type-serif-2, 4 rungs
     > p + blockquote,
-    > blockquote + p {
+    > blockquote + p,
+    > ol + blockquote,
+    > ul + blockquote {
         @include media-breakpoint-up(xs) {
             margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-serif-2("baseline", ($grid-rung-height-xs * 4))) 0 0 0;
         }
