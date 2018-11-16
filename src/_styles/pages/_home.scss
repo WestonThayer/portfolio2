@@ -51,11 +51,6 @@
 }
 
 .home-desc {
-    > strong {
-        font-weight: normal;
-        color: $body-color;
-    }
-    
     > .home-desc__cta {
         display: inline-block;
         background-image: linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 50%);
