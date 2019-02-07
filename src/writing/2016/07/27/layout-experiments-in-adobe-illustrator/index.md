@@ -6,8 +6,6 @@ section:
 title: Layout Experiments in Adobe Illustrator
 enableComments: true
 
-featureImgSrc: "feature.png"
-
 asideLabel1: published
 asideList1:
     - July 27, 2016

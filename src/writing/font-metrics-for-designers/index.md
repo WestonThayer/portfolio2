@@ -3,424 +3,188 @@ template: post.hbs
 
 section:
     writing: true
-title: Font metrics for designers
+title: Intro to Font Metrics
 enableComments: true
 
-asideLabel1: draft
+featureImgBgColor: "#f0f4f7"
+featureImgSrc: "feature.png"
+featureImgBase: "feature"
+featureImgExt: ".png"
+
+asideLabel1: published
 asideList1:
-    - In progress
+    - February 11, 2019
 ---
 
-*Font metrics for designers*
+*Font files contain a wealth of information about a typeface. Whether you're a designer or a developer, learning more about how fonts work can open new doors in how you work and what you create.*
 
-exp with aligning list items
-thinking through how to build them...
-learning about vertical rhythm
-thinking about how to build that...
+## What are font metrics?
 
-remembered about typographic features. what were we *really* aligning?
-  https://www.fontshop.com/glossary
-our tools hide all that richness from us
-but we can bring it back, with font metrics
+We'll start with a font. A font is a digital representation of a typeface that consists of a series of glyphs (commonly called letters or characters). Computers read a font file in order to render glyphs on your screen as pixels. To describe how all those individual glyphs should be assembled together into words, sentences, and paragraphs, typeface designers encode the font with *metrics*.
 
-font metrics unlock the typographic features
-before the only way to know where the baseline is located is to use your eyes
-with font metrics, our tools can see what we see
-opening the door to cool stuff (sketch mock ups, psuedocode, variable sizing fixes, localization)
+Font metrics help the computer determine things like the default spacing between lines, how high or low sub and super scripts should go, and how to align two differently sized pieces of text next to each other.
 
-
-# Unmasking optical tricks    intent driven typography
-
-Visual design is filled with little optical tricks-of-the-trade that can take years to master. Knowing that a circle needs to be bigger than a square to appear the same size. That arrows need to be longer than lines and how to make corners look gently rounded. How to vertically center lowercase and uppercase type.
-
-![Visual tricks, credit, maybe a 2x2 of each trick?](https://medium.muz.li/optical-effects-9fca82b4cd9a)
-
-Often when applying these tricks, we're forced to fidget with values in our design tools, apply a blur, or squint at the screen. But behind the messiness of each trick is often simple mathematics. There's a [formula](https://www.designernews.co/comments/211723) that explains why circles need to be bigger. We know how to find the [perfect border radius](https://en.wikipedia.org/wiki/Superellipse). And we can calculate how to align type.
-
-![formula for optically sizing circles, credit to designernews guy](https://www.designernews.co/comments/211723)
-
-You may say that there's nothing terribly wrong with our current methods, eyeballing and fidgeting things into place. But digital design has changed so much over the years. I don't have to remind you that we're not designing for a fixed screen anymore. Our designs must be flexible, and as a designer you cannot be there to personally nudge and fix every optical detail across every screen size and resolution. Or as the base `font-size` changes.
+Visualizing a font's metrics, it looks a lot like guidelines in Sketch or Photoshop.
 
 {{> post-figure--img
-    alt="Not many designs hold up well to font size changes"
-    src=".png"
-}}
-
-It's more important than ever that our tools *know* what trick we're applying so that they can preserve our **design intent** for us.
-
-I'll explore some of these topics in a series of posts, but I'll start with a favorite, optical typography tricks.
-
-
-
-A few years ago, I was working with the talented [Lauren Beckwith](https://twitter.com/laurenbeckwith?lang=en) on the Windows design system. We were thinking through the visual design of list items. Lauren created dozens of variations: single line list items, double line, triple line, with icons, without icons, big icons, small icons. Here are a few of the single line variations:
-
-{{> post-figure--img
-    alt="Six examples of single line list items, with different icon sizes and font sizes"
-    src=".png"
-}}
-
-I asked Lauren what her technique was for getting consistent alignment between the icon and type for all these variations. She explained the best way to get it looking right in Illustrator was to:
-
-1. Select both
-2. Align vertical center
-3. Nudge type up 1px
-
-It was my job to think through how the designs would translate into code, so this set of some alarm bells.
-
-{{> post-figure--img
-    alt="A list item of someone's photo with their name"
-    src=".png"
-    caption="At first glance, this could be done with `display: flex`, `align-items: center`, right?"
-}}
-
-{{> post-figure--img
-    alt="This could be a GIF, alternating between the two options (with labels)"
-    src=".png"
-    caption="Wrong, closer inspection reveals that would put the type too low. Instead, we have to use `align-items: top` and `margin-top: 13px` on the type."
-}}
-
-Even something as simple as profile photo + name left me feeling unsettled. `margin-top: 13px`? That's going to look terrible if the `font-size` [changes](https://support.mozilla.org/en-US/kb/font-size-and-zoom-increase-size-of-web-pages#w_how-to-only-change-the-size-of-the-text). Plus, we'll need to hardcode a unique margin for *every* variation (over 50) 😱
-
-On another occasion, I was reading about [vertical rhythm](#), which besides looking great [helps people read faster](#). Setting up a vertical rhythm in Sketch was wonderfully simple. I added a [layout grid](https://www.sketchapp.com/learn/documentation/canvas/rulers-guides-grids/#layout-grid) to my artboard, adjusted my line heights and Sketch's [smart guides](https://www.sketchapp.com/learn/documentation/canvas/measuring/) took care of the rest.
-
-{{> post-figure--img
-    alt="Design with an 8px grid in Sketch"
-    src="comparison-a.png"
-}}
-
-Things were going great until I started coding. Where did those boxes come from? Why do the margins seem random? 29, 13... The code lost my design intent.
-
-{{> post-figure--img
-    alt="Design with an 8px grid with CSS"
-    src="comparison-b.png"
-}}
-
-All the elegance of an 8px grid evaporated.
-
-## Back to school
-
-These experiences demanded a closer look. Why does nudging up that 1px make it look better? Why does vertical rhythm help you read? To answer these questions, I had to go back to typography.
-
-{{> post-figure--img
-    alt=""
-    src=".png"
-    caption="Anatomy of a typeface. Credit: https://www.fontshop.com/glossary"
-}}
-
-Maybe these terms are familiar, but to be honest I hadn't found myself thinking of baselines and x-heights much in the day to day of design. I realized that when we were aligning those list items, nudging up that mystery 1px, we were actually just trying to center the capital letter.
-
-{{> post-figure--img
-    alt="Redline showing equal distance above and below the M"
-    src=".png"
-}}
-
-And when Sketch was helpfully snapping objects to the 8px grid, it was just using the baseline.
-
-{{> post-figure--img
-    alt="Redline showing the baseline on the 8px grid"
-    src=".png"
-}}
-
-We use these typographic features every day without speaking their names. Our
-
-
-*Typeset by metrics, browser*
-
-prev article was a vision, now let's make part of it real (in the browser)
-show metrics demo
-how did we get there?
-
-first, how is a font rendered?
-you can think of it as artboards, unitless
-different fonts are relatively different
-(show diagram of each dimension that comprises font metrics [artboard to "Font Metrics"])
-
-how do we get font metrics?
-extract them from the font file
-what do they mean? (diagram)
-
-how do we use them?
-given a piece of type set at X size
-plug metrics into formula to get size in px
-
-now what?
-given what we know about line-height, can find distance from box edge to typographic feature
-formula
-show in Sass w/ Space Mono
-use that for baseline, capheight alignments (matching vision)
-
-known issues
-different OS's use different metrics
-typekit fixes that, Google Fonts does not
-Chrome will occasionally have an off-by-1 rounding error
-doesn't work with system fonts
-
-alternative
-extract metrics from <canvas>
-works with system fonts, no off-by-1 errors, works with Typekit and Google Fonts
-
-go forth!
-
-
-
-
-
-
-
-Typography is the bedrock of the web. In my opinion, good typography is one of the easiest ways to set your work apart. Yet I've always been dismayed at the amount of effort required to achieve beautiful typography on the web (and for that matter, many native platforms). The [webfont debate](http://mrmrs.io/writing/2016/03/17/webfonts/) aside, I'm often frustrated while trying to achieve beautiful alignment and vertical rhythm in the browser.
-
-{{> post-figure--img
-    alt="Design with an 8px grid in Sketch"
-    src="comparison-a.png"
-    caption="😊 Sketch's [layout grid](https://www.sketchapp.com/learn/documentation/canvas/rulers-guides-grids/#layout-grid) feature makes it easy to align everything on an 8px grid, a common visual design technique."
-}}
-
-{{> post-figure--img
-    alt="Design with an 8px grid with CSS"
-    src="comparison-b.png"
-    caption="☹️ Once we translate the design to CSS, things get confusing. Where did those boxes come from? Why do the margins seem random? 29, 13... The code lost our design intent."
-}}
-
-When it comes to typesetting, our design tools and the browser are not equal. Sketch's [smart guides](https://www.sketchapp.com/learn/documentation/canvas/measuring/) automatically snap text to our grid based on typographic features like the [baseline](https://en.wikipedia.org/wiki/Baseline_%28typography%29), as does Illustrator, InDesign, and many others. CSS seems to be less smart. Can it be smarter?
-
-To answer that, we have to study the anatomy of a font. What else goes into it, besides a bunch of vectors shapes? In this article, we'll learn about leveraging *font metrics* to stop using random margins. We'll start positioning type precisely with CSS, bringing some of Sketch's magic to the browser.
-
-## A font file
-
-We'll start with a simplified depiction of a font as a massive set of artboards, one for each glyph (commonly called a character).
-
-{{> post-figure--img
-    alt="4 artboards for A, b, c, d. Horizontal guidelines are overlaid in red"
-    src="font-artboards.png"
-}}
-
-There are rules every font follows. Each artboard must be the same size and the guides are always in the same position. On a global level, the type designer chooses the artboard's dimensions and where the guides are positioned. For each glyph, they draw the actual vector shape and position it within the artboard, snapping various features to the guides as necessary to ensure consistency.
-
-To render a string (like "Hello"), your computer follows a process (taking some liberties here for the sake of simplicity, bear with me):
-
-1. Find the correct font
-2. Look up the artboard for each glyph in the word
-3. Assemble the artboards in the correct order, side-by-side
-4. Hide the artboard itself, leaving the glyphs to stand alone
-
-Unless the font is monospace, the glyphs are then squished together horizontally according to detailed kerning rules that we won't cover here. But it's important to understand that while they're squished together horizontally, the vertical placement of each glyph doesn't change.
-
-GIF here
-
-It's also important to understand that although the artboards are hidden, they define the box that *contains* the string. You can see the box by selecting text in Sketch, or giving it a `background-color` in CSS.
-
-{{> post-figure--img
-    alt="Some text selected in Sketch"
-    src="sketch-box.png"
-    caption="Ever wondered how Sketch decided where to draw text's selection handles?"
-}}
-
-The hidden artboards also explain an odd behavior that you may have noticed when pairing different fonts.
-
-{{> post-figure--img
-    alt="Two bits of text selected in Sketch, each a different font"
-    src="sketch-box2.png"
-    caption="Open Sans next to Andale Mono, both set at 92px. Why is Andale Mono's box so much shorter?"
-}}
-
-## Font metrics
-
-Until now, I've been using the terms "artboard" and "guides" to help describe the surface on which glyphs are drawn. However, real fonts use different terms, like **ascent**, **descent**, **baseline**, and **cap height**. Together, these terms comprise a font's *metrics*, often called font metrics.
-
-There are many different font metrics, but this article will focus on those common to Latin characters.
-
-{{> post-figure--img
-    alt="jEh with font metrics and labels calling out where various font metrics are located. Baseline, line height, ascent, descent, advancement, bounding rectangle, italic angle, line gap (leading), x-height, cap height"
+    alt="Screenshot of OpenType.js font inspector"
     src="font-metrics.png"
-    caption="Various font metrics as they relate to different Latin glyphs. Image credit: [Apple](https://developer.apple.com/library/mac/documentation/TextFonts/Conceptual/CocoaTextArchitecture/FontHandling/FontHandling.html)."
+    caption="The metrics for lato.ttf, viewed with https://opentype.js.org/font-inspector.html, then visualized."
 }}
 
-Here's the good part; **font metrics are embedded in the font file**. All the helpful guides the typeface creator used to design the typeface are available to those of us using it.
+Your computer is constantly using font metrics, but as a designer or developer, you probably don't think about them in your day to day. Maybe this is the first time you've heard of font metrics.
 
-How can we view a font's metrics? It could be more straightforward. A few will eventually be available in JavaScript via the [TextMetrics](https://developer.mozilla.org/en-US/docs/Web/API/TextMetrics) API, but as of this writing, only Chrome has support behind a flag. I haven't found a design tool that exposes them either. Luckily, there are some solutions out there:
+Similarly, while design and development tools use font metrics under the hood, they don’t often expose them to their users. But they could—and it could change the way you design. To understand how, we first need to talk about the anatomy of type.
 
-* [FontForge for Mac and PC](http://fontforge.github.io/) - UI is a bit confusing
-* [Font Metrics for Windows 10](https://www.microsoft.com/store/apps/9NBLGGH5LP1X) - 💯 but PC only
-* [opentype.js](http://opentype.js.org) - A bit confusing, but works in any browser!
+## A look inside type
 
-I'll show you how to use opentype.js. Head over to their [Font Inspector](http://opentype.js.org/font-inspector.html) page.
+There’s an anatomy behind the letters that makes up this sentence. As the example below shows, the curve of an “s” is called the spine—or the white space inside an “a” or “o” is the counter. Then there’s that imaginary line that all letters “sit” on (baseline), the tops of capital letters (cap height), and the tops of lowercase letters (x-height).
 
 {{> post-figure--img
-    alt="Screenshot of opentype.js's font inspector"
-    src="opentype-1.png"
-    caption="The Font Inspector loads up Roboto-Black.ttf by default, but use the Choose File button to upload your own."
+    alt="The word 'Glossary' annotated with different anatomical features"
+    src="anatomy.png"
+    caption="Anatomy of a typeface. Credit: https://www.fontshop.com/glossary."
 }}
 
-The font metrics are listed in the **OS/2 and Windows Metrics table** section, except for *unitsPerEm*, which is in the first **Font Header table** section.
+When we practice typography by arranging type on a page or screen, we’re often leveraging different bits of anatomy to create readability and beauty. For example, the search suggestions in Google Maps contain both a place’s name and address.
 
-ID | Common name | Definition
---- | --- | ---
-*unitsPerEm* | design units per em | The size of the [em square](http://designwithfontforge.com/en-US/The_EM_Square.html) (what we've been calling an artboard), all other measurements are relative to this
-*sTypoAscender* | ascent | Distance from the baseline to the top of the em square (often higher than that)
-*sTypoDescender* | descent | Distance from the baseline to the bottom of the em square
-*sxHeight* | x-height | Distance from the baseline to the top of a lowercase *x*
-*sCapHeight* | cap height | Distance from the baseline to the top of a capital letter
-
-Let's continue to work with Roboto Black as an example. Here are its metrics:
-
-Common name | Value
---- | ---
-design units per em | 2048
-ascent | 1536
-descent | -512
-x-height | 1082
-cap height | 1456
-
-Those numbers probably don't carry much meaning for you. For one thing, there's no unit! Since fonts these days are 100% vector-based, there's really no point in working in pixels, points, inches, or centimeters. All values are simply relative to one another.
-
-However, fonts in the browser have a `font-size` with some unit. That means we can use some simple math to convert the font metrics into real measurements. The formula works like this:
-
-> metricInPx = (metric / designUnitsPerEm) × fontSizeInPx
-
-For example, if Robot Black is set with `font-size: 2048px`, it cancels out `designUnitsPerEm`, so a metric like cap height (which remember is the distance between the baseline and the top of a capital letter) would be `1456px`, a simple 1:1 relationship.
-
-That's rather large though, let's try it with `font-size: 128px`. `(1456 / 2048) * 128px = 91px`, so the height of a capital *H* would be 91px tall:
-
-<figure class="post-figure post-figure--nocaption">
-    <p data-height="290" data-theme-id="0" data-slug-hash="ammmQN" data-default-tab="result" data-user="WestonThayer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/WestonThayer/pen/ammmQN/">font-metrics--1</a> by Weston Thayer (<a href="http://codepen.io/WestonThayer">@WestonThayer</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-</figure>
-
-It works! We can use the font metrics to reverse engineer font rendering,
-
-
-The baseline refers to the invisible ledge that Latin characters "sit upon". Cap height traces the top edge of capital letters. From a visual design perspective, baseline and cap height are important. While type is irregularly shaped, your eye is always searching for patterns and shapes. If you squint, each line in this paragraph resembles a long, thin rectangle. Through careful alignment of these perceived shapes, you can help guide the reader through your design.
-
-A frequent use of the baseline is aligning two differently sized pieces of type on the same line. Twitter's feed sets Arial Bold, 14px ("Michael Scharnagl") next to Arial 13px ("@justmarkup 3h") to establish hierarchy, without damaging readability.
+To help you focus on the most important information (a place’s name), the typographer has set the address in a smaller type size and a lighter color. But to help with readability, both the place’s name and address share a **baseline**.
 
 {{> post-figure--img
-    alt="A tweet from Twitter's website shows how they aligned the tweet-er's name to their handle and time stamp"
-    src="ex-baseline.png"
+    alt="Screenshot of Google Maps search dropdown, showing results for Dough Zone Dumpling House"
+    src="baseline-google-maps.png"
 }}
 
-Another example from Google Maps, Roboto 13px set next to 12px.
+The baseline is also helpful for creating vertical rhythm, which may make it [easier](https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/) for readers to jump from line to line, paragraph to paragraph, and section to section.
 
 {{> post-figure--img
-    alt="Screenshot of Google Maps"
-    src="ex-baseline-maps.png"
-    caption="P.S. Dough Zone is delicious 🍜"
+    alt="Paragraphs with their baselines snapped to a repeating vertical grid"
+    src="baseline-vertical-rhythm.png"
 }}
 
-I love how the studio [Helms Workshop](http://helmsworkshop.com/) designed the page header on their [clients page](http://helmsworkshop.com/clients). "Clients" rules the hierarchy, with the description neatly contained within the cap height of *C*.
+Another bit of frequently used anatomy is **cap height**, the top of capital letters. It often helps align your type with the top edge of pictures.
 
 {{> post-figure--img
-    alt="Screenshot of Helms Workshop"
-    src="ex-baseline-3--full.png"
+    alt="An Airbnb notification with a circular image on the left and the title on the right, its cap height aligned to the top of the image"
+    src="cap-height-airbnb.png"
+    caption="Notification from Airbnb."
 }}
 
-Here's a close up highlighting the actual boxes we position with CSS. Note how the edges of the boxes are not aligned in the least. That's not important. The type is what your eye sees. The type is important, *not the box*.
+Or baseline and cap height can be combined to create a playful container for smaller type.
 
 {{> post-figure--img
-    alt="Screenshot of Helms Workshop with redlines"
-    src="ex-baseline-3--rl.png"
+    alt="A large title to the left of a smaller descriptive paragraph, where the paragraph fits within the vertical bounds of the title's baseline and cap height"
+    src="cap-height-helms-workshop.png"
+    caption="Title / description from https://helmsworkshop.com/clients."
 }}
 
-In another example, cap height is used to align imagery with type. Airbnb aligns the top of the *A* in "Airbnb" with the top of the feature image. Your eye glides from the top of the image to the top of the *A*.
+Typographic anatomy plays a big part in our designs. Pieces of that anatomy are encoded in font metrics, which open the door for our tools to help in new ways.
+
+## How do our tools use font metrics today?
+
+Font metrics metadata is used by tools like Sketch to power features like [smart guides](https://www.sketchapp.com/docs/canvas/measuring/), which can help you snap the baseline to a layout grid.
 
 {{> post-figure--img
-    alt="Promotion from AirBnb with a circular image on the left and some text on the right"
-    src="ex-cap-height.png"
+    alt="GIF showing a headline being snapped by baseline to a grid in Sketch"
+    src="sketch-smart-guides.gif"
 }}
 
-The Twitter example from earlier contains a similar alignment. Here it is once more, but showing the red box. Again, the type's box is not aligned to the image. It's the top of the *M* that matters.
+Similarly, CSS’s [vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) relies entirely on font metrics.
 
 {{> post-figure--img
-    alt="Twitter, redlined"
-    src="ex-cap-height--rl.png"
+    alt="GIF showing CSS vertical-align toggling from top to baseline to align two pieces of text"
+    src="css-vertical-align.gif"
 }}
 
-Finally, baseline is essential to creating [vertical rhythm](https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/). This topic has been covered at length by others. Take a break and read through the linked article if you're unfamiliar.
+For the most part, our tools stop there—but they don’t have to.
 
-## Use the guides Luke
+## How could our tools use font metrics?
 
-Here's the good part. Remember we mentioned font rendering earlier? It's the process by which your browser converts text into a bitmap image, ready to be displayed on your screen. To do this, your browser considers things like font-family, font-size, *and the font's guides*.
+Good typography is hard, but it gets easier when our tools help out. Even though the raw anatomy of a typeface is essential to good design, our tools usually obscure that anatomy—hiding all the details inside type’s **bounding box**.
 
-Consider the guides shown earlier. Note the *ascent* and *descent* metrics.
+In Sketch, the bounding box is represented by selection handles. In CSS, you can see it by setting a `background-color`. All type positioning is in relation to the bounding box, so if you wanted 100px from the top of the screen to a paragraph, our tools yield 100px to the top of the box, not to the top of an “L” (cap height) or the bottom (baseline).
 
 {{> post-figure--img
-    alt="jEh with guidelines and labels calling out where various font metrics are located"
-    src="font-metrics-zoom.png"
+    alt="Left, Sketch's resize handles on a paragraph. Right, the same paragraph with CSS background-color: pink. Both are the same size"
+    src="type-bounding-box.png"
 }}
 
-To calculate the height of the red box it would place the *j* in, your browser does a simple calculation:
-
-> boxHeight = ((ascent + descent) / emHeight) · fontSize
-
-Where *ascent*, *descent*, and *emHeight* are all some distance.
-
-Guides are the hidden blueprint that will let us conquer the red box. If we knew each guide's vertical position within the em-square (or artboard if you prefer), Luckily for us, the guides are embedded in the font file (`.ttf .otf .woff` etc) as **font metrics**. As long as the type designer was using guides, they'll be there. This is always the case for any quality typeface.
-
-The first step is to select a font and access its embedded font metrics data. If you use Windows, you can download the [Font Metrics app](https://www.microsoft.com/store/apps/9NBLGGH5LP1X) and browse from the fonts installed on your computer.
+One way the bounding box commonly causes issues when vertically centering text to an icon. Using Sketch’s align tool, the text always looks too low. The same is true with CSS flexbox’s `align-items: center`.
 
 {{> post-figure--img
-    alt="Screenshot of the Font Metrics app for Windows"
-    src="font-metrics-app.png"
-    caption="Various font metrics are overlaid as guides. Their numeric representations are located in the lower right."
+    alt="GIF showing the effect of Sketch's center alignment on a square icon (left) and text (right)"
+    src="sketch-align-center.gif"
 }}
 
-Alternatively, you can use [FontForge](http://fontforge.github.io/), a free and open source font editor for Mac and PC.
-
-For the rest of this post, I'll be using [Space Mono](https://fonts.google.com/specimen/Space+Mono) from Google Fonts to show how font metrics can be used in a few examples.
+This is because even though the space above and below the text’s bounding box is equal, the space above and below the “M” is not.
 
 {{> post-figure--img
-    alt="Screenshot Space Mono's metrics"
-    src="space-mono-metrics.png"
+    alt="Left, the icon with text centered, annotated to show 13px above and below the text's bounding box. Right, the icon with text centered, annotated to show 21px above the cap height and 19px below the baseline"
+    src="sketch-align-center-annotated.png"
+    caption="Depending on your font and font size, the alignment can often be off by much more than 1px."
 }}
 
-The first number of interest is *design units per em*. Font metrics use a unitless system instead of px, in, or cm. All metrics are relative to the design units per em, which is often set to 1,000, but can be any number.
-
-## Measuring in the browser
-
-Space Mono has the following metrics (copied from the Font Metrics app):
-
-Metric     | Value | Definition
----------- | ----- | ----------
-ascent     | 1120  | Distance from baseline to top of em square
-cap height | 700   | Distance from baseline to the top of a capital letter
-x height   | 496   | Distance from baseline to the top of a lowercase *x*
-descent    | 361   | Distance from baseline to the bottom of em square
-line gap   | 0     | Distance between lines (if wrapping)
-
-Since there are 1,000 design units per em, Space Mono set at font-size: 1000px will make the height of an *H* (cap height) exactly 700px tall. A simple 1:1 relationship. You can find the cap height for more realistic font-sizes with a simple formula:
-
-> (metric / designUnitsPerEm) × fontSizeInPx = metricInPx
-
-Here's a live example of Space Mono at 120px. `(700 / 1000) × 120px = 84px`, so the *H* is 84px tall:
-
-
-
-
-
-Until now, I haven't used CSS line-height
-
-Note that this doesn't work perfectly in Chrome on Windows LINK TO BUG. It can be off by 1px.
-
-
-
-
-
-CSS has built-in support for baseline alignment as long as both are inline level elements sharing the same container, via [vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align). Unfortunately, that's not always practical.
-
-## Vertical rhythm
-
-
-## Prelude
-
-To set the scene, here are some confounding font rendering examples. We'll soon learn *why* these things happen, but for now take a minute to observe.
+Similarly, top aligning text to an icon doesn’t always work out either. On the left, Sketch’s align top tool. On the right, I aligned with the top of the “L” with the icon by hand.
 
 {{> post-figure--img
-    alt="Hjello in a box"
-    src="hjello-box.png"
-    caption="Lato Black set at font-size: 192px and line-height: normal. A browser will render it inside the (normally invisible) red box, which surprisingly is not 192px tall 🤔"
+    alt="Left, a square icon next to a paragraph that has been aligned-top with Sketch. Right, the same icon and paragraph, but aligned by hand"
+    src="sketch-align-top.png"
 }}
 
+Multi-column layouts are another source of pain. If two differently sized headlines are aligned to the bottom of the bounding box, the smaller inevitably looks too low.
+
 {{> post-figure--img
-    alt="World in a box"
-    src="art_world-box.png"
-    caption="Adobe Garamond Pro (blue) over Calibri (red), both set at font-size: 192px. What determines how much whitespace goes above or below the type?"
+    alt="GIF showing the effect of Sketch's bottom alignment on a big headline and a small headline"
+    src="sketch-align-bottom.gif"
 }}
+
+In all of these examples, you could “eyeball” it, squinting your eyes or zooming in until things look *right*. Eyeballing comes with some notable downsides however:
+
+- **Translation** - eyeballing leads to a lot of seemingly random values for spacing/margins. Say, `margin: 27px 0 18px`. If you’re not building the designs yourself, it’s easy for a developer to make a mistake when copying values from Sketch. And if you work on a team with other designers, sticking to a spacing convention (like an [8pt grid](https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632)) becomes next to impossible.
+- **Maintenance** - even if all the spacing values make it into code successfully, it’s easy to accidentally break them with future code changes.
+- **Flexibility** - if the size, line height, or typeface ever changes, you have to carefully eyeball everything again.
+
+Font metrics enable us to build smarter tools. They are the key to open the bounding box, exposing the beautiful typographic anatomy inside. For example, if Lato.ttf is the selected font, font metrics tell us the distance from the baseline to the cap height. Vertically center that and you’ll never need to eyeball text to an icon again.
+
+{{> post-figure--img
+    alt="A square icon (left) and text (right), annotated to show 20px above the cap height and 20px below the baseline. It looks perfectly centered to the icon"
+    src="metrics-align-center.png"
+}}
+
+Our layout systems can also take advantage of font metrics. If the icon needs to increase in size or the text decreases in size (like if your users have adjusted the [base font size](https://support.mozilla.org/en-US/kb/font-size-and-zoom-increase-size-of-web-pages#w_how-to-only-change-the-size-of-the-text) in their browser), your design intent is perfectly preserved.
+
+{{> post-figure--img
+    alt="GIF showing vertical centering being perfectly preserved while the text and icon both change size"
+    src="metrics-dynamic-align-center.gif"
+}}
+
+The same benefit applies if the font changes (maybe your web font failed to load, or you’re using a [system fonts strategy](https://css-tricks.com/snippets/css/system-font-stack/)).
+
+{{> post-figure--img
+    alt="GIF showing vertical centering being perfectly preserved while the text's font changes"
+    src="metrics-system-font-align-center.gif"
+}}
+
+Once your typographic intent is communicated, layout systems can preserve it with font metrics. Writing code becomes easier too—no more `align-self: flex-start; margin-top: 13px;` to perfectly center the text. If CSS exposed font metrics via a property, like [leading-trim](https://github.com/w3c/csswg-drafts/issues/3240), the layout engine could take care of everything for you.
+
+```css
+.icon-label {
+    align-self: center;
+    /* shrink the bounding box to the cap height through the ideographic baseline */
+    leading-trim: cap ideographic;
+}
+```
+
+## What’s next?
+
+It’s hard to get excited over CSS features that don’t exist and features that aren’t implemented. But don’t despair! In the next article, I’ll explore how exactly to extract and read the font metrics for your fonts. Once you have the raw data, I’ll explain the math behind using them in layout, and how they can be useful in today’s in HTML and CSS.
+
+## Further reading
+
+Font metrics are a low-level implementation detail, but they’re far from boring. If you’re interesting in learning more, check out some of these fantastic resources. And if `leading-trim` sounds like a compelling CSS feature, check out [CSSWG #3240](https://github.com/w3c/csswg-drafts/issues/3240).
+
+- [Deep dive CSS: font metrics, line-height and vertical-align](http://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align) by Vincent De Oliveira
+- [Get Down to the Nitty-Gritty of Text Rendering in Sketch](https://journal.yummygum.com/get-down-to-the-nitty-gritty-of-text-rendering-in-sketch-cd49f0544e20) by Yakim van Zuijlen
+- [fontmetrics.com](http://fontmetrics.com/)
+- [Understanding the First Baseline Position of Text](https://indesignsecrets.com/understanding-the-first-baseline-position-of-text.php) by Mike Rankin
+    - It’s worth noting how our design tools of old (InDesign, Illustrator) expose richer font metrics control than today’s modern tools

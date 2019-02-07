@@ -29,6 +29,14 @@ important desktop widths: 1366 (1x), 1920, 2304 (2x), 2560 (2x), 2880, 4096, 512
 
 That will get us crisp images on the most important devices.
 
+### Post feature images
+
+Use the above widths on a 1680x448 artboard.
+
+### Post content images
+
+Go for a 670 wide artboard, then export at 1340w and 670w.
+
 ## Typography
 
 We use font metrics to precisely position type. Getting accurate font metrics is key. The best way to do that is to inspect the font metrics using the [app](https://github.com/WestonThayer/FontMetricsUwp). You can pull a font from Typekit by following [these instructions](http://aenism.com/font-files-off-typekit/). Note that sync'd fonts on Typekit often have different metrics than the web fonts.
