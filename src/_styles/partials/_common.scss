@@ -64,6 +64,7 @@
     }
     
     // Cross-browser thin underlines, a la Medium
+    // NOTE: only intended for use with type-serif-2
     a, u {
         background-image: linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 50%);
         background-repeat: repeat-x;
@@ -77,6 +78,14 @@
             background-position: 0 23px;
         }
     }
+
+    // Fix thin underlines for type-sans-3 (currently only found in post-figures)
+    .post-figure__caption a, .post-figure__caption u {
+        @include media-breakpoint-up(xs) {
+            background-position: 0 21px;
+        }
+    }
+    
     
     > p {
         @include type-serif-2();
