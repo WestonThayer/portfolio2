@@ -6,26 +6,27 @@
   "main": "index.js",
   "scripts": {
     "watch": "gulp watch",
-    "deploy": "gulp deploy"
+    "deploy": "gulp deploy",
+    "serve": "gulp serve"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "escape-html": "^1.0.3",
-    "front-matter": "^3.0.0",
+    "front-matter": "^3.0.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-cached": "^1.1.1",
-    "gulp-connect": "^5.6.1",
+    "gulp-connect": "^5.7.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.1",
     "gulp-util": "^3.0.8",
-    "handlebars": "^4.0.12",
-    "highlight.js": "^9.12.0",
-    "marked": "^0.5.0",
-    "normalize.css": "^8.0.0",
-    "through2": "^2.0.3"
+    "handlebars": "^4.1.0",
+    "highlight.js": "^9.14.2",
+    "marked": "^0.6.0",
+    "normalize.css": "^8.0.1",
+    "through2": "^2.0.5"
   }
 }

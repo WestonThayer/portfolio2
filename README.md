@@ -12,6 +12,8 @@ Simple home for http://westonthayer.com.
 
 `npm run watch`. Doesn't watch for changes to assets, so you need to restart the server if you're changing those.
 
+`npm run serve`. Doesn't watch, just builds and starts a server.
+
 ## Deploying
 
 `npm run deploy`. Doesn't actually deploy, just puts files in `dist/` that are minified, autoprefixed, etc. Copy those to the server.
