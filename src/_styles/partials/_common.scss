@@ -85,7 +85,11 @@
     > ul,
     > ol {
         @include type-serif-2();
-        padding: 0 0 0 48px;
+        padding: 0 0 0 20px;
+
+        @include media-breakpoint-up(sm) {
+            padding: 0 0 0 48px;
+        }
     }
     
     > h2 {
