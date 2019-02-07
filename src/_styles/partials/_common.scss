@@ -168,28 +168,28 @@
         }
     }
     
-    // type-serif-2 to type-sans-2, 8 rungs
+    // type-serif-2 to type-sans-2, 4 rungs
     > p + h2,
     > ul + h2,
     > ol + h2,
     > blockquote + h2 {
         @include media-breakpoint-up(xs) {
-            margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 8))) 0 0 0;
+            margin: (calc-margin-bottom--type-serif-2("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 4))) 0 0 0;
         }
         
         @include media-breakpoint-up(md) {
-            margin: (calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-md * 8))) 0 0 0;
+            margin: (calc-margin-bottom--type-serif-2-md("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-md * 4))) 0 0 0;
         }
     }
     
-    // type-sans-3 to type-sans-2, 8 rungs
+    // type-sans-3 to type-sans-2, 4 rungs
     > .post-figure + h2 {
         @include media-breakpoint-up(xs) {
-            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 8))) 0 0 0;
+            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-xs * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 4))) 0 0 0;
         }
         
         @include media-breakpoint-up(md) {
-            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-md * 8))) 0 0 0;
+            margin: (calc-margin-bottom--type-sans-3("baseline", ($grid-rung-height-md * 1)) + calc-margin-top--type-sans-2("baseline", ($grid-rung-height-md * 4))) 0 0 0;
         }
     }
     
@@ -293,17 +293,17 @@
         }
     }
     
-    // sharp to type-sans-2, 8 rungs
+    // sharp to type-sans-2, 4 rungs
     > .post-figure.post-figure--nocaption + h2,
     > table + h2,
     > pre + h2,
     > .post-framer-btn + h2 {
         @include media-breakpoint-up(xs) {
-            margin: calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 9)) 0 0 0;
+            margin: calc-margin-top--type-sans-2("baseline", ($grid-rung-height-xs * 5)) 0 0 0;
         }
         
         @include media-breakpoint-up(md) {
-            margin: calc-margin-top--type-sans-2("baseline", ($grid-rung-height-md * 9)) 0 0 0;
+            margin: calc-margin-top--type-sans-2("baseline", ($grid-rung-height-md * 5)) 0 0 0;
         }
     }
     
