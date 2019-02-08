@@ -79,6 +79,13 @@ Or baseline and cap height can be combined to create a playful container for sma
     caption="Title / description from https://helmsworkshop.com/clients."
 }}
 
+When we vertically center icons with type, we’re usually centering based on the cap height (if the first letter is uppercase) or the x-height (if the first letter is lowercase).
+
+{{> post-figure--img
+    alt="Screenshot of Google Contacts showing that next to each contact’s avatar, their name is vertically centered according to the first uppercase letter"
+    src="cap-height-google-contacts.png"
+}}
+
 Typographic anatomy plays a big part in our designs. Pieces of that anatomy are encoded in font metrics, which open the door for our tools to help in new ways.
 
 ## How do our tools use font metrics today?
@@ -97,11 +104,7 @@ Similarly, CSS’s [vertical-align](https://developer.mozilla.org/en-US/docs/Web
     src="css-vertical-align.gif"
 }}
 
-For the most part, our tools stop there—but they don’t have to.
-
-## How could our tools use font metrics?
-
-Good typography is hard, but it gets easier when our tools help out. Even though the raw anatomy of a typeface is essential to good design, our tools usually obscure that anatomy—hiding all the details inside type’s **bounding box**.
+Unfortunately, most of the time, our tools obscure type’s anatomy behind the **bounding box**.
 
 In Sketch, the bounding box is represented by selection handles. In CSS, you can see it by setting a `background-color`. All type positioning is in relation to the bounding box, so if you wanted 100px from the top of the screen to a paragraph, our tools yield 100px to the top of the box, not to the top of an “L” (cap height) or the bottom (baseline).
 
@@ -110,7 +113,21 @@ In Sketch, the bounding box is represented by selection handles. In CSS, you can
     src="type-bounding-box.png"
 }}
 
-One way the bounding box commonly causes issues when vertically centering text to an icon. Using Sketch’s align tool, the text always looks too low. The same is true with CSS flexbox’s `align-items: center`.
+While our tools are generally pretty good at helping with baseline alignment, that’s not always true. Multi-column layouts in Sketch can be tricky. If two differently sized headlines are aligned to the bottom of the bounding box, the smaller inevitably looks too low. Care must be taken to create a layout grid for smart guides to snap to or they must be aligned by hand.
+
+{{> post-figure--img
+    alt="GIF showing the effect of Sketch's bottom alignment on a big headline and a small headline"
+    src="sketch-align-bottom.gif"
+}}
+
+Similarly, top aligning text to an icon doesn’t always work out either. On the left, Sketch’s align top tool. On the right, I aligned with the top of the “L” with the icon by hand. There isn’t any help from smart guides this time.
+
+{{> post-figure--img
+    alt="Left, a square icon next to a paragraph that has been aligned-top with Sketch. Right, the same icon and paragraph, but aligned by hand"
+    src="sketch-align-top.png"
+}}
+
+Finally, vertically centering text to an icon is a pain. Using Sketch’s align tool, the text always looks too low. The same is true with CSS flexbox’s `align-items: center`.
 
 {{> post-figure--img
     alt="GIF showing the effect of Sketch's center alignment on a square icon (left) and text (right)"
@@ -125,34 +142,26 @@ This is because even though the space above and below the text’s bounding box 
     caption="Depending on your font and font size, the alignment can often be off by much more than 1px."
 }}
 
-Similarly, top aligning text to an icon doesn’t always work out either. On the left, Sketch’s align top tool. On the right, I aligned with the top of the “L” with the icon by hand.
-
-{{> post-figure--img
-    alt="Left, a square icon next to a paragraph that has been aligned-top with Sketch. Right, the same icon and paragraph, but aligned by hand"
-    src="sketch-align-top.png"
-}}
-
-Multi-column layouts are another source of pain. If two differently sized headlines are aligned to the bottom of the bounding box, the smaller inevitably looks too low.
-
-{{> post-figure--img
-    alt="GIF showing the effect of Sketch's bottom alignment on a big headline and a small headline"
-    src="sketch-align-bottom.gif"
-}}
-
 In all of these examples, you could “eyeball” it, squinting your eyes or zooming in until things look *right*. Eyeballing comes with some notable downsides however:
 
 - **Translation** - eyeballing leads to a lot of seemingly random values for spacing/margins. Say, `margin: 27px 0 18px`. If you’re not building the designs yourself, it’s easy for a developer to make a mistake when copying values from Sketch. And if you work on a team with other designers, sticking to a spacing convention (like an [8pt grid](https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632)) becomes next to impossible.
 - **Maintenance** - even if all the spacing values make it into code successfully, it’s easy to accidentally break them with future code changes.
 - **Flexibility** - if the size, line height, or typeface ever changes, you have to carefully eyeball everything again.
 
-Font metrics enable us to build smarter tools. They are the key to open the bounding box, exposing the beautiful typographic anatomy inside. For example, if Lato.ttf is the selected font, font metrics tell us the distance from the baseline to the cap height. Vertically center that and you’ll never need to eyeball text to an icon again.
+With today’s tools, font metrics are usually hidden behind the scenes. But they don’t have to be.
+
+## How could our tools use font metrics?
+
+Font metrics enable us to build smarter tools. They are the key to opening the bounding box, exposing the beautiful typographic anatomy inside.
+
+For example, if Lato is the current font, Sketch can read `lato.ttf`’s font metrics, calculate the distance from the baseline to the cap height, then change the bounding box to snap to that new height. Vertically aligning center now works perfectly.
 
 {{> post-figure--img
     alt="A square icon (left) and text (right), annotated to show 20px above the cap height and 20px below the baseline. It looks perfectly centered to the icon"
-    src="metrics-align-center.png"
+    src="sketch-bounding-box-fit.png"
 }}
 
-Our layout systems can also take advantage of font metrics. If the icon needs to increase in size or the text decreases in size (like if your users have adjusted the [base font size](https://support.mozilla.org/en-US/kb/font-size-and-zoom-increase-size-of-web-pages#w_how-to-only-change-the-size-of-the-text) in their browser), your design intent is perfectly preserved.
+Once your intent of centering based on cap height is communicated, tools can preserve it. If the icon needs to increase in size or the text decreases in size (like if your users have adjusted the CSS [base font size](https://support.mozilla.org/en-US/kb/font-size-and-zoom-increase-size-of-web-pages#w_how-to-only-change-the-size-of-the-text) in their browser), nothing breaks.
 
 {{> post-figure--img
     alt="GIF showing vertical centering being perfectly preserved while the text and icon both change size"
@@ -166,19 +175,36 @@ The same benefit applies if the font changes (maybe your web font failed to load
     src="metrics-system-font-align-center.gif"
 }}
 
-Once your typographic intent is communicated, layout systems can preserve it with font metrics. Writing code becomes easier too—no more `align-self: flex-start; margin-top: 13px;` to perfectly center the text. If CSS exposed font metrics via a property, like [leading-trim](https://github.com/w3c/csswg-drafts/issues/3240), the layout engine could take care of everything for you.
+Writing code becomes easier too—no more `align-self: flex-start; margin-top: 13px;` to perfectly center the text. If CSS exposed font metrics via a property, like [leading-trim](https://github.com/w3c/csswg-drafts/issues/3240), flexbox could take care of everything for you.
 
 ```css
 .icon-label {
-    align-self: center;
-    /* shrink the bounding box to the cap height through the ideographic baseline */
+    /*
+    trim off the bits of the bounding box
+    above the cap height and below the
+    ideographic baseline
+    */
     leading-trim: cap ideographic;
+    /*
+    then center using the trimmed height
+    */
+    align-self: center;
 }
 ```
 
-## What’s next?
+Our tools could also use font metrics to look at x-height and suggest a [readable typeface for body text](https://blog.prototypr.io/to-choose-the-right-typeface-look-at-its-x-height-instead-d5ef0967d09c), quickly find a suitable fallback font to [avoid FOUC](https://helenvholmes.com/writing/type-is-your-right), or in some distant future [algorithmically suggesting typeface pairings](https://jon.gold/2016/05/robot-design-school/).
 
-It’s hard to get excited over CSS features that don’t exist and features that aren’t implemented. But don’t despair! In the next article, I’ll explore how exactly to extract and read the font metrics for your fonts. Once you have the raw data, I’ll explain the math behind using them in layout, and how they can be useful in today’s in HTML and CSS.
+{{> post-figure--img
+    alt="GIF showing the Font Style Matcher tool manually matching Georgia to Merriweather"
+    src="font-style-matcher-demo.gif"
+    caption="Using [Monica Dinculescu](https://twitter.com/notwaldorf)’s fantastic [Font Style Matcher](https://meowni.ca/font-style-matcher/) to avoid FOUC. Could font metrics take out some of the guesswork?"
+}}
+
+## Conclusion
+
+Good typography is hard, but it can be easier with good tools. Embracing the raw anatomical features of type could enable us to create designs that are precise, resilient, readable, and maybe even original.
+
+But it can be hard to get excited over Sketch features that don’t exist and CSS properties that aren’t implemented. Luckily, we can build some of this ourselves! In the next article, I’ll explore how exactly to extract and read the font metrics for your fonts. Once you have the raw data, I’ll explain the math behind using them in layout, and how they can be useful in today’s in HTML and CSS.
 
 ## Further reading
 
@@ -186,6 +212,5 @@ Font metrics are a low-level implementation detail, but they’re far from borin
 
 - [Deep dive CSS: font metrics, line-height and vertical-align](http://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align) by Vincent De Oliveira
 - [Get Down to the Nitty-Gritty of Text Rendering in Sketch](https://journal.yummygum.com/get-down-to-the-nitty-gritty-of-text-rendering-in-sketch-cd49f0544e20) by Yakim van Zuijlen
-- [fontmetrics.com](http://fontmetrics.com/)
 - [Understanding the First Baseline Position of Text](https://indesignsecrets.com/understanding-the-first-baseline-position-of-text.php) by Mike Rankin
     - It’s worth noting how our design tools of old (InDesign, Illustrator) expose richer font metrics control than today’s modern tools
