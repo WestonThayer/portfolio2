@@ -6,6 +6,7 @@ var marked = require("marked");
 var fs = require("fs");
 var highlightJs = require("highlight.js");
 var escapeHtml = require('escape-html');
+var getUrlFromFilePath = require("./get-url-from-file-path");
 
 const PLUGIN_NAME = 'gulp-templatize';
 
@@ -37,6 +38,12 @@ function gulpTemplatize() {
             
             if (context.body) {
                 this.emit("error", new gulpUtil.PluginError(PLUGIN_NAME, "You can't set 'body' in the frontmatter, it is reserved!"));
+                callback();
+                return;
+            }
+
+            if (context.url) {
+                this.emit("error", new gulpUtil.PluginError(PLUGIN_NAME, "You can't set 'url' in the frontmatter, it is reserved!"));
                 callback();
                 return;
             }
@@ -75,6 +82,8 @@ function gulpTemplatize() {
             };
             
             context.body = marked(parsed.body, { smartypants: true, renderer: markedRenderer });
+
+            context.url = getUrlFromFilePath(file.relative);
             
             if (!context.template) {
                 this.emit("error", new gulpUtil.PluginError(PLUGIN_NAME, "No template specified for " + file.path));

@@ -3,8 +3,28 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <!-- Primary Meta Tags (from metatags.io) -->
     <title>{{title}}</title>
+    <meta name="title" content="{{title}}">
     <meta name="description" content="{{description}}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{url}}">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{description}}">
+    {{#if metaImage}}
+      <meta property="og:image" content="{{url}}{{metaImage}}">
+    {{/if}}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary{{#if metaImage}}_large_image{{/if}}">
+    <meta property="twitter:url" content="{{url}}">
+    <meta property="twitter:title" content="{{title}}">
+    <meta property="twitter:description" content="{{description}}">
+    {{#if metaImage}}
+      <meta property="twitter:image" content="{{url}}{{metaImage}}">
+    {{/if}}
     
     <!-- <link rel="stylesheet" href="/baseline-grid-16.css" media="(max-width: 767px)">
     <link rel="stylesheet" href="/baseline-grid-16.css" media="(min-width: 768px)"> -->

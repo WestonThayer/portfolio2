@@ -1,6 +1,7 @@
 var gulpUtil = require("gulp-util");
 var through = require("through2");
 var handlebars = require("handlebars");
+var getUrlFromFilePath = require("./get-url-from-file-path");
 
 const PLUGIN_NAME = 'gulp-handlebars-compile';
 
@@ -24,9 +25,13 @@ function gulpHandlebarsCompile() {
         if (file.isBuffer()) {
             var contents = file.contents.toString("utf-8");
             var compiled = handlebars.compile(contents);
+
+            var context = {
+                url: getUrlFromFilePath(file.relative),
+            };
             
             try {
-                var result = compiled();
+                var result = compiled(context);
                 file.contents = new Buffer(result);
             }
             catch (ex) {
