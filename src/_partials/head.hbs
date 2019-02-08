@@ -13,18 +13,14 @@
     <meta property="og:url" content="{{url}}">
     <meta property="og:title" content="{{title}}">
     <meta property="og:description" content="{{description}}">
-    {{#if metaImage}}
-      <meta property="og:image" content="{{url}}{{metaImage}}">
-    {{/if}}
+    <meta property="og:image" content="{{#if metaImage}}{{url}}{{metaImage}}{{else}}http://westonthayer.com/assets/default-meta-img.jpg{{/if}}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary{{#if metaImage}}_large_image{{/if}}">
     <meta property="twitter:url" content="{{url}}">
     <meta property="twitter:title" content="{{title}}">
     <meta property="twitter:description" content="{{description}}">
-    {{#if metaImage}}
-      <meta property="twitter:image" content="{{url}}{{metaImage}}">
-    {{/if}}
+    <meta property="twitter:image" content="{{#if metaImage}}{{url}}{{metaImage}}{{else}}http://westonthayer.com/assets/default-meta-img.jpg{{/if}}">
     
     <!-- <link rel="stylesheet" href="/baseline-grid-16.css" media="(max-width: 767px)">
     <link rel="stylesheet" href="/baseline-grid-16.css" media="(min-width: 768px)"> -->
