@@ -5,6 +5,7 @@ section:
     writing: true
 title: Layout Experiments in Adobe Illustrator
 enableComments: true
+showSubscribe: true
 
 asideLabel1: published
 asideList1:

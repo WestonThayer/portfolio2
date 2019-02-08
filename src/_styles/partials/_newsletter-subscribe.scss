@@ -1,0 +1,61 @@
+.newsletter-subscribe {
+    background-color: rgba(0,0,0,0.06);
+    padding: 20px;
+
+    @include media-breakpoint-up(md) {
+        margin-top: 100px;
+    }
+
+    &__heading {
+        @include type-sans-2();
+    }
+
+    &__desc {
+        @include type-sans-3();
+
+        @include media-breakpoint-up(xs) {
+            margin: (calc-margin-bottom--type-sans-2("baseline", $grid-rung-height-xs) + calc-margin-top--type-sans-3("baseline", ($grid-rung-height-xs * 1))) 0 0 0;
+        }
+        
+        @include media-breakpoint-up(md) {
+            margin: (calc-margin-bottom--type-sans-2("baseline", $grid-rung-height-md) + calc-margin-top--type-sans-3("baseline", ($grid-rung-height-md * 1))) 0 0 0;
+        }
+
+        a {
+            background-image: linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 50%);
+            background-repeat: repeat-x;
+            background-size: 2px 2px;
+            
+            @include media-breakpoint-up(xs) {
+                background-position: 0 21px;
+            }
+        }
+    }
+
+    #mc_embed_signup {
+        margin: 20px 0 0;
+
+        @include type-sans-3();
+
+        input[type="email"] {
+            min-width: 230px;
+            padding: 5px 8px;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+
+        input[type="submit"] {
+            color: white;
+            background-color: rgba(0,0,0,0.7);
+            border: 2px solid rgba(0,0,0,0);
+            padding: 10px 18px;
+            margin-top: 10px;
+            cursor: pointer;
+
+            &:hover {
+                border: 2px solid rgba(0,0,0,0.7);
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+}

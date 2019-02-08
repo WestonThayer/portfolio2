@@ -6,6 +6,7 @@ section:
 title: High Contrast in XAML
 description: A practical guide to High Contrast mode in Windows.
 enableComments: true
+showSubscribe: true
 
 asideLabel1: published
 asideList1:

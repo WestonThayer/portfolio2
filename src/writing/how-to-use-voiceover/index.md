@@ -5,6 +5,7 @@ section:
     writing: true
 title: How to use VoiceOver in 6 Tips
 enableComments: true
+showSubscribe: true
 
 asideLabel1: published
 asideList1:

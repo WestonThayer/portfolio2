@@ -5,6 +5,7 @@ section:
     writing: true
 title: Intro to Font Metrics
 enableComments: true
+showSubscribe: true
 
 featureImgBgColor: "#f0f4f7"
 featureImgSrc: "feature.png"

@@ -6,6 +6,7 @@ section:
 title: Introducting the TextLine
 description: UI frameworks should stop putting type in a box because it's counter to the design intent and doesn't withstand localization. I've created a prototype implementation of the TextLine paradigm in XAML.
 enableComments: true
+showSubscribe: true
 
 asideLabel1: published
 asideList1:
