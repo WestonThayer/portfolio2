@@ -13,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "escape-html": "^1.0.3",
+    "feed": "^2.0.2",
     "front-matter": "^3.0.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",

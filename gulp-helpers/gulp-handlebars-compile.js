@@ -27,7 +27,7 @@ function gulpHandlebarsCompile() {
             var compiled = handlebars.compile(contents);
 
             var context = {
-                url: getUrlFromFilePath(file.relative),
+                url: getUrlFromFilePath(file.path, file.cwd),
             };
             
             try {

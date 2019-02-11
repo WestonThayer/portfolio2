@@ -16,8 +16,10 @@ const PLUGIN_NAME = 'gulp-templatize';
  * - compile the Markdown
  * - find the Handlebars template file supplied by the frontmatter
  * - compile the Handlebars template with the frontmatter as context
+ * 
+ * @param {string} templateFile - optional name of a template to render into (overriding template in the frontmatter)
  */
-function gulpTemplatize() {
+function gulpTemplatize(templateFile) {
     return through.obj(function(file, enc, callback) {
         if (file.isNull()) {
             this.push(null);
@@ -83,7 +85,12 @@ function gulpTemplatize() {
             
             context.body = marked(parsed.body, { smartypants: true, renderer: markedRenderer });
 
-            context.url = getUrlFromFilePath(file.relative);
+            context.url = getUrlFromFilePath(file.path, file.cwd);
+
+            if (templateFile) {
+                // Override
+                context.template = templateFile;
+            }
             
             if (!context.template) {
                 this.emit("error", new gulpUtil.PluginError(PLUGIN_NAME, "No template specified for " + file.path));
@@ -98,6 +105,7 @@ function gulpTemplatize() {
                 var result = compiledTemplate(context);
                 file.contents = new Buffer(result);
                 file.path = gulpUtil.replaceExtension(file.path, ".html");
+                file.frontmatter = context;
             }
             catch (ex) {
                 this.emit("error", new gulpUtil.PluginError(PLUGIN_NAME, "Handlebars exception in " + file.path));

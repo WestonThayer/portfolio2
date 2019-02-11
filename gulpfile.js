@@ -13,6 +13,7 @@ var handlebarsRegisterPartials = require("./gulp-helpers/gulp-handlebars-registe
 var handlebarsRegisterHelpers = require("./gulp-helpers/gulp-handlebars-register-helpers");
 var handlebarsCompile = require("./gulp-helpers/gulp-handlebars-compile");
 var templatize = require("./gulp-helpers/gulp-templatize");
+var rss = require("./gulp-helpers/gulp-rss");
 
 // Register partial hbs files so that Handlebars.js knows where to find them
 gulp.task("register-partials", function() {
@@ -32,6 +33,14 @@ gulp.task("build-html", ["register-partials", "register-helpers"], function() {
         .pipe(handlebarsCompile())
         .pipe(gulp.dest("dist/"))
         .pipe(connect.reload());
+});
+
+gulp.task("build-rss", ["register-partials", "register-helpers"], function() {
+    return gulp.src("src/writing/**/index.md")
+        .pipe(handlebarsCompile())
+        .pipe(templatize("rss.hbs"))
+        .pipe(rss())
+        .pipe(gulp.dest("dist/writing/"));
 });
 
 gulp.task("build-md-normal", ["register-partials", "register-helpers"], function() {
@@ -120,6 +129,7 @@ gulp.task("watch", ["serve"], function(cb) {
 });
 
 gulp.task("deploy", [
+    "build-rss",
     "build-html",
     "build-md-normal",
     "deploy-build-sass",
