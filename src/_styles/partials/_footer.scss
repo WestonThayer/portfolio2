@@ -17,7 +17,6 @@
 .footer__line-label,
 .footer__line-content {
     @include type-sans-3();
-    display: block;
 }
 
 .wf-loading .footer__line-label,
@@ -27,4 +26,5 @@
 
 .footer__line-label {
     color: $text-muted;
+    display: block;
 }
