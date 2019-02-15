@@ -4,7 +4,6 @@ template: post.hbs
 section:
     writing: true
 title: Framer on Windows with framer-cli
-enableComments: true
 showSubscribe: true
 
 asideLabel1: published

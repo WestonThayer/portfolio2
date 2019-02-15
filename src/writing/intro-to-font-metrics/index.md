@@ -7,7 +7,6 @@ title: Intro to Font Metrics
 description: Font files contain a wealth of information about a typeface. Whether you're a designer or a developer, learning more about how fonts work can open new doors in how you work and what you create.
 metaImage: font-metrics.png
 
-enableComments: true
 showSubscribe: true
 
 featureImgBgColor: "#f0f4f7"

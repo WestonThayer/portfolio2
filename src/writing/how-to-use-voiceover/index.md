@@ -7,7 +7,6 @@ title: How to use VoiceOver in 6 Tips
 description: Designing for screen readers is essential for a pleasant user experience with low vision users.
 metaImage: voiceover-tip.png
 
-enableComments: true
 showSubscribe: true
 
 asideLabel1: published

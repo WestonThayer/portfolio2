@@ -4,7 +4,6 @@ template: post.hbs
 section:
     writing: true
 title: "Case Study: Word on Tablets"
-enableComments: false
 
 asideLabel1: published
 asideList1:

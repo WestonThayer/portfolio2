@@ -4,7 +4,6 @@ template: post.hbs
 section:
     writing: true
 title: My Performance Pitfall
-enableComments: true
 showSubscribe: true
 
 asideLabel1: published

@@ -4,7 +4,6 @@ template: post.hbs
 section:
     writing: true
 title: A Response to Analysis Paralysis
-enableComments: true
 showSubscribe: true
 
 asideLabel1: published

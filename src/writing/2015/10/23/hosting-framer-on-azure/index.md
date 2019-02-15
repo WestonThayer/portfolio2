@@ -4,7 +4,6 @@ template: post.hbs
 section:
     writing: true
 title: Hosting Framer Prototypes on Azure
-enableComments: true
 showSubscribe: true
 
 asideLabel1: published

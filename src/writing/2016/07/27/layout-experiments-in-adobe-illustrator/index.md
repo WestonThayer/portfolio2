@@ -7,7 +7,6 @@ title: Layout Experiments in Adobe Illustrator
 description: As designers, we need tools that expose us to layout, that let us test and explore layout variations, and most importantly make the best decisions.
 metaImage: 1.gif
 
-enableComments: true
 showSubscribe: true
 
 asideLabel1: published
