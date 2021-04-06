@@ -1,104 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
     {{> head
-        title="Weston Thayer's Portfolio"
+        title="Weston Thayer"
         description="Product designer and developer, living the Pacific Northwest."
     }}
     <body>
-        {{> navbar work="true" }}
+        {{> navbar transparent="true" }}
         
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="home-fluid-hero">
-                        <h1 class="home-title">
-                            Product designer<span class="home-title__separator"> / </span>developer
-                        </h1>
-                        <p class="home-desc">
-                            I partner with companies to design successful digital experiences based on research. I develop prototypes, interfaces, design systems, and help design and engineering teams work together.
-                            <br class="home-desc__break" />
-                            <a class="home-desc__cta" href="mailto:me@westonthayer.com">
-                                Let&rsquo;s collaborate.
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-6 col-equalspace-sm-down col-equalspace-md-up">
-                  {{> project-tile--zappling }}
-                </div>
-                <div class="col-xs-12 col-md-6 col-equalspace-sm-down col-equalspace-md-up">
-                  {{> project-tile
-                      href="/work/drag-and-drop/"
-                      line1="Drag and Drop"
-                      line2="Windows 10"
-                      imgExt=".jpg"
-                      imgBaseFull="assets/features/drag-and-drop-assets/drag-and-drop"
-                      imgBaseCrop="assets/features/drag-and-drop--crop-assets/drag-and-drop--crop"
-                      imgSrcBackup="assets/features/drag-and-drop-assets/drag-and-drop.750w.jpg"
-                      placeholderBackgroundColor="#363234"
-                      color="#FFF"
-                  }}
+        <div id="about__featurebg" class="container about__feature">
+            <div class="row about__feature-h1-row">
+                <div class="about__feature-h1-row-bg"></div>
+                <div class="col-xs-12 about__feature-h1-col">
+                    <h1 class="about__feature-h1">
+                        <span class="about__feature-h1-l1">Hi,</span>
+                        <span class="about__feature-h1-l2">I’m Weston.</span>
+                    </h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-6 col-equalspace-sm-down col-equalspace-md-up">
-                  {{> project-tile
-                      href="/work/framed/"
-                      line1="Framed"
-                      line2="Prototyping on Windows"
-                      imgExt=".png"
-                      imgBaseFull="assets/features/framed-assets/framed"
-                      imgBaseCrop="assets/features/framed--crop-assets/framed--crop"
-                      imgSrcBackup="assets/features/framed-assets/framed.750w.png"
-                      placeholderBackgroundColor="#003966"
-                      color="#FFF"
-                  }}
+                <div class="col-xs-12 col-sm-9 col-md-6 col-xl-4 about__feature-para-first post__markdown-section">
+                    <p>I’m working on <a href="https://assistivlabs.com">Assistiv Labs</a>, a new way to accessibility test. Previously, I helped found the growth team at Zapier, develop Windows 10’s design system, and bring Microsoft Word to tablets.</p>
                 </div>
-                <div class="col-xs-12 col-md-6 col-equalspace-sm-down col-equalspace-md-up">
-                  {{> project-tile
-                      href="/work/windows-10-controls/"
-                      line1="Controls"
-                      line2="Windows 10"
-                      imgExt=".jpg"
-                      imgBaseFull="assets/features/controls-assets/controls"
-                      imgBaseCrop="assets/features/controls--crop-assets/controls--crop"
-                      imgSrcBackup="assets/features/controls-assets/controls.750w.jpg"
-                      placeholderBackgroundColor="#E8E6E8"
-                      color="#000"
-                  }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-md-6 col-equalspace-sm-down">
-                  {{> project-tile
-                      href="/work/cortana/"
-                      line1="Welcome Experience"
-                      line2="Cortana"
-                      imgExt=".png"
-                      imgBaseFull="assets/features/cortana-assets/cortana"
-                      imgBaseCrop="assets/features/cortana--crop-assets/cortana--crop"
-                      imgSrcBackup="assets/features/cortana-assets/cortana.750w.png"
-                      placeholderBackgroundColor="#000"
-                      color="#FFF"
-                  }}
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    {{> project-tile
-                        href="/work/word-on-tablets/"
-                        line1="Word on Tablets"
-                        line2="Office"
-                        imgExt=".png"
-                        imgBaseFull="assets/features/word-on-tablet-assets/word-on-tablet"
-                        imgBaseCrop="assets/features/word-on-tablet--crop-assets/word-on-tablet--crop"
-                        imgSrcBackup="assets/features/word-on-tablet-assets/word-on-tablet.750w.png"
-                        placeholderBackgroundColor="#2B579A"
-                        color="#FFF"
-                    }}
+                <div class="col-xs-12 col-sm-9 col-md-6 col-xl-4 about__feature-para-second post__markdown-section">
+                    <p>Say hi! <a href="mailto:me@westonthayer.com">me@westonthayer.com</a></p>
                 </div>
             </div>
         </div>
