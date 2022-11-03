@@ -15,7 +15,7 @@
     "escape-html": "^1.0.3",
     "feed": "^2.0.2",
     "front-matter": "^3.0.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-connect": "^5.7.0",
